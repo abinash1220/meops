@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/category_view/category_see_all_view.dart';
+import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
 import 'package:meops/src/views/home_view/home_view.dart';
 import 'package:meops/src/views/home_view/home_view1.dart';
 
@@ -118,8 +119,8 @@ class _IntroScreens4State extends State<IntroScreens4> {
             Row(
               children: [
                 InkWell(
-                  onTap: (){
-                    Get.to(HomeViewScreen());
+                  onTap: () {
+                    Get.to(HomeBottomNavigationBar());
                   },
                   child: Text(
                     "Next",

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/category_view/category_see_all_view.dart';
+import 'package:meops/src/views/explore_view/explore_view.dart';
 import 'package:meops/src/views/home_view/my_projects_screen.dart';
 import 'package:meops/src/views/home_view/notification_view.dart';
 import 'package:meops/src/views/message_views/message_screen_views.dart';
@@ -72,7 +73,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   ),
                 ),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     Get.to(const NotificationView());
                   },
                   child: Padding(
@@ -335,17 +336,22 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                         fontWeight: FontWeight.w600,
                         fontSize: 17),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "See All",
-                        style: primaryFont.copyWith(fontSize: 13),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        size: 13,
-                      )
-                    ],
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => ExploreView());
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          "See All",
+                          style: primaryFont.copyWith(fontSize: 13),
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 13,
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -424,98 +430,96 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 70,
-        decoration: BoxDecoration(
-            color: primaryColor.withOpacity(0.2),
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20),
-              topLeft: Radius.circular(20),
-            )),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.home,
-                  color: primaryColor,
-                  size: 28,
-                ),
-                Text(
-                  "Home",
-                  style:
-                      primaryFont.copyWith(color: primaryColor, fontSize: 12),
-                )
-              ],
-            ),
-            InkWell(
-              onTap: (){
-                Get.to(const MessageScreen());
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.email,
-                    color: primaryColor.withOpacity(0.5),
-                    size: 28,
-                  ),
-                  Text(
-                    "Message",
-                    style: primaryFont.copyWith(
-                        color: primaryColor.withOpacity(0.5), fontSize: 12),
-                  )
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: (){
-                Get.to(const MyProjectScreen());
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.list_alt_outlined,
-                    color: primaryColor.withOpacity(0.5),
-                    size: 28,
-                  ),
-                  Text(
-                    "Projects",
-                    style: primaryFont.copyWith(
-                      fontSize: 12,
-                      color: primaryColor.withOpacity(0.5)),
-                  )
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: (){
-                Get.to(const ProfileView());
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.person,
-                    color: primaryColor.withOpacity(0.5),
-                    size: 28,
-                  ),
-                  Text(
-                    "Profile",
-                    style: primaryFont.copyWith(
-                      fontSize: 12,
-                        color: primaryColor.withOpacity(0.5)),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+      // bottomNavigationBar: Container(
+      //   height: 70,
+      //   decoration: BoxDecoration(
+      //       color: primaryColor.withOpacity(0.2),
+      //       borderRadius: BorderRadius.only(
+      //         topRight: Radius.circular(20),
+      //         topLeft: Radius.circular(20),
+      //       )),
+      //   child: Row(
+      //     crossAxisAlignment: CrossAxisAlignment.center,
+      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //     children: [
+      //       Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Icon(
+      //             Icons.home,
+      //             color: primaryColor,
+      //             size: 28,
+      //           ),
+      //           Text(
+      //             "Home",
+      //             style:
+      //                 primaryFont.copyWith(color: primaryColor, fontSize: 12),
+      //           )
+      //         ],
+      //       ),
+      //       InkWell(
+      //         onTap: () {
+      //           Get.to(const MessageScreen());
+      //         },
+      //         child: Column(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             Icon(
+      //               Icons.email,
+      //               color: primaryColor.withOpacity(0.5),
+      //               size: 28,
+      //             ),
+      //             Text(
+      //               "Message",
+      //               style: primaryFont.copyWith(
+      //                   color: primaryColor.withOpacity(0.5), fontSize: 12),
+      //             )
+      //           ],
+      //         ),
+      //       ),
+      //       InkWell(
+      //         onTap: () {
+      //           Get.to(const MyProjectScreen());
+      //         },
+      //         child: Column(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             Icon(
+      //               Icons.list_alt_outlined,
+      //               color: primaryColor.withOpacity(0.5),
+      //               size: 28,
+      //             ),
+      //             Text(
+      //               "Projects",
+      //               style: primaryFont.copyWith(
+      //                   fontSize: 12, color: primaryColor.withOpacity(0.5)),
+      //             )
+      //           ],
+      //         ),
+      //       ),
+      //       InkWell(
+      //         onTap: () {
+      //           Get.to(const ProfileView());
+      //         },
+      //         child: Column(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             Icon(
+      //               Icons.person,
+      //               color: primaryColor.withOpacity(0.5),
+      //               size: 28,
+      //             ),
+      //             Text(
+      //               "Profile",
+      //               style: primaryFont.copyWith(
+      //                   fontSize: 12, color: primaryColor.withOpacity(0.5)),
+      //             )
+      //           ],
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

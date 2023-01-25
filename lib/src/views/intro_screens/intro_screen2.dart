@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
 import 'package:meops/src/views/home_view/home_view.dart';
 import 'package:meops/src/views/home_view/home_view1.dart';
 import 'package:meops/src/views/intro_screens/intro_screen3.dart';
@@ -105,7 +106,7 @@ class _IntroScreens2State extends State<IntroScreens2> {
           children: [
             InkWell(
               onTap: (){
-                Get.to(HomeViewScreen());
+                Get.to(HomeBottomNavigationBar());
               },
               child: Row(
                 children: [
