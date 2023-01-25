@@ -19,6 +19,8 @@ class _UpdateKycScreenState extends State<UpdateKycScreen> {
 
    final updatekyccontroller = Get.find<UpdateKycController>();
 
+   int index = 0;
+
   @override
   Widget build(BuildContext context) {
      var size = MediaQuery.of(context).size;
@@ -294,23 +296,30 @@ class _UpdateKycScreenState extends State<UpdateKycScreen> {
             const SizedBox(
               height: 25,
             ),
-            Padding(
-                padding: const EdgeInsets.only(right: 20,),
-                child: Container(
-                  height: 50,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: primaryColor),
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Continue",
-                    style: primaryFont.copyWith(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500),
+            InkWell(
+              onTap: (){
+                setState(() {
+                  updatekyccontroller.index(1);
+                });
+              },
+              child: Padding(
+                  padding: const EdgeInsets.only(right: 20,),
+                  child: Container(
+                    height: 50,
+                    width: size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5), color: primaryColor),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Continue",
+                      style: primaryFont.copyWith(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
-              ),
+            ),
                         ],
                       ),
                     ),
@@ -457,23 +466,30 @@ class _UpdateKycScreenState extends State<UpdateKycScreen> {
                            const SizedBox(
               height: 55,
             ),
-            Padding(
-                padding: const EdgeInsets.only(right: 20,),
-                child: Container(
-                  height: 50,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: primaryColor),
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Continue",
-                    style: primaryFont.copyWith(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500),
+            InkWell(
+              onTap: (){
+                setState(() {
+                  updatekyccontroller.index(2);
+                });
+              },
+              child: Padding(
+                  padding: const EdgeInsets.only(right: 20,),
+                  child: Container(
+                    height: 50,
+                    width: size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5), color: primaryColor),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Continue",
+                      style: primaryFont.copyWith(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
-              ),
+            ),
                         ],
                       ),
                     ),
@@ -504,44 +520,58 @@ class _UpdateKycScreenState extends State<UpdateKycScreen> {
                             children: [
                               Text("Account Type",
                           style: primaryFont.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
                             color: primaryColor,
                           ),
                           ),
-                          Container(
-                            height: 50,
-                            width: 120,
-                            decoration: BoxDecoration(
-                              color: primaryColor,
-                              borderRadius: BorderRadius.circular(10),
+                          InkWell(
+                            onTap: (){
+                              setState(() {
+                                index =0;
+                              });
+                            },
+                            child: Container(
+                              height: 40,
+                              width: 98,
+                              decoration: BoxDecoration(
+                                color:index == 0 ? primaryColor : Color.fromARGB(255, 213, 192, 252),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Center(
+                                child: Text("Savings",
+                            style: primaryFont.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color:index == 0 ? Colors.white : primaryColor,
                             ),
-                            child: Center(
-                              child: Text("Savings",
-                          style: primaryFont.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                          ),
-                               ),
-                          ),
-                          Container(
-                            height: 50,
-                            width: 120,
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 213, 192, 252),
-                              borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Center(
-                              child: Text("Current",
-                          style: primaryFont.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: primaryColor,
+                                 ),
+                            ),
                           ),
-                          ),
-                               ),
+                          InkWell(
+                            onTap: (){
+                              setState(() {
+                                index = 1;
+                              });
+                            },
+                            child: Container(
+                              height: 40,
+                              width: 98,
+                              decoration: BoxDecoration(
+                                color:index == 0 ? Color.fromARGB(255, 213, 192, 252) : primaryColor,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Center(
+                                child: Text("Current",
+                            style: primaryFont.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color:index == 0 ? primaryColor : Colors.white,
+                            ),
+                            ),
+                                 ),
+                            ),
                           ),
                             ],
                           ),
@@ -648,7 +678,7 @@ class _UpdateKycScreenState extends State<UpdateKycScreen> {
                     height: 50,
                     width: size.width,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10), color: primaryColor),
+                        borderRadius: BorderRadius.circular(5), color: primaryColor),
                     alignment: Alignment.center,
                     child: Text(
                       "Continue",

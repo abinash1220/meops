@@ -94,20 +94,25 @@ class _LoginViewState extends State<LoginView> {
           const SizedBox(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 15, left: 15),
-            child: Container(
-              height: 55,
-              width: size.width,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: primaryColor),
-              alignment: Alignment.center,
-              child: Text(
-                "Login",
-                style: primaryFont.copyWith(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500),
+          InkWell(
+            onTap: (){
+              
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 15, left: 15),
+              child: Container(
+                height: 55,
+                width: size.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10), color: primaryColor),
+                alignment: Alignment.center,
+                child: Text(
+                  "Login",
+                  style: primaryFont.copyWith(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ),

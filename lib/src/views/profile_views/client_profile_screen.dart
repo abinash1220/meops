@@ -4,16 +4,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
-import 'package:meops/src/views/profile_views/client_profile_screen.dart';
+import 'package:meops/src/views/profile_views/client_bio_edit_screen.dart';
 
-class ReviewsCustomerViews extends StatefulWidget {
-  const ReviewsCustomerViews({super.key});
+class ClientProfileScreen extends StatefulWidget {
+  const ClientProfileScreen({super.key});
 
   @override
-  State<ReviewsCustomerViews> createState() => _ReviewsCustomerViewsState();
+  State<ClientProfileScreen> createState() => _ClientProfileScreenState();
 }
 
-class _ReviewsCustomerViewsState extends State<ReviewsCustomerViews> {
+class _ClientProfileScreenState extends State<ClientProfileScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -42,7 +42,14 @@ class _ReviewsCustomerViewsState extends State<ReviewsCustomerViews> {
                         children: [
                           Row(
                             children: [
-                              Image(image: AssetImage("assets/images/Group 1171.png")),
+                              Stack(
+                                children:const [
+                                   Image(image: AssetImage("assets/images/Group 1171.png")),
+                                   Padding(
+                                     padding: EdgeInsets.only(top: 40,left: 50),
+                                     child: Image(image: AssetImage("assets/images/Group 1056.png")),
+                                   ),
+                                   ]),
                               const SizedBox(width: 10,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,12 +79,12 @@ class _ReviewsCustomerViewsState extends State<ReviewsCustomerViews> {
                             ]
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 15),
+                  padding: const EdgeInsets.only(right: 20,bottom: 15),
                   child: Row(
                     children: const[
-                       Image(image: AssetImage("assets/icons/Group 291.png")),
-                        SizedBox(width: 10,),
-                       Image(image: AssetImage("assets/icons/Vector (10).png"),color: Colors.white,),
+                        Image(image: AssetImage("assets/icons/Group (3).png")),
+                      //   SizedBox(width: 10,),
+                      //  Image(image: AssetImage("assets/icons/Vector (10).png"),color: Colors.white,),
                     ],
                   ),
                 ),
@@ -110,22 +117,35 @@ class _ReviewsCustomerViewsState extends State<ReviewsCustomerViews> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            InkWell(
-                              onTap: (){
-                                Get.to(const ClientProfileScreen());
-                              },
-                              child: Row(
-                                children: [
-                                    const Image(image: AssetImage("assets/icons/Group 431.png")),
-                                    Text("Bio",
-                               style: primaryFont.copyWith(
-                               color: primaryColor,
-                               fontSize: 20,
-                               fontWeight: FontWeight.w500,
-                                                      ),
-                                                   ),
-                                ],
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                      const Image(image: AssetImage("assets/icons/Group 431.png")),
+                                      Text("Bio",
+                                 style: primaryFont.copyWith(
+                                 color: primaryColor,
+                                 fontSize: 20,
+                                 fontWeight: FontWeight.w500,
+                          ),
+                       ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: InkWell(
+                                    onTap: (){
+                                      Get.to(const ClientBioEditScreen());
+                                    },
+                                    child: Row(
+                                      children:const [
+                                             Image(image: AssetImage("assets/images/Group 938.png")),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                            Padding(
                              padding: const EdgeInsets.only(left: 20),
@@ -216,6 +236,92 @@ class _ReviewsCustomerViewsState extends State<ReviewsCustomerViews> {
                       ),
           ),
         ),
+        Padding(
+                padding: const EdgeInsets.all(15),
+                child: Container(
+                  height: 50,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow:const [
+                      BoxShadow(
+                        color: Color.fromARGB(255, 202, 201, 201),
+                        blurRadius: 5.0
+                      ),
+                    ]
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10,right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Image(image: AssetImage("assets/icons/Group 719.png")),
+                                SizedBox(width: 10,),
+                                Text("Payments",
+                                            style: primaryFont.copyWith(
+                                            color: primaryColor,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w600,
+                                           ),
+                                        ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                             Image(image: AssetImage("assets/icons/Group 628.png")),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15,right: 15,bottom: 15),
+                child: Container(
+                  height: 50,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow:const [
+                      BoxShadow(
+                        color: Color.fromARGB(255, 202, 201, 201),
+                        blurRadius: 5.0
+                      ),
+                    ]
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10,right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            const Image(image: AssetImage("assets/icons/Vector (10).png")),
+                                const SizedBox(width: 10,),
+                                Text("Favourites",
+                                            style: primaryFont.copyWith(
+                                            color: primaryColor,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w600,
+                                           ),
+                                        ),
+                          ],
+                        ),
+                        Row(
+                          children:const [
+                             Image(image: AssetImage("assets/icons/Group 628.png")),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
       ],
     ),
     );
