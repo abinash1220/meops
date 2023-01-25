@@ -6,6 +6,10 @@ import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/category_view/category_see_all_view.dart';
+import 'package:meops/src/views/home_view/my_projects_screen.dart';
+import 'package:meops/src/views/home_view/notification_view.dart';
+import 'package:meops/src/views/message_views/message_screen_views.dart';
+import 'package:meops/src/views/profile_views/profile_view.dart';
 
 class HomeViewScreen extends StatefulWidget {
   const HomeViewScreen({super.key});
@@ -67,12 +71,17 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Icon(
-                    Icons.notifications,
-                    color: primaryColor,
-                    size: 26,
+                InkWell(
+                  onTap: (){
+                    Get.to(const NotificationView());
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Icon(
+                      Icons.notifications,
+                      color: primaryColor,
+                      size: 26,
+                    ),
                   ),
                 )
               ],
@@ -442,52 +451,67 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                 )
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.email,
-                  color: primaryColor.withOpacity(0.5),
-                  size: 28,
-                ),
-                Text(
-                  "Message",
-                  style: primaryFont.copyWith(
-                      color: primaryColor.withOpacity(0.5), fontSize: 12),
-                )
-              ],
+            InkWell(
+              onTap: (){
+                Get.to(const MessageScreen());
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.email,
+                    color: primaryColor.withOpacity(0.5),
+                    size: 28,
+                  ),
+                  Text(
+                    "Message",
+                    style: primaryFont.copyWith(
+                        color: primaryColor.withOpacity(0.5), fontSize: 12),
+                  )
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.list_alt_outlined,
-                  color: primaryColor.withOpacity(0.5),
-                  size: 28,
-                ),
-                Text(
-                  "Projects",
-                  style: primaryFont.copyWith(
-                    fontSize: 12,
-                    color: primaryColor.withOpacity(0.5)),
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.person,
-                  color: primaryColor.withOpacity(0.5),
-                  size: 28,
-                ),
-                Text(
-                  "Profile",
-                  style: primaryFont.copyWith(
-                    fontSize: 12,
+            InkWell(
+              onTap: (){
+                Get.to(const MyProjectScreen());
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.list_alt_outlined,
+                    color: primaryColor.withOpacity(0.5),
+                    size: 28,
+                  ),
+                  Text(
+                    "Projects",
+                    style: primaryFont.copyWith(
+                      fontSize: 12,
                       color: primaryColor.withOpacity(0.5)),
-                )
-              ],
+                  )
+                ],
+              ),
+            ),
+            InkWell(
+              onTap: (){
+                Get.to(const ProfileView());
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.person,
+                    color: primaryColor.withOpacity(0.5),
+                    size: 28,
+                  ),
+                  Text(
+                    "Profile",
+                    style: primaryFont.copyWith(
+                      fontSize: 12,
+                        color: primaryColor.withOpacity(0.5)),
+                  )
+                ],
+              ),
             ),
           ],
         ),

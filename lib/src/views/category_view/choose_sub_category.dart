@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/views/category_view/animation_gaming_view.dart';
 
 class ChooseSubCategory extends StatefulWidget {
   const ChooseSubCategory({super.key});
@@ -545,23 +546,28 @@ class _ChooseSubCategoryState extends State<ChooseSubCategory> {
                                                     ),
                     ],
                   ),
-                  Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Container(
-                    height: 45,
-                    width: size.width,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5), color: primaryColor),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Search",
-                      style: primaryFont.copyWith(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold),
+                  InkWell(
+                    onTap: (){
+                      Get.to(const AnimationGaming());
+                    },
+                    child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Container(
+                      height: 45,
+                      width: size.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5), color: primaryColor),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Search",
+                        style: primaryFont.copyWith(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
+                                  ),
                   ),
-                ),
                 ],
               ),
             ),  

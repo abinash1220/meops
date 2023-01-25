@@ -37,8 +37,8 @@ class _UploadYorWorkState extends State<UploadYorWork> {
                       Padding(
                         padding: const EdgeInsets.only(left: 30,top: 15),
                         child: Row(
-                          children: [
-                            Icon(Icons.arrow_back,color: Colors.white,size: 25,),
+                          children: const [
+                             Icon(Icons.arrow_back,color: Colors.white,size: 25,),
                           ],
                         ),
                         
@@ -47,7 +47,7 @@ class _UploadYorWorkState extends State<UploadYorWork> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage("assets/icons/Group 291.png")),
+                          const Image(image: AssetImage("assets/icons/Group 291.png")),
                           const SizedBox(width: 10,),
                            Text("Upload Your Work",
                                   style: primaryFont.copyWith(
@@ -96,7 +96,7 @@ class _UploadYorWorkState extends State<UploadYorWork> {
               padding: const EdgeInsets.only(left: 20,top: 10),
               child: Text("Max 3 Links",
               style: primaryFont.copyWith(
-                color: Color.fromARGB(255, 102, 101, 101),
+                color: const Color.fromARGB(255, 102, 101, 101),
                 fontSize: 14,
                 fontWeight: FontWeight.w600
               ),
@@ -104,7 +104,7 @@ class _UploadYorWorkState extends State<UploadYorWork> {
             ),
             InkWell(
               onTap: (){
-                Get.to(AddMoreLinks());
+                Get.to(const AddMoreLinks());
               },
               child: Padding(
                 padding: const EdgeInsets.only(right: 20),
@@ -128,14 +128,14 @@ class _UploadYorWorkState extends State<UploadYorWork> {
                 height: 250,
                 width: size.width,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 226, 225, 225),
+                  color: const Color.fromARGB(255, 226, 225, 225),
                   border: Border.all(color: primaryColor,width: 2.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image(image: AssetImage("assets/icons/Vector (3).png")),
+                    const Image(image: AssetImage("assets/icons/Vector (3).png")),
                     const SizedBox(height: 15,),
                      Container(
                     height: 40,
@@ -178,7 +178,7 @@ class _UploadYorWorkState extends State<UploadYorWork> {
             const SizedBox(height: 15,),
             InkWell(
               onTap: (){
-                Get.to(SelectFiles());
+                Get.to(const SelectFiles());
               },
               child: Padding(
                   padding: const EdgeInsets.only(right: 15, left: 15,top: 50),

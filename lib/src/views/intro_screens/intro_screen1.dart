@@ -105,7 +105,7 @@ class _IntroScreens1State extends State<IntroScreens1> {
           children: [
             InkWell(
               onTap: (){
-                Get.to(HomeViewScreen());
+                Get.to( const HomeViewScreen());
               },
               child: Row(
                 children: [
@@ -122,7 +122,7 @@ class _IntroScreens1State extends State<IntroScreens1> {
             ),
             InkWell(
               onTap: (){
-                Get.to(IntroScreens2());
+                Get.to(const IntroScreens2(),transition: Transition.rightToLeft,duration:const Duration(seconds: 1));
               },
               child: Row(
                 children: [

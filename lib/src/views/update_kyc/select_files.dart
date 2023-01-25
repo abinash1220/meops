@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/views/intro_screens/intro_screen1.dart';
+import 'package:meops/src/views/splash_view/Splash_screen.dart';
 
 import '../../constant/app_font.dart';
 
@@ -435,7 +436,7 @@ class _SelectFilesState extends State<SelectFiles> {
                           padding: const EdgeInsets.only(left: 10),
                           child: Row(
                             children: [
-                              Image(
+                             const Image(
                                 height: 40,
                                 width: 40,
                                 fit: BoxFit.fill,
@@ -463,7 +464,7 @@ class _SelectFilesState extends State<SelectFiles> {
                                             ),
                                           ),
                                           const SizedBox(width: 15,),
-                                          Image(image: AssetImage("assets/icons/Vector (5).png"))
+                                         const Image(image: AssetImage("assets/icons/Vector (5).png"))
                             ],
                           ),
                         ),
@@ -482,7 +483,7 @@ class _SelectFilesState extends State<SelectFiles> {
                       height: 55,
                       width: size.width,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10), color: Color.fromARGB(255, 185, 183, 183)),
+                          borderRadius: BorderRadius.circular(10), color: const Color.fromARGB(255, 185, 183, 183)),
                       alignment: Alignment.center,
                       child: Text(
                         "+ Add More Files",
@@ -497,7 +498,7 @@ class _SelectFilesState extends State<SelectFiles> {
               const SizedBox(height: 20,),
               InkWell(
                 onTap: (){
-                  Get.to(IntroScreens1());
+                  Get.to(const IntroductionScreens());
                 },
                 child: Padding(
                     padding: const EdgeInsets.only(right: 15, left: 15,bottom: 20),
