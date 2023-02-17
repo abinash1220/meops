@@ -64,7 +64,7 @@ class _SavedCardsListViewState extends State<SavedCardsListView> {
                 ),
                 Stack(
                   children: [
-                    Container(
+                    SizedBox(
                         width: size.width - 60,
                         child: Image.asset(
                           "assets/icons/_461893568.png",
@@ -144,7 +144,7 @@ class _SavedCardsListViewState extends State<SavedCardsListView> {
                 ),
                 Stack(
                   children: [
-                    Container(
+                    SizedBox(
                         width: size.width - 60,
                         child: Image.asset(
                           "assets/icons/_461893568.png",

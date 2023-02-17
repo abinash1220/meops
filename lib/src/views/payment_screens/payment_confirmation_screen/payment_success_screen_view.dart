@@ -17,7 +17,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: primaryColor,
-      body: Container(
+      body: SizedBox(
         height: size.height,
         width: size.width,
         child: Column(
@@ -59,7 +59,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
               children: [
                 InkWell(
                   onTap: (){
-                  Get.off(()=> PaidToView());
+                  Get.off(()=> const PaidToView());
                   },
                   child: Container(
                     height: 30,

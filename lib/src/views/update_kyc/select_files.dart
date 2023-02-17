@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:meops/src/constant/app_color.dart';
-import 'package:meops/src/views/intro_screens/intro_screen1.dart';
 import 'package:meops/src/views/splash_view/Splash_screen.dart';
 
 import '../../constant/app_font.dart';
@@ -263,7 +259,7 @@ class _SelectFilesState extends State<SelectFiles> {
                                             ),
                                           ),
                                           const SizedBox(width: 15,),
-                                          Image(image: AssetImage("assets/icons/Vector (5).png"))
+                                          const Image(image: AssetImage("assets/icons/Vector (5).png"))
                             ],
                           ),
                         ),
@@ -319,7 +315,7 @@ class _SelectFilesState extends State<SelectFiles> {
                                             ),
                                           ),
                                           const SizedBox(width: 15,),
-                                          Image(image: AssetImage("assets/icons/Vector (5).png"))
+                                          const Image(image: AssetImage("assets/icons/Vector (5).png"))
                             ],
                           ),
                         ),

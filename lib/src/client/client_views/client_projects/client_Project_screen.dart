@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:meops/src/client/client_views/client_projects/client_publish_project_screen.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
-import 'package:meops/src/views/home_view/loader_screen.dart';
 import 'package:meops/src/views/update_kyc/upload_your_work.dart';
 
 class ClientProjectScreen extends StatefulWidget {
@@ -332,7 +331,7 @@ class _ClientProjectScreenState extends State<ClientProjectScreen> {
                                             children: [
                                               Text("More Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -661,7 +660,7 @@ class _ClientProjectScreenState extends State<ClientProjectScreen> {
                                                     height: 40,
                                                     width: 74,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xffDECCFF),
+                                                      color: const Color(0xffDECCFF),
                                                       borderRadius: BorderRadius.circular(5),
                                                     ),
                                                     child: Center(
@@ -964,7 +963,7 @@ class _ClientProjectScreenState extends State<ClientProjectScreen> {
                                             children: [
                                               Text("Hide Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -1259,7 +1258,7 @@ class _ClientProjectScreenState extends State<ClientProjectScreen> {
                                             children: [
                                               Text("More Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -1871,7 +1870,7 @@ class _ClientProjectScreenState extends State<ClientProjectScreen> {
                                             children: [
                                               Text("Hide Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -2166,7 +2165,7 @@ class _ClientProjectScreenState extends State<ClientProjectScreen> {
                                             children: [
                                               Text("More Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -2778,7 +2777,7 @@ class _ClientProjectScreenState extends State<ClientProjectScreen> {
                                             children: [
                                               Text("Hide Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),

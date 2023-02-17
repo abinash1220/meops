@@ -533,7 +533,7 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                             children: [
                                               Text("More Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -1150,7 +1150,7 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                             children: [
                                               Text("Hide Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -1445,7 +1445,7 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                             children: [
                                               Text("More Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -2057,7 +2057,7 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                             children: [
                                               Text("Hide Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -2352,7 +2352,7 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                             children: [
                                               Text("More Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),
@@ -2964,7 +2964,7 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                             children: [
                                               Text("Hide Details",
                                                     style: primaryFont.copyWith(
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w500,
                                                      ),

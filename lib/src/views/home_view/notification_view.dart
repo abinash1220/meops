@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -73,7 +71,7 @@ class _NotificationViewState extends State<NotificationView> {
                       children: [
                         Row(
                           children: [
-                            Image(image: AssetImage("assets/icons/Group 894.png")),
+                            const Image(image: AssetImage("assets/icons/Group 894.png")),
                             const SizedBox(width: 15,),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,7 +137,7 @@ class _NotificationViewState extends State<NotificationView> {
                       children: [
                         Row(
                           children: [
-                            Image(image: AssetImage("assets/icons/Group 894.png")),
+                            const Image(image: AssetImage("assets/icons/Group 894.png")),
                             const SizedBox(width: 15,),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -205,7 +203,7 @@ class _NotificationViewState extends State<NotificationView> {
                       children: [
                         Row(
                           children: [
-                            Image(image: AssetImage("assets/icons/Group 894.png")),
+                            const Image(image: AssetImage("assets/icons/Group 894.png")),
                             const SizedBox(width: 15,),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

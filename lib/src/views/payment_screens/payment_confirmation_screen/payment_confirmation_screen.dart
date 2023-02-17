@@ -105,7 +105,7 @@ class _PaymentConfirmtionScreenState extends State<PaymentConfirmtionScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Container(
+                      SizedBox(
                         width: size.width * 0.65,
                         child: Text(
                           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",

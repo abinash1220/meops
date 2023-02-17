@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
-import 'package:meops/src/views/auth_views/client_create_account_view.dart';
 import 'package:meops/src/views/auth_views/create_account_view.dart';
 
 class SelectRoleScreen extends StatefulWidget {

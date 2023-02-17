@@ -112,7 +112,7 @@ class _PaidToViewState extends State<PaidToView> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Container(
+                        SizedBox(
                           width: size.width * 0.65,
                           child: Text(
                             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
@@ -216,8 +216,8 @@ class _PaidToViewState extends State<PaidToView> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
+              const Padding(
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Divider(
                   thickness: 1.5,
                 ),
@@ -305,8 +305,8 @@ class _PaidToViewState extends State<PaidToView> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
+              const Padding(
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Divider(
                   thickness: 1.5,
                 ),
@@ -369,8 +369,8 @@ class _PaidToViewState extends State<PaidToView> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
+              const Padding(
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Divider(
                   thickness: 1.5,
                 ),

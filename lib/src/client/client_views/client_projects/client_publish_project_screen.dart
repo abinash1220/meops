@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:meops/src/client/client_views/client_projects/project_upload_success.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
-import 'package:meops/src/views/splash_view/Splash_screen.dart';
 
 
 class ClientPublishScreen extends StatefulWidget {

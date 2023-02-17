@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
-import 'package:meops/src/widgets/payment_widget/enter_upi_id_prompt.dart';
 
 class EnterCardDetailsView extends StatefulWidget {
   const EnterCardDetailsView({super.key});

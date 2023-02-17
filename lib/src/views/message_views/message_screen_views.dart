@@ -69,7 +69,7 @@ class _MessageScreenState extends State<MessageScreen> {
                 children: [
                   InkWell(
                     onTap: (){
-                      Get.to(ChatScreen());
+                      Get.to(const ChatScreen());
                     },
                     child: Container(
                       width: size.width,
@@ -104,7 +104,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                      const SizedBox(height: 5,),
                                      Text("Cool, Will let you know ASAP!",
                                        style: primaryFont.copyWith(
-                                       color:const Color(0xffbac5D6066),
+                                       color:const Color(0xffbac5d6066),
                                        fontSize: 14,
                                        fontWeight: FontWeight.w400,
                                     ),
@@ -150,7 +150,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                    const SizedBox(height: 5,),
                                    Text("Cool, Will let you know ASAP!",
                                      style: primaryFont.copyWith(
-                                     color:const Color(0xffbac5D6066),
+                                     color:const Color(0xffbac5d6066),
                                      fontSize: 14,
                                      fontWeight: FontWeight.w400,
                                   ),
@@ -195,7 +195,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                    const SizedBox(height: 5,),
                                    Text("Cool, Will let you know ASAP!",
                                      style: primaryFont.copyWith(
-                                     color:const Color(0xffbac5D6066),
+                                     color:const Color(0xffbac5d6066),
                                      fontSize: 14,
                                      fontWeight: FontWeight.w400,
                                   ),
@@ -240,7 +240,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                    const SizedBox(height: 5,),
                                    Text("Cool, Will let you know ASAP!",
                                      style: primaryFont.copyWith(
-                                     color:const Color(0xffbac5D6066),
+                                     color:const Color(0xffbac5d6066),
                                      fontSize: 14,
                                      fontWeight: FontWeight.w400,
                                   ),
@@ -285,7 +285,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                    const SizedBox(height: 5,),
                                    Text("Cool, Will let you know ASAP!",
                                      style: primaryFont.copyWith(
-                                     color:const Color(0xffbac5D6066),
+                                     color:const Color(0xffbac5d6066),
                                      fontSize: 14,
                                      fontWeight: FontWeight.w400,
                                   ),

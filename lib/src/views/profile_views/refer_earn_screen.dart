@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -34,7 +32,7 @@ class _ReferAndEarnState extends State<ReferAndEarn> {
                         onTap: (){
                           Get.back();
                         },
-                        child:Icon(Icons.arrow_back,color: Colors.white,),
+                        child:const Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                       const SizedBox(width: 15,),
                        Text("Refer & Earn",
@@ -49,7 +47,7 @@ class _ReferAndEarnState extends State<ReferAndEarn> {
                 ),
               ),
               const SizedBox(height: 200,),
-              Image(image: AssetImage("assets/icons/Group 1230.png")),
+              const Image(image: AssetImage("assets/icons/Group 1230.png")),
               const SizedBox(height: 10,),
                Text("Refer Your Friends, Earn Discounts",
                              style: primaryFont.copyWith(

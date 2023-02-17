@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -18,7 +16,7 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
+        preferredSize: const Size.fromHeight(80),
         child: Container(
                 height: 80,
                 decoration:  BoxDecoration(
@@ -33,7 +31,7 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
                         onTap: (){
                           Get.back();
                         },
-                        child:Icon(Icons.arrow_back,color: Colors.white,),
+                        child:const Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                       const SizedBox(width: 15,),
                        Text("Write Review",
@@ -55,7 +53,7 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
                     children: [
                       Padding(
               padding: const EdgeInsets.only(left: 15,top: 20, right: 15),
-              child: Container(
+              child: SizedBox(
                 height: 180,
                 child: TextField(
                  maxLines: 120,

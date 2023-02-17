@@ -1,7 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -33,8 +31,8 @@ class _TermsOfConditionState extends State<TermsOfCondition> {
                       onTap: (){
                         Get.back();
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 25,left: 20),
+                      child: const Padding(
+                        padding: EdgeInsets.only(top: 25,left: 20),
                         child: Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                     ),

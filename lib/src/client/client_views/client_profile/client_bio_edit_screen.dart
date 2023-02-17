@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/client/client_views/client_intro_screen/client_intro_screen.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
-import 'package:meops/src/views/splash_view/Splash_screen.dart';
 
 class ClientBioEditPage extends StatefulWidget {
   const ClientBioEditPage({super.key});
@@ -20,7 +17,7 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(73),
+        preferredSize: const Size.fromHeight(73),
         child: Container(
                 height: 73,
                 decoration:  BoxDecoration(
@@ -53,7 +50,7 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
                 children: [
                    Padding(
               padding: const EdgeInsets.only(left: 20,top: 50, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -68,14 +65,14 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
                       )),
                       labelText: "Date of Birth",
                       //hintText: 'Graphic Designer',
-                      suffixIcon: Image(image: AssetImage("assets/icons/Group 225.png")),
+                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
             ),
              Padding(
               padding: const EdgeInsets.only(left: 20,top: 40, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -96,7 +93,7 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
             ),
              Padding(
               padding: const EdgeInsets.only(left: 20,top: 40, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -117,7 +114,7 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
             ),
              Padding(
               padding: const EdgeInsets.only(left: 20,top: 40, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(

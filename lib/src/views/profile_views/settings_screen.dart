@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -63,7 +61,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                   child: Row(
                     children: [
-                      Image(image: AssetImage("assets/icons/Group 812.png")),
+                      const Image(image: AssetImage("assets/icons/Group 812.png")),
                       const SizedBox(width: 20,),
                       Text("About Us",
                                      style: primaryFont.copyWith(

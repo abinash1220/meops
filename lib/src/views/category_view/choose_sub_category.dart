@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -101,7 +100,7 @@ class _ChooseSubCategoryState extends State<ChooseSubCategory> {
               ],
             ),
             const SizedBox(height: 10,),
-            Container(
+            SizedBox(
               height:size.height * 0.75,
               child: ListView(
                 children: [

@@ -108,7 +108,7 @@ class _CaregorySeeAllViewState extends State<CaregorySeeAllView> {
           const SizedBox(
             height: 20,
           ),
-          Container(
+          SizedBox(
             height: size.height * 0.75,
             child: ListView.builder(
                 itemCount: categoryList.length,
@@ -120,7 +120,7 @@ class _CaregorySeeAllViewState extends State<CaregorySeeAllView> {
                         padding: const EdgeInsets.only(left: 20, right: 15),
                         child: InkWell(
                           onTap: (){
-                            Get.to(ChooseSubCategory());
+                            Get.to(const ChooseSubCategory());
                           },
                           child: Row(
                             children: [
@@ -154,7 +154,7 @@ class _CaregorySeeAllViewState extends State<CaregorySeeAllView> {
         height: 70,
         decoration: BoxDecoration(
             color: primaryColor.withOpacity(0.2),
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topRight: Radius.circular(20),
               topLeft: Radius.circular(20),
             )),

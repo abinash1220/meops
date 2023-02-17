@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/controllers/update_kyc_controller.dart';
 import 'package:meops/src/views/profile_views/client_bio_edit_screen.dart';
-import 'package:meops/src/views/update_kyc/describe_yourself.dart';
 
 import '../../constant/app_font.dart';
 
@@ -163,7 +159,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
                           ),
                           Padding(
               padding: const EdgeInsets.only(left: 0,top: 25, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -186,7 +182,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
             ),
                            Padding(
               padding: const EdgeInsets.only(left: 0, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -209,7 +205,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 0, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -232,7 +228,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 0, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -278,7 +274,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 0, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -847,7 +843,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
                                         height: 40,
                                         width: 98,
                                         decoration: BoxDecoration(
-                                          color:index == 0 ? primaryColor : Color.fromARGB(255, 213, 192, 252),
+                                          color:index == 0 ? primaryColor : const Color.fromARGB(255, 213, 192, 252),
                                           borderRadius: BorderRadius.circular(5),
                                         ),
                                         child: Center(
@@ -872,7 +868,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
                                         height: 40,
                                         width: 98,
                                         decoration: BoxDecoration(
-                                          color:index == 0 ? Color.fromARGB(255, 213, 192, 252) : primaryColor,
+                                          color:index == 0 ? const Color.fromARGB(255, 213, 192, 252) : primaryColor,
                                           borderRadius: BorderRadius.circular(5),
                                         ),
                                         child: Center(
@@ -894,7 +890,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
                             const SizedBox(height: 30,),
             Padding(
               padding: const EdgeInsets.only(left: 0, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -917,7 +913,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 0, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -940,7 +936,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 0, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -963,7 +959,7 @@ class _ClientUpdateKycState extends State<ClientUpdateKyc> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 0, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(

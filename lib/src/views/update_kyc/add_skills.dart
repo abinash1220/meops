@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/views/update_kyc/upload_your_work.dart';
@@ -35,7 +33,7 @@ class _AddSkillsState extends State<AddSkills> {
                       Padding(
                         padding: const EdgeInsets.only(left: 30,top: 15),
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(Icons.arrow_back,color: Colors.white,size: 25,),
                           ],
                         ),
@@ -45,7 +43,7 @@ class _AddSkillsState extends State<AddSkills> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage("assets/icons/Vector (2).png")),
+                          const Image(image: AssetImage("assets/icons/Vector (2).png")),
                           const SizedBox(width: 10,),
                            Text("Describe Yourself",
                                   style: primaryFont.copyWith(
@@ -62,7 +60,7 @@ class _AddSkillsState extends State<AddSkills> {
               ),
               Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -77,14 +75,14 @@ class _AddSkillsState extends State<AddSkills> {
                       )),
                       labelText: "Category 1",
                       hintText: 'Graphic Designer',
-                      suffixIcon: Image(image: AssetImage("assets/icons/Group 225.png")),
+                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -99,14 +97,14 @@ class _AddSkillsState extends State<AddSkills> {
                       )),
                       labelText: "Skill Level",
                       hintText: 'Beginner',
-                      suffixIcon: Image(image: AssetImage("assets/icons/Group 225.png")),
+                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -121,14 +119,14 @@ class _AddSkillsState extends State<AddSkills> {
                       )),
                       labelText: "Work Location",
                       hintText: 'Chennai',
-                      suffixIcon: Image(image: AssetImage("assets/icons/Group 225.png")),
+                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 150,
                 child: TextField(
                  maxLines: 100,
@@ -151,14 +149,14 @@ class _AddSkillsState extends State<AddSkills> {
               padding: const EdgeInsets.only(right: 20,top: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: const [
                   Text("Max 100 Words"),
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -173,7 +171,7 @@ class _AddSkillsState extends State<AddSkills> {
                       )),
                       labelText: "Rate Card",
                       hintText: 'Graphic Designer',
-                      suffixIcon: Image(image: AssetImage("assets/icons/Group 225.png")),
+                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
@@ -206,7 +204,7 @@ class _AddSkillsState extends State<AddSkills> {
             ),
             InkWell(
               onTap: (){
-                Get.to(UploadYorWork());
+                Get.to(const UploadYorWork());
               },
               child: Padding(
                   padding: const EdgeInsets.only(right: 15, left: 15,top: 20),

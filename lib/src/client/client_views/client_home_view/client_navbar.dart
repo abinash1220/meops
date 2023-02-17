@@ -5,9 +5,6 @@ import 'package:meops/src/client/client_views/client_projects/client_Project_scr
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/home_view/home_view1.dart';
-import 'package:meops/src/views/home_view/my_projects_screen.dart';
-import 'package:meops/src/views/message_views/message_screen_views.dart';
-import 'package:meops/src/views/profile_views/profile_view.dart';
 
 class ClientBottomNavBar extends StatefulWidget {
   int index;

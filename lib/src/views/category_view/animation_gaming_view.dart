@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -34,8 +32,8 @@ class _AnimationGamingState extends State<AnimationGaming> {
                   onTap: () {
                     Get.back();
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25, left: 20),
+                  child: const Padding(
+                    padding: EdgeInsets.only(top: 25, left: 20),
                     child: Icon(
                       Icons.arrow_back,
                       color: Colors.white,
@@ -68,7 +66,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
               ],
             ),
           ),
-          Container(
+          SizedBox(
             height: size.height * 0.80,
             child: ListView(
               children: [
@@ -661,7 +659,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                     child: Row(
                       children: [
                         Stack(children: [
-                          Image(image: AssetImage("assets/images/img2.png")),
+                          const Image(image: AssetImage("assets/images/img2.png")),
                           Padding(
                             padding: const EdgeInsets.all(13.0),
                             child: Container(
@@ -670,7 +668,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                               decoration: BoxDecoration(
                                   color: primaryColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: Center(
+                              child: const Center(
                                 child: Image(
                                     image: AssetImage(
                                         "assets/icons/Vector (7).png")),
@@ -686,7 +684,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                             children: [
                               Row(
                                 children: [
-                                  Image(
+                                  const Image(
                                       image:
                                           AssetImage("assets/images/prf3.png")),
                                   const SizedBox(
@@ -703,13 +701,13 @@ class _AnimationGamingState extends State<AnimationGaming> {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Image(
+                                  const Image(
                                       image: AssetImage(
                                           "assets/icons/Vector (6).png")),
                                   const SizedBox(
                                     width: 35,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.star,
                                     color: Colors.yellow,
                                   ),

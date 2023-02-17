@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -19,7 +17,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: PreferredSize(
-        preferredSize: Size.fromHeight(160),
+        preferredSize: const Size.fromHeight(160),
         child: Container(
                 height: 160,
                 decoration:  BoxDecoration(
@@ -35,7 +33,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                         onTap: (){
                           Get.back();
                         },
-                        child:Icon(Icons.arrow_back,color: Colors.white,),
+                        child:const Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -258,8 +256,8 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                       children: [
                         Row(
                           children: [
-                            Image(image: AssetImage("assets/icons/Group 719.png")),
-                                SizedBox(width: 10,),
+                            const Image(image: AssetImage("assets/icons/Group 719.png")),
+                                const SizedBox(width: 10,),
                                 Text("Payments",
                                             style: primaryFont.copyWith(
                                             color: primaryColor,
@@ -270,7 +268,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                           ],
                         ),
                         Row(
-                          children: [
+                          children: const [
                              Image(image: AssetImage("assets/icons/Group 628.png")),
                           ],
                         ),

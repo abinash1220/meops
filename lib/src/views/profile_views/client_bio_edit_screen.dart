@@ -50,7 +50,7 @@ class _ClientBioEditScreenState extends State<ClientBioEditScreen> {
                 children: [
                    Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -65,14 +65,14 @@ class _ClientBioEditScreenState extends State<ClientBioEditScreen> {
                       )),
                       labelText: "Date of Birth",
                       //hintText: 'Graphic Designer',
-                      suffixIcon: Image(image: AssetImage("assets/icons/Group 225.png")),
+                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
             ),
              Padding(
               padding: const EdgeInsets.only(left: 20,top: 40, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -93,7 +93,7 @@ class _ClientBioEditScreenState extends State<ClientBioEditScreen> {
             ),
              Padding(
               padding: const EdgeInsets.only(left: 20,top: 40, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -114,7 +114,7 @@ class _ClientBioEditScreenState extends State<ClientBioEditScreen> {
             ),
              Padding(
               padding: const EdgeInsets.only(left: 20,top: 40, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(

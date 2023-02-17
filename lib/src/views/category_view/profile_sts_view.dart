@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/client/client_views/client_home_view/recent_works.dart';
 import 'package:meops/src/client/client_views/client_home_view/submit_proposal.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/category_view/reviews_view_screen.dart';
-import 'package:meops/src/views/profile_views/settings_screen.dart';
-import 'package:meops/src/views/profile_views/view_rewards.dart';
 
 class ProfileStsView extends StatefulWidget {
   const ProfileStsView({super.key});
@@ -25,7 +20,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
      var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:Size.fromHeight(160),
+        preferredSize:const Size.fromHeight(160),
         child: Container(
                 height: 160,
                 decoration:  BoxDecoration(
@@ -117,8 +112,8 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                     padding: const EdgeInsets.all(10.0),
                     child: Row(
                       children: [
-                        Image(image: AssetImage("assets/icons/Group 613.png")),
-                        SizedBox(width: 10,),
+                        const Image(image: AssetImage("assets/icons/Group 613.png")),
+                        const SizedBox(width: 10,),
                         Text("Skills",
                                     style: primaryFont.copyWith(
                                     color: primaryColor,
@@ -276,7 +271,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                    children: [
                      Row(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 20,
                           width: 100,
                           child: Center(
@@ -293,7 +288,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                      ),
                      Row(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 20,
                           width: 100,
                           child: Center(
@@ -308,7 +303,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                         ),
                       ],
                      ),
-                     Container(
+                     SizedBox(
                       height: 20,
                       width: 100,
                        child: InkWell(
@@ -336,7 +331,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                     Container(
+                     SizedBox(
                       height: 25,
                       width: 100,
                        child: Center(
@@ -349,7 +344,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                                           ),
                        ),
                      ),
-                                      Container(
+                                      SizedBox(
                                         height: 25,
                                         width: 100,
                                         child: Center(
@@ -362,7 +357,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                                           ),
                                         ),
                                       ),
-                                     Container(
+                                     SizedBox(
                                       height: 25,
                                       width: 100,
                                        child: Center(
@@ -381,7 +376,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                     Container(
+                     SizedBox(
                       height: 25,
                       width: 100,
                        child: Center(
@@ -394,7 +389,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                                           ),
                        ),
                      ),
-                                      Container(
+                                      SizedBox(
                                         height: 25,
                                         width: 100,
                                         child: Center(
@@ -407,7 +402,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                                           ),
                                         ),
                                       ),
-                                     Container(
+                                     SizedBox(
                                       height: 25,
                                       width: 100,
                                        child: Center(
@@ -426,7 +421,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                     Container(
+                     SizedBox(
                       height: 25,
                       width: 100,
                        child: Center(
@@ -439,7 +434,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                                           ),
                        ),
                      ),
-                                      Container(
+                                      SizedBox(
                                         height: 25,
                                         width: 100,
                                         child: Center(
@@ -452,7 +447,7 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                                           ),
                                         ),
                                       ),
-                                     Container(
+                                     SizedBox(
                                       height: 25,
                                       width: 100,
                                        child: Center(

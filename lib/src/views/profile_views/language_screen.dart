@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -35,7 +33,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                             onTap: (){
                               Get.back();
                             },
-                            child:Icon(Icons.arrow_back,color: Colors.white,),
+                            child:const Icon(Icons.arrow_back,color: Colors.white,),
                           ),
                           const SizedBox(width: 15,),
                            Text("Language",
@@ -57,7 +55,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                       children: [
                         Row(
                           children: [
-                            Image(image: AssetImage("assets/icons/Group 812.png")),
+                            const Image(image: AssetImage("assets/icons/Group 812.png")),
                             const SizedBox(width: 20,),
                             Text("English",
                                            style: primaryFont.copyWith(
@@ -69,7 +67,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                           ],
                         ),
                         Row(
-                          children: [
+                          children: const [
                              Image(height: 20,width: 20,fit: BoxFit.fill,
                               image: AssetImage("assets/icons/Vector (6).png")),
                           ],
@@ -87,7 +85,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     padding: const EdgeInsets.only(left: 20,top: 20),
                     child: Row(
                       children: [
-                        Image(image: AssetImage("assets/icons/Group 812.png")),
+                        const Image(image: AssetImage("assets/icons/Group 812.png")),
                         const SizedBox(width: 20,),
                         Text("Tamil",
                                        style: primaryFont.copyWith(

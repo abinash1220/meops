@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -19,7 +17,7 @@ class _ReviewsCustomerViewsState extends State<ReviewsCustomerViews> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: PreferredSize(
-        preferredSize: Size.fromHeight(160),
+        preferredSize: const Size.fromHeight(160),
         child: Container(
                 height: 160,
                 decoration:  BoxDecoration(
@@ -35,14 +33,14 @@ class _ReviewsCustomerViewsState extends State<ReviewsCustomerViews> {
                         onTap: (){
                           Get.back();
                         },
-                        child:Icon(Icons.arrow_back,color: Colors.white,),
+                        child:const Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
-                              Image(image: AssetImage("assets/images/Group 1171.png")),
+                              const Image(image: AssetImage("assets/images/Group 1171.png")),
                               const SizedBox(width: 10,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

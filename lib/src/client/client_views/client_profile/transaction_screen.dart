@@ -259,9 +259,9 @@ class _TransactionScreenState extends State<TransactionScreen> {
                                       )
                                     ],
                                   ),
-                                  Container(
+                                  const SizedBox(
                                     width: 90,
-                                    child: const Divider(
+                                    child: Divider(
                                       thickness: 1.5,
                                     ),
                                   ),
@@ -282,9 +282,9 @@ class _TransactionScreenState extends State<TransactionScreen> {
                                       )
                                     ],
                                   ),
-                                  Container(
+                                  const SizedBox(
                                     width: 90,
-                                    child: const Divider(
+                                    child: Divider(
                                       thickness: 1.5,
                                     ),
                                   ),

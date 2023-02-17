@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -36,10 +34,10 @@ class _ChatScreenState extends State<ChatScreen> {
                             onTap: (){
                               Get.back();
                             },
-                            child:Icon(Icons.arrow_back,color: Colors.white,),
+                            child:const Icon(Icons.arrow_back,color: Colors.white,),
                           ),
                           const SizedBox(width: 15,),
-                          Image(height: 33,
+                          const Image(height: 33,
                             image: AssetImage("assets/images/Group 1159.png")),
                             const SizedBox(width: 10,),
                             Text("Katie",
@@ -54,7 +52,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: Row(
-                          children: [
+                          children: const [
                             Image(image: AssetImage("assets/icons/Group 407.png"))
                           ],
                         ),
@@ -139,7 +137,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           padding: const EdgeInsets.only(left: 5),
                           child: Text("2:45 pm",
                                          style: primaryFont.copyWith(
-                                         color: Color(0xff828282),
+                                         color: const Color(0xff828282),
                                          fontSize: 8,
                                          fontWeight: FontWeight.w500,
                                       ),
@@ -152,7 +150,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             height: 43,
                             width: 145,
                             decoration: BoxDecoration(
-                              color:Color(0xffDECCFF) ,
+                              color:const Color(0xffDECCFF) ,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Center(
@@ -171,7 +169,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           padding: const EdgeInsets.only(left: 280),
                           child: Text("2:45 pm",textAlign: TextAlign.end,
                                          style: primaryFont.copyWith(
-                                         color: Color(0xff828282),
+                                         color: const Color(0xff828282),
                                          fontSize: 8,
                                          fontWeight: FontWeight.w500,
                                       ),
@@ -198,7 +196,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         const SizedBox(height: 10,),
                         Text("2:45 pm",textAlign: TextAlign.end,
                                        style: primaryFont.copyWith(
-                                       color: Color(0xff828282),
+                                       color: const Color(0xff828282),
                                        fontSize: 8,
                                        fontWeight: FontWeight.w500,
                                     ),

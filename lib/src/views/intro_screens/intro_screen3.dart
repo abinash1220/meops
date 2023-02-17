@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
-import 'package:meops/src/views/home_view/home_view.dart';
-import 'package:meops/src/views/home_view/home_view1.dart';
 import 'package:meops/src/views/intro_screens/intro_screen4.dart';
 
 class IntroScreens3 extends StatefulWidget {
@@ -20,7 +18,7 @@ class _IntroScreens3State extends State<IntroScreens3> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: primaryColor,
-      body: Container(
+      body: SizedBox(
         height: size.height,
         width: size.width,
         child: Column(
@@ -81,7 +79,7 @@ class _IntroScreens3State extends State<IntroScreens3> {
                     width: 10,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Color.fromARGB(255, 34, 16, 197)),
+                        color: const Color.fromARGB(255, 34, 16, 197)),
                   ),
                 ),
                 Padding(
@@ -123,7 +121,7 @@ class _IntroScreens3State extends State<IntroScreens3> {
             ),
             InkWell(
               onTap: (){
-                Get.to((IntroScreens4()));
+                Get.to((const IntroScreens4()));
               },
               child: Row(
                 children: [

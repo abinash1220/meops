@@ -139,7 +139,7 @@ class _ExploreViewState extends State<ExploreView> {
           ),
           //
           GetBuilder<CategoryController>(builder: (_) {
-            return Container(
+            return SizedBox(
               height: size.height * 0.6,
               child: MasonryGridView.count(
                 crossAxisCount: 2,
@@ -155,7 +155,7 @@ class _ExploreViewState extends State<ExploreView> {
                         InkWell(
                           onTap: () {
                             if (index == 0) {
-                              Get.to(() => PhotographyView());
+                              Get.to(() => const PhotographyView());
                             }
                           },
                           child: Container(

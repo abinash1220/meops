@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/category_view/category_see_all_view.dart';
 import 'package:meops/src/views/explore_view/explore_view.dart';
-import 'package:meops/src/views/home_view/my_projects_screen.dart';
 import 'package:meops/src/views/home_view/notification_view.dart';
-import 'package:meops/src/views/message_views/message_screen_views.dart';
-import 'package:meops/src/views/profile_views/profile_view.dart';
 
 class HomeViewScreen extends StatefulWidget {
   const HomeViewScreen({super.key});
@@ -138,7 +133,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
+                      child: SizedBox(
                           height: 40,
                           child: SvgPicture.asset(
                               "assets/icons/Game Testing.svg")),
@@ -155,7 +150,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
+                      child: SizedBox(
                           height: 40,
                           child:
                               SvgPicture.asset("assets/icons/photography.svg")),
@@ -172,7 +167,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
+                      child: SizedBox(
                           height: 40,
                           child:
                               SvgPicture.asset("assets/icons/webappdev.svg")),
@@ -189,7 +184,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
+                      child: SizedBox(
                           height: 40,
                           child:
                               SvgPicture.asset("assets/icons/influencer.svg")),
@@ -225,7 +220,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Container(
+                      child: SizedBox(
                           height: 40,
                           child: SvgPicture.asset(
                               "assets/icons/sales_marketing.svg")),
@@ -242,7 +237,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(6.0),
-                      child: Container(
+                      child: SizedBox(
                           height: 40,
                           child: SvgPicture.asset("assets/icons/rentals.svg")),
                     ),
@@ -302,7 +297,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: Container(
+                      child: SizedBox(
                           height: 40,
                           child: SvgPicture.asset("assets/icons/Music.svg")),
                     ),
@@ -365,7 +360,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
             const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               height: 180,
               child: ListView.builder(
                   itemCount: 3,
@@ -376,7 +371,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                       padding: const EdgeInsets.only(left: 15, right: 15),
                       child: Stack(
                         children: [
-                          Container(
+                          SizedBox(
                             width: size.width - 60,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
@@ -389,7 +384,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                           Positioned(
                             bottom: 15,
                             left: 10,
-                            child: Container(
+                            child: SizedBox(
                               width: size.width - 90,
                               child: Row(
                                 mainAxisAlignment:

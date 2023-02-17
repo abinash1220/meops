@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
-import 'package:meops/src/views/category_view/category_see_all_view.dart';
 import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
-import 'package:meops/src/views/home_view/home_view.dart';
-import 'package:meops/src/views/home_view/home_view1.dart';
 
 class IntroScreens4 extends StatefulWidget {
   const IntroScreens4({super.key});
@@ -20,7 +17,7 @@ class _IntroScreens4State extends State<IntroScreens4> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: primaryColor,
-      body: Container(
+      body: SizedBox(
         height: size.height,
         width: size.width,
         child: Column(
@@ -91,7 +88,7 @@ class _IntroScreens4State extends State<IntroScreens4> {
                     width: 10,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Color.fromARGB(255, 34, 16, 197)),
+                        color: const Color.fromARGB(255, 34, 16, 197)),
                   ),
                 ),
               ],
@@ -105,7 +102,7 @@ class _IntroScreens4State extends State<IntroScreens4> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
-              children: [
+              children: const [
                 // Text(
                 //   "Skip",
                 //   style: primaryFont.copyWith(color: Colors.white),

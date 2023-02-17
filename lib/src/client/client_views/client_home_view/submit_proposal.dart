@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -120,7 +118,7 @@ class _SubmitProposalScreenState extends State<SubmitProposalScreen> {
                                               ),
                                             ),
                                             const SizedBox(height: 15,),
-                                            Container(
+                                            SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -140,7 +138,7 @@ class _SubmitProposalScreenState extends State<SubmitProposalScreen> {
                 ),
               ),
               const SizedBox(height: 15,),
-              Container(
+              SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -160,7 +158,7 @@ class _SubmitProposalScreenState extends State<SubmitProposalScreen> {
                 ),
               ),
               const SizedBox(height: 15,),
-              Container(
+              SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -180,7 +178,7 @@ class _SubmitProposalScreenState extends State<SubmitProposalScreen> {
                 ),
               ),
               const SizedBox(height: 15,),
-              Container(
+              SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -213,14 +211,14 @@ class _SubmitProposalScreenState extends State<SubmitProposalScreen> {
                 height: 250,
                 width: size.width,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 226, 225, 225),
+                  color: const Color.fromARGB(255, 226, 225, 225),
                   border: Border.all(color: primaryColor,width: 2.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image(image: AssetImage("assets/icons/Vector (3).png")),
+                    const Image(image: AssetImage("assets/icons/Vector (3).png")),
                     const SizedBox(height: 15,),
                      Container(
                     height: 40,
@@ -260,7 +258,7 @@ class _SubmitProposalScreenState extends State<SubmitProposalScreen> {
                 ),
               ),
               const SizedBox(height: 15,),
-              Container(
+              SizedBox(
                 height: 150,
                 child: TextField(
                  maxLines: 100,

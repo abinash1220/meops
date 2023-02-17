@@ -145,7 +145,7 @@ class _FavoritesViewState extends State<FavoritesView> {
       body:indexs == 0 ? ListView(
         children: [
           GetBuilder<CategoryController>(builder: (_) {
-            return  Container(
+            return  SizedBox(
               height: size.height * 0.8,
               child: MasonryGridView.count(
                 crossAxisCount: 2,
@@ -501,7 +501,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                                                 children: [
                                                   Text("More Details",
                                                         style: primaryFont.copyWith(
-                                                        color: Color(0xff979797),
+                                                        color: const Color(0xff979797),
                                                         fontSize: 12,
                                                         fontWeight: FontWeight.w500,
                                                          ),
@@ -1118,7 +1118,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                                                 children: [
                                                   Text("Hide Details",
                                                         style: primaryFont.copyWith(
-                                                        color: Color(0xff979797),
+                                                        color: const Color(0xff979797),
                                                         fontSize: 12,
                                                         fontWeight: FontWeight.w500,
                                                          ),
@@ -1413,7 +1413,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                                                 children: [
                                                   Text("More Details",
                                                         style: primaryFont.copyWith(
-                                                        color: Color(0xff979797),
+                                                        color: const Color(0xff979797),
                                                         fontSize: 12,
                                                         fontWeight: FontWeight.w500,
                                                          ),
@@ -2030,7 +2030,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                                                 children: [
                                                   Text("Hide Details",
                                                         style: primaryFont.copyWith(
-                                                        color: Color(0xff979797),
+                                                        color: const Color(0xff979797),
                                                         fontSize: 12,
                                                         fontWeight: FontWeight.w500,
                                                          ),
@@ -2081,7 +2081,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                                 decoration: BoxDecoration(
                                     color: primaryColor,
                                     borderRadius: BorderRadius.circular(15)),
-                                child: Center(
+                                child: const Center(
                                   child: Image(
                                       image: AssetImage(
                                           "assets/icons/Vector (7).png")),
@@ -2641,7 +2641,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                     child: Row(
                       children: [
                         Stack(children: [
-                          Image(image: AssetImage("assets/images/img2.png")),
+                          const Image(image: AssetImage("assets/images/img2.png")),
                           Padding(
                             padding: const EdgeInsets.all(13.0),
                             child: Container(
@@ -2650,7 +2650,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                               decoration: BoxDecoration(
                                   color: primaryColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: Center(
+                              child: const Center(
                                 child: Image(
                                     image: AssetImage(
                                         "assets/icons/Vector (7).png")),
@@ -2666,7 +2666,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                             children: [
                               Row(
                                 children: [
-                                  Image(
+                                  const Image(
                                       image:
                                           AssetImage("assets/images/prf3.png")),
                                   const SizedBox(
@@ -2683,13 +2683,13 @@ class _FavoritesViewState extends State<FavoritesView> {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Image(
+                                  const Image(
                                       image: AssetImage(
                                           "assets/icons/Vector (6).png")),
                                   const SizedBox(
                                     width: 35,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.star,
                                     color: Colors.yellow,
                                   ),

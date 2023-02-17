@@ -46,7 +46,7 @@ void upiModelBottomSheet(size, context) {
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: InkWell(
                 onTap: () {
-                  Get.to(() => PaymentSuccessScreen());
+                  Get.to(() => const PaymentSuccessScreen());
                 },
                 child: Container(
                   height: 40,

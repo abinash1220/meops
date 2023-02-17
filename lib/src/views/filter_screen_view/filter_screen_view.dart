@@ -114,7 +114,7 @@ class _FilterViewState extends State<FilterView> {
             padding: const EdgeInsets.only(left: 13, right: 13),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
+              children: const [
                 Text("0"),
                 Text("10K"),
                 Text("25K"),

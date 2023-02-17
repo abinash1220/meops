@@ -30,8 +30,8 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                       onTap: (){
                         Get.back();
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 25,left: 20),
+                      child: const Padding(
+                        padding: EdgeInsets.only(top: 25,left: 20),
                         child: Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                     ),

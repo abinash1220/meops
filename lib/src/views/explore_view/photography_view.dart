@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -63,7 +62,7 @@ class _PhotographyViewState extends State<PhotographyView> {
           ),
           //
           GetBuilder<CategoryController>(builder: (_) {
-            return Container(
+            return SizedBox(
               height: size.height * 0.8,
               child: ListView.builder(
                   itemCount: categoryController.photographyList.length,
@@ -149,7 +148,7 @@ class _PhotographyViewState extends State<PhotographyView> {
                            const SizedBox(
                               height: 10,
                             ),
-                            Container(
+                            SizedBox(
                               width: size.width,
                               height: 200,
                               child: Image.asset(categoryController

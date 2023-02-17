@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:meops/src/client/client_views/client_home_view/client_navbar.dart';
 import 'package:meops/src/constant/app_color.dart';
-import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
-import 'package:meops/src/views/home_view/home_view1.dart';
 
 class ClientIntroScreen extends StatelessWidget {
   const ClientIntroScreen({Key? key}) : super(key: key);

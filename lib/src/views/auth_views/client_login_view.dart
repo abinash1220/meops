@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/auth_views/create_account_view.dart';
-import 'package:meops/src/views/update_kyc/update_kyc_work.dart';
 import 'package:meops/src/views/update_kyc/client_update_kyc.dart';
 
 class ClientLoginView extends StatefulWidget {
@@ -38,7 +37,7 @@ class _ClientLoginViewState extends State<ClientLoginView> {
             height: 30,
           ),
            Padding(
-            padding:  EdgeInsets.only(left: 15, right: 15),
+            padding:  const EdgeInsets.only(left: 15, right: 15),
             child: SizedBox(
               height: 50,
               child: TextField(
@@ -154,7 +153,7 @@ class _ClientLoginViewState extends State<ClientLoginView> {
                                 ],
                               ),
                               const SizedBox(height: 20,),
-                              Container(
+                              SizedBox(
                           height: 50,
                           child: OtpTextField(
                             numberOfFields: 6,

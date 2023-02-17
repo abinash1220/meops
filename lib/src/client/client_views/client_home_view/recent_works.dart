@@ -53,13 +53,13 @@ class _RecentWorksState extends State<RecentWorks> {
               ),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
                 height: size.height * 0.8,
                 child: MasonryGridView.count(
                   crossAxisCount: 2,
                   mainAxisSpacing: 2,
                   crossAxisSpacing: 2,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: categoryController.topAnimationList.length,
                   itemBuilder: (context, index) {
                     return Padding(

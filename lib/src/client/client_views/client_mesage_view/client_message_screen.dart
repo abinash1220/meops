@@ -105,7 +105,7 @@ class _ClientMessageScreenState extends State<ClientMessageScreen> {
                                      const SizedBox(height: 5,),
                                      Text("Cool, Will let you know ASAP!",
                                        style: primaryFont.copyWith(
-                                       color:const Color(0xffbac5D6066),
+                                       color:const Color(0xffbac5d6066),
                                        fontSize: 14,
                                        fontWeight: FontWeight.w400,
                                     ),
@@ -151,7 +151,7 @@ class _ClientMessageScreenState extends State<ClientMessageScreen> {
                                    const SizedBox(height: 5,),
                                    Text("Cool, Will let you know ASAP!",
                                      style: primaryFont.copyWith(
-                                     color:const Color(0xffbac5D6066),
+                                     color:const Color(0xffbac5d6066),
                                      fontSize: 14,
                                      fontWeight: FontWeight.w400,
                                   ),
@@ -196,7 +196,7 @@ class _ClientMessageScreenState extends State<ClientMessageScreen> {
                                    const SizedBox(height: 5,),
                                    Text("Cool, Will let you know ASAP!",
                                      style: primaryFont.copyWith(
-                                     color:const Color(0xffbac5D6066),
+                                     color:const Color(0xffbac5d6066),
                                      fontSize: 14,
                                      fontWeight: FontWeight.w400,
                                   ),
@@ -241,7 +241,7 @@ class _ClientMessageScreenState extends State<ClientMessageScreen> {
                                    const SizedBox(height: 5,),
                                    Text("Cool, Will let you know ASAP!",
                                      style: primaryFont.copyWith(
-                                     color:const Color(0xFFbac5D6066),
+                                     color:const Color(0xffbac5d6066),
                                      fontSize: 14,
                                      fontWeight: FontWeight.w400,
                                   ),
@@ -286,7 +286,7 @@ class _ClientMessageScreenState extends State<ClientMessageScreen> {
                                    const SizedBox(height: 5,),
                                    Text("Cool, Will let you know ASAP!",
                                      style: primaryFont.copyWith(
-                                     color:const Color(0xffbac5D6066),
+                                     color:const Color(0xffbac5d6066),
                                      fontSize: 14,
                                      fontWeight: FontWeight.w400,
                                   ),

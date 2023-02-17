@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/client/client_views/client_profile/client_avatar.dart';
 import 'package:meops/src/client/client_views/client_profile/client_bio_edit_screen.dart';
@@ -8,7 +6,6 @@ import 'package:meops/src/client/client_views/client_profile/transaction_screen.
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/favorite_screen_view/favorites_view.dart';
-import 'package:meops/src/views/profile_views/client_bio_edit_screen.dart';
 import 'package:meops/src/views/profile_views/settings_screen.dart';
 
 class ClientProfilePage extends StatefulWidget {

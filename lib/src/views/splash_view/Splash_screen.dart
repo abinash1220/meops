@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
-import 'package:meops/src/views/home_view/home_view1.dart';
 
 class IntroductionScreens extends StatelessWidget {
   const IntroductionScreens({Key? key}) : super(key: key);

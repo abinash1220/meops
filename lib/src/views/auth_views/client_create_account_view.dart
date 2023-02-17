@@ -3,11 +3,9 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
-import 'package:meops/src/views/auth_views/client_login_view.dart';
 import 'package:meops/src/views/auth_views/login_view.dart';
 import 'package:meops/src/views/signUp_view/privacy_policy.dart';
 import 'package:meops/src/views/signUp_view/terms_of_condition_screen.dart';
-import 'package:meops/src/views/update_kyc/update_kyc_work.dart';
 import 'package:meops/src/views/update_kyc/client_update_kyc.dart';
 
 class ClientCreateAccountView extends StatefulWidget {
@@ -46,7 +44,7 @@ class _ClientCreateAccountViewState extends State<ClientCreateAccountView> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -69,7 +67,7 @@ class _ClientCreateAccountViewState extends State<ClientCreateAccountView> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -92,7 +90,7 @@ class _ClientCreateAccountViewState extends State<ClientCreateAccountView> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -276,16 +274,16 @@ class _ClientCreateAccountViewState extends State<ClientCreateAccountView> {
                             ],
                           ),
                           const SizedBox(height: 20,),
-                          Container(
+                          SizedBox(
                       height: 50,
                       child: OtpTextField(
                         numberOfFields: 6,
                         keyboardType: TextInputType.number,
                         filled: true,
                         fieldWidth: 40,
-                        margin: EdgeInsets.only(left: 10,right: 10),
-                        fillColor: Color.fromARGB(255, 209, 207, 207),
-                        textStyle: TextStyle(
+                        margin: const EdgeInsets.only(left: 10,right: 10),
+                        fillColor: const Color.fromARGB(255, 209, 207, 207),
+                        textStyle: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -440,7 +438,7 @@ class _ClientCreateAccountViewState extends State<ClientCreateAccountView> {
                 InkWell(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => LoginView()));
+                        MaterialPageRoute(builder: (context) => const LoginView()));
                   },
                   child: Text(
                     "Sign in",

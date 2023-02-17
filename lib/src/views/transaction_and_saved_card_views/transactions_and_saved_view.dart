@@ -99,7 +99,7 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
         ),
       ),
       body: index == 1
-          ? SavedCardsListView()
+          ? const SavedCardsListView()
           : ListView(
               children: [
                 Padding(
@@ -254,9 +254,9 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                                       )
                                     ],
                                   ),
-                                  Container(
+                                  const SizedBox(
                                     width: 90,
-                                    child: const Divider(
+                                    child: Divider(
                                       thickness: 1.5,
                                     ),
                                   ),
@@ -277,9 +277,9 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                                       )
                                     ],
                                   ),
-                                  Container(
+                                  const SizedBox(
                                     width: 90,
-                                    child: const Divider(
+                                    child: Divider(
                                       thickness: 1.5,
                                     ),
                                   ),
@@ -317,7 +317,7 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.to(() => PaymentConfirmtionScreen());
+                                Get.to(() => const PaymentConfirmtionScreen());
                               },
                               child: Container(
                                 height: 38,
@@ -377,7 +377,7 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                     children: [
                       InkWell(
                         onTap: () {
-                          Get.to(() => PaidToView());
+                          Get.to(() => const PaidToView());
                         },
                         child: Container(
                           height: 100,
@@ -483,7 +483,7 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                     children: [
                       InkWell(
                         onTap: () {
-                          Get.to(() => PaidToView());
+                          Get.to(() => const PaidToView());
                         },
                         child: Container(
                           height: 100,
@@ -589,7 +589,7 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                     children: [
                       InkWell(
                         onTap: () {
-                          Get.to(() => PaidToView());
+                          Get.to(() => const PaidToView());
                         },
                         child: Container(
                           height: 100,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
-import 'package:meops/src/views/update_kyc/add_more_links.dart';
 import 'package:meops/src/views/update_kyc/select_files.dart';
 
 import '../../constant/app_font.dart';
@@ -82,7 +81,7 @@ class _UploadYorWorkState extends State<UploadYorWork> {
                ),
               Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -114,7 +113,7 @@ class _UploadYorWorkState extends State<UploadYorWork> {
             if(isopen == true)
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(

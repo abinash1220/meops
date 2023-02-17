@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:meops/src/constant/app_color.dart';
-import 'package:meops/src/views/update_kyc/add_skills.dart';
 import 'package:meops/src/views/update_kyc/upload_your_work.dart';
 
 import '../../constant/app_font.dart';
@@ -54,7 +50,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage("assets/icons/Vector (2).png")),
+                          const Image(image: AssetImage("assets/icons/Vector (2).png")),
                           const SizedBox(width: 10,),
                            Text("Describe Yourself",
                                   style: primaryFont.copyWith(
@@ -76,7 +72,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
                 children: [
               Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -98,7 +94,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -113,14 +109,14 @@ class _DescribeYourselfState extends State<DescribeYourself> {
                       )),
                       labelText: "Skill Level",
                       hintText: 'Beginner',
-                      suffixIcon: Image(image: AssetImage("assets/icons/Group 225.png")),
+                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -142,7 +138,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 150,
                 child: TextField(
                  maxLines: 100,
@@ -172,7 +168,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -211,7 +207,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
                 ),
             Padding( 
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -233,7 +229,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -255,7 +251,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
@@ -270,14 +266,14 @@ class _DescribeYourselfState extends State<DescribeYourself> {
                       )),
                       labelText: "Work Location",
                       hintText: 'Chennai',
-                      suffixIcon: Image(image: AssetImage("assets/icons/Group 225.png")),
+                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 150,
                 child: TextField(
                  maxLines: 100,
@@ -307,7 +303,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: TextField(
                   decoration: InputDecoration(
