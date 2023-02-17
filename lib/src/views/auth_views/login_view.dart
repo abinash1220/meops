@@ -325,7 +325,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               InkWell(
                 onTap: (){
-                  Get.to(const CreateAccountView());
+                  Get.to(CreateAccountView(role: "",));
                 },
                 child: Text(
                   "Sign Up",

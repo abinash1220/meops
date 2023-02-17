@@ -4,14 +4,14 @@ import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/views/auth_views/client_create_account_view.dart';
 import 'package:meops/src/views/auth_views/create_account_view.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SelectRoleScreen extends StatefulWidget {
+  const SelectRoleScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SelectRoleScreen> createState() => _SelectRoleScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SelectRoleScreenState extends State<SelectRoleScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -41,7 +41,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     children: [
                       InkWell(
                         onTap: (){
-                          Get.to(const CreateAccountView());
+                          Get.to( CreateAccountView(role: "Professional",));
                         },
                         child: Container(
                           height: 100,
@@ -63,7 +63,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       InkWell(
                         onTap: (){
-                          Get.to(const ClientCreateAccountView());
+                          Get.to(CreateAccountView(role: "Client",));
                         },
                         child: Container(
                           height: 100,

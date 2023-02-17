@@ -3,14 +3,15 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/controllers/auth_controllers.dart';
 import 'package:meops/src/views/auth_views/login_view.dart';
 import 'package:meops/src/views/signUp_view/privacy_policy.dart';
 import 'package:meops/src/views/signUp_view/terms_of_condition_screen.dart';
-import 'package:meops/src/views/update_kyc/client_update_kyc.dart';
 import 'package:meops/src/views/update_kyc/update_kyc_work.dart';
 
 class CreateAccountView extends StatefulWidget {
-  const CreateAccountView({super.key});
+  String role;
+   CreateAccountView({super.key,required this.role});
 
   @override
   State<CreateAccountView> createState() => _CreateAccountViewState();
@@ -19,6 +20,12 @@ class CreateAccountView extends StatefulWidget {
 class _CreateAccountViewState extends State<CreateAccountView> {
   bool isAgreedTerms = false;
   bool isCookie = false;
+
+  final authcontroller = Get.find<AuthController>(); 
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController setPassController = TextEditingController();
+  TextEditingController conPassController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +54,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
               child: Container(
                 height: 50,
                 child: TextField(
+                  controller: emailController,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -70,6 +78,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
               child: Container(
                 height: 50,
                 child: TextField(
+                  controller: setPassController,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -93,6 +102,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
               child: Container(
                 height: 50,
                 child: TextField(
+                  controller: conPassController,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(

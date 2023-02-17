@@ -11,7 +11,7 @@ class _StartPageState extends State<StartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TableCalendar Example'),
+        title:const Text('TableCalendar Example'),
       ),
       body: Center(
         child: Column(
@@ -19,27 +19,27 @@ class _StartPageState extends State<StartPage> {
           children: [
             const SizedBox(height: 20.0),
             ElevatedButton(
-              child: Text('Basics'),
+              child:const Text('Basics'),
              onPressed: () => {}
             ),
             const SizedBox(height: 12.0),
             ElevatedButton(
-              child: Text('Range Selection'),
+              child:const Text('Range Selection'),
               onPressed: () => {}
             ),
             const SizedBox(height: 12.0),
             ElevatedButton(
-              child: Text('Events'),
+              child:const Text('Events'),
               onPressed: () => {}
             ),
             const SizedBox(height: 12.0),
             ElevatedButton(
-              child: Text('Multiple Selection'),
+              child:const Text('Multiple Selection'),
               onPressed: () => {}
             ),
             const SizedBox(height: 12.0),
             ElevatedButton(
-              child: Text('Complex'),
+              child:const Text('Complex'),
               onPressed: () => {}
             ),
             const SizedBox(height: 20.0),

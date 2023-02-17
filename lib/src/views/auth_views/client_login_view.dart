@@ -325,7 +325,7 @@ class _ClientLoginViewState extends State<ClientLoginView> {
               ),
               InkWell(
                 onTap: (){
-                  Get.to(const CreateAccountView());
+                  Get.to(CreateAccountView(role: "",));
                 },
                 child: Text(
                   "Sign Up",
@@ -337,8 +337,6 @@ class _ClientLoginViewState extends State<ClientLoginView> {
               ),
             ],
           ),
-         
-          
         ],
       ),
       bottomNavigationBar: const Padding(

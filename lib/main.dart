@@ -1,5 +1,9 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meops/src/controllers/auth_controllers.dart';
 import 'package:meops/src/controllers/category_controller.dart';
 import 'package:meops/src/controllers/update_kyc_controller.dart';
 import 'package:meops/src/views/explore_view/explore_view.dart';
@@ -9,14 +13,86 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'src/views/payment_screens/payment_confirmation_screen/payment_confirmation_screen.dart';
 import 'src/views/transaction_and_saved_card_views/transactions_and_saved_view.dart';
 
-void main() {
+void main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  AwesomeNotifications().initialize(
+  // set the icon to null if you want to use the default app icon
+  null,
+  [
+    NotificationChannel(
+        channelGroupKey: 'basic_channel_group',
+        channelKey: 'basic_channel',
+        channelName: 'Basic notifications',
+        channelDescription: 'Notification channel for basic tests',
+        defaultColor: Color(0xFF9D50DD),
+        importance:NotificationImportance.High,
+        playSound: true,
+        ledColor: Colors.white)
+  ],
+  // Channel groups are only visual and are not required
+  channelGroups: [
+    NotificationChannelGroup(
+        channelGroupName: 'Basic group', channelGroupkey: '')
+  ],
+  debug: true
+);
+
+AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
+  if (!isAllowed) {
+    // This is just a basic example. For real apps, you must show some
+    // friendly dialog box before call the request method.
+    // This is very important to not harm the user experience
+    AwesomeNotifications().requestPermissionToSendNotifications();
+  }
+});
+
+firebaseNotification();
+
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+  print('Got a message whilst in the foreground!');
+  print('Message data: ${message.data}');
+
+  if (message.notification != null) {
+    print('Message also contained a notification: ${message.notification}');
+
+     AwesomeNotifications().createNotification(
+                  content: NotificationContent(
+                  id: 10,
+                  channelKey: 'basic_channel',
+                  title: message.notification!.title,
+                  body: message.notification!.body,
+               ),
+              );
+  }
+});
+
   initializeDateFormatting().then((_) => runApp(const MyApp()));
   Get.put(UpdateKycController());
   Get.put(CategoryController());
+  Get.put(AuthController());
+}
+
+firebaseNotification()async{
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+ NotificationSettings settings = await messaging.requestPermission(
+  alert: true,
+  announcement: false,
+  badge: true,
+  carPlay: false,
+  criticalAlert: false,
+  provisional: false,
+  sound: true,
+);
+
+print('User granted permission: ${settings.authorizationStatus}');
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +102,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SignUpScreen(),
+      home: const SelectRoleScreen(),
       // home: (),
     );
   }
