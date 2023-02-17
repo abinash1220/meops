@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meops/src/client/client_views/client_home_view/client_navbar.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
@@ -15,6 +16,22 @@ class IntroScreens1 extends StatefulWidget {
 }
 
 class _IntroScreens1State extends State<IntroScreens1> {
+
+   
+
+  
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    redirectToNext();
+  }
+
+   redirectToNext() async {
+    await Future.delayed(const Duration(seconds: 3));
+    Get.offAll(ClientBottomNavBar());
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

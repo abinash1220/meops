@@ -18,7 +18,7 @@ class _ChatScreenState extends State<ChatScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
+        preferredSize:const Size.fromHeight(80),
         child: Container(
                 height: 80,
                 decoration:  BoxDecoration(

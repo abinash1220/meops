@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
+import 'package:meops/src/client/client_views/client_home_view/recent_works.dart';
+import 'package:meops/src/client/client_views/client_home_view/submit_proposal.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/category_view/reviews_view_screen.dart';
@@ -209,8 +211,8 @@ class _ProfileStsViewState extends State<ProfileStsView> {
                     padding: const EdgeInsets.all(10.0),
                     child: Row(
                       children: [
-                        Image(image: AssetImage("assets/icons/Group 431.png")),
-                        SizedBox(width: 10,),
+                        const  Image(image: AssetImage("assets/icons/Group 431.png")),
+                       const SizedBox(width: 10,),
                         Text("Description",
                                     style: primaryFont.copyWith(
                                     color: primaryColor,
@@ -472,43 +474,48 @@ class _ProfileStsViewState extends State<ProfileStsView> {
           
           Padding(
             padding: const EdgeInsets.only(left: 15,right: 15,top: 15),
-            child: Container(
-              height: 50,
-              width: size.width,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow:const [
-                  BoxShadow(
-                    color: Color.fromARGB(255, 202, 201, 201),
-                    blurRadius: 5.0
+            child: InkWell(
+              onTap: (){
+                Get.to(const RecentWorks());
+              },
+              child: Container(
+                height: 50,
+                width: size.width,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow:const [
+                    BoxShadow(
+                      color: Color.fromARGB(255, 202, 201, 201),
+                      blurRadius: 5.0
+                    ),
+                  ]
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10,right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                              const Image(image: AssetImage("assets/icons/Group 622.png")),
+                              const SizedBox(width: 10,),
+                              Text("Recent Work",
+                                          style: primaryFont.copyWith(
+                                          color: primaryColor,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                         ),
+                                      ),
+                        ],
+                      ),
+                      Row(
+                        children:const [
+                           Image(image: AssetImage("assets/icons/Group 628.png")),
+                        ],
+                      ),
+                    ],
                   ),
-                ]
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                            const Image(image: AssetImage("assets/icons/Group 622.png")),
-                            const SizedBox(width: 10,),
-                            Text("Recent Work",
-                                        style: primaryFont.copyWith(
-                                        color: primaryColor,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600,
-                                       ),
-                                    ),
-                      ],
-                    ),
-                    Row(
-                      children:const [
-                         Image(image: AssetImage("assets/icons/Group 628.png")),
-                      ],
-                    ),
-                  ],
                 ),
               ),
             ),
@@ -562,19 +569,24 @@ class _ProfileStsViewState extends State<ProfileStsView> {
             ),
           ),
           const SizedBox(height: 15,),
-          Container(
-            height: 43,
-            width: size.width,
-            color: primaryColor,
-            child: Center(
-              child: Text("Initiate Proposal",
-                                                style: primaryFont.copyWith(
-                                                color: Colors.white,
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.w600,
-                                               ),
-                                            ),
-              ),
+          InkWell(
+            onTap: (){
+              Get.to(const SubmitProposalScreen());
+            },
+            child: Container(
+              height: 43,
+              width: size.width,
+              color: primaryColor,
+              child: Center(
+                child: Text("Initiate Proposal",
+                                                  style: primaryFont.copyWith(
+                                                  color: Colors.white,
+                                                  fontSize: 22,
+                                                  fontWeight: FontWeight.w600,
+                                                 ),
+                                              ),
+                ),
+            ),
           ),
         ],
       ),

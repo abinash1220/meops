@@ -3,9 +3,11 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
+import 'package:meops/src/client/client_views/client_home_view/recent_works.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/choose_avathar_view/choose_avathar_view.dart';
+import 'package:meops/src/views/favorite_screen_view/favorites_view.dart';
 import 'package:meops/src/views/profile_views/settings_screen.dart';
 import 'package:meops/src/views/profile_views/view_rewards.dart';
 import 'package:meops/src/views/transaction_and_saved_card_views/transactions_and_saved_view.dart';
@@ -44,10 +46,10 @@ class _ProfileViewState extends State<ProfileView> {
                   children: [
                     InkWell(
                         onTap: () {
-                          Get.to(() => ChooseAvatharView());
+                          Get.to(() =>const  ChooseAvatharView());
                         },
                         child:
-                            Image(image: AssetImage("assets/images/prf4.png"))),
+                           const  Image(image: AssetImage("assets/images/prf4.png"))),
                     const SizedBox(
                       width: 15,
                     ),
@@ -573,7 +575,7 @@ class _ProfileViewState extends State<ProfileView> {
             padding: const EdgeInsets.all(15),
             child: InkWell(
               onTap: () {
-                Get.to(() => TransactionsAndSavedCards());
+                Get.to(() =>const TransactionsAndSavedCards());
               },
               child: Container(
                 height: 50,
@@ -593,9 +595,9 @@ class _ProfileViewState extends State<ProfileView> {
                     children: [
                       Row(
                         children: [
-                          Image(
+                          const Image(
                               image: AssetImage("assets/icons/Group 719.png")),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Text(
@@ -609,7 +611,7 @@ class _ProfileViewState extends State<ProfileView> {
                         ],
                       ),
                       Row(
-                        children: [
+                        children:const  [
                           Image(
                               image: AssetImage("assets/icons/Group 628.png")),
                         ],
@@ -638,25 +640,30 @@ class _ProfileViewState extends State<ProfileView> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Image(
-                            image: AssetImage("assets/icons/Vector (10).png")),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Favourites",
-                          style: primaryFont.copyWith(
-                            color: primaryColor,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                    InkWell(
+                      onTap: (){
+                        Get.to(const FavoritesView());
+                      },
+                      child: Row(
+                        children: [
+                          const Image(
+                              image: AssetImage("assets/icons/Vector (10).png")),
+                          const SizedBox(
+                            width: 10,
                           ),
-                        ),
-                      ],
+                          Text(
+                            "Favourites",
+                            style: primaryFont.copyWith(
+                              color: primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     Row(
-                      children: [
+                      children:const  [
                         Image(image: AssetImage("assets/icons/Group 628.png")),
                       ],
                     ),
@@ -667,44 +674,49 @@ class _ProfileViewState extends State<ProfileView> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-            child: Container(
-              height: 50,
-              width: size.width,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Color.fromARGB(255, 202, 201, 201),
-                        blurRadius: 5.0),
-                  ]),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image(image: AssetImage("assets/icons/Group 622.png")),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Recent Work",
-                          style: primaryFont.copyWith(
-                            color: primaryColor,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
+            child: InkWell(
+              onTap: (){
+                Get.to(const RecentWorks());
+              },
+              child: Container(
+                height: 50,
+                width: size.width,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Color.fromARGB(255, 202, 201, 201),
+                          blurRadius: 5.0),
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const Image(image: AssetImage("assets/icons/Group 622.png")),
+                          const SizedBox(
+                            width: 10,
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Image(image: AssetImage("assets/icons/Group 628.png")),
-                      ],
-                    ),
-                  ],
+                          Text(
+                            "Recent Work",
+                            style: primaryFont.copyWith(
+                              color: primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children:const [
+                          Image(image: AssetImage("assets/icons/Group 628.png")),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

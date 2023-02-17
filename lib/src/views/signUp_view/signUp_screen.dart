@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
+import 'package:meops/src/views/auth_views/client_create_account_view.dart';
 import 'package:meops/src/views/auth_views/create_account_view.dart';
-import 'package:meops/src/views/auth_views/login_view.dart';
-import 'package:meops/src/views/signUp_view/privacy_policy.dart';
-import 'package:meops/src/views/signUp_view/terms_of_condition_screen.dart';
-
-import '../../constant/app_font.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -29,11 +23,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const Padding(
               padding: EdgeInsets.only(top: 300),
               child: Text("video",
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.w400,fontSize: 35),
               ),
             ),
             Container(
-              height: 300,
+              height: 303,
               decoration: BoxDecoration(
                    color: primaryColor,
                    borderRadius: const BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))
@@ -41,17 +35,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("Are You?",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+                  const Text("Are You?",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       InkWell(
                         onTap: (){
-                          Get.to(CreateAccountView());
+                          Get.to(const CreateAccountView());
                         },
                         child: Container(
                           height: 100,
-                          width: 100,
+                          width: 102,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10)
@@ -60,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Image(image: AssetImage("assets/icons/Vectorbag.png")),
+                                const Image(image: AssetImage("assets/icons/Vectorbag.png")),
                                 Text("Professional",style: TextStyle(color:primaryColor,fontSize: 16)),
                               ],
                             ),
@@ -69,11 +63,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       InkWell(
                         onTap: (){
-                          Get.to(LoginView());
+                          Get.to(const ClientCreateAccountView());
                         },
                         child: Container(
                           height: 100,
-                          width: 100,
+                          width: 102,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10)
@@ -82,7 +76,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Image(image: AssetImage("assets/icons/search.png")),
+                                const Image(image: AssetImage("assets/icons/search.png")),
                                 Text("Client",style: TextStyle(color:primaryColor,fontSize: 16)),
                               ],
                             ),

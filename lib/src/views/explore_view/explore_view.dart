@@ -32,11 +32,16 @@ class _ExploreViewState extends State<ExploreView> {
                 bottomRight: Radius.circular(15),
               )),
           alignment: Alignment.centerLeft,
-          child: const Padding(
-            padding: EdgeInsets.only(left: 15, top: 10),
-            child: Icon(
-              Icons.arrow_back,
-              color: Colors.white,
+          child:  Padding(
+            padding:const EdgeInsets.only(left: 15, top: 10),
+            child: InkWell(
+              onTap: (){
+                Get.back();
+              },
+              child:const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
@@ -66,7 +71,7 @@ class _ExploreViewState extends State<ExploreView> {
                   padding: const EdgeInsets.all(10.0),
                   child: InkWell(
                     onTap: () {
-                      Get.to(() => TopCategoryView());
+                      Get.to(() =>const TopCategoryView());
                     },
                     child: Container(
                       height: 170,

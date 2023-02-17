@@ -58,8 +58,8 @@ class _PaymentScreenViewState extends State<PaymentScreenView> {
       ),
       body: Container(
         width: size.width,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(25)),
+        decoration:const BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -332,10 +332,10 @@ class _PaymentScreenViewState extends State<PaymentScreenView> {
                   upiModelBottomSheet(size, context);
                 },
                 child: Container(
-                  height: 50,
+                  height: 43,
                   width: size.width,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(4),
                       color: primaryColor),
                   alignment: Alignment.center,
                   child: Text(

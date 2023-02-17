@@ -6,7 +6,8 @@ import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/views/auth_views/login_view.dart';
 import 'package:meops/src/views/signUp_view/privacy_policy.dart';
 import 'package:meops/src/views/signUp_view/terms_of_condition_screen.dart';
-import 'package:meops/src/views/update_kyc/update_kyc.dart';
+import 'package:meops/src/views/update_kyc/client_update_kyc.dart';
+import 'package:meops/src/views/update_kyc/update_kyc_work.dart';
 
 class CreateAccountView extends StatefulWidget {
   const CreateAccountView({super.key});
@@ -122,20 +123,78 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         isAgreedTerms = val!;
                       });
                     }),
-                InkWell(
-                  onTap: (){
-                    Get.to(TermsOfCondition());
-                  },
-                  child: Text(
-                    "I agree to the Terms of Service and aknowledge \nthe privacy Policy",
-                    style: primaryFont.copyWith(
-                        fontSize: 15,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                           Text(
+                          "I agree to the ",
+                          style: primaryFont.copyWith(
+                             fontSize: 15,
+                             color: Colors.black,
+                             fontWeight: FontWeight.w500),
+                        ),
+                         InkWell(
+                          onTap: (){
+                            Get.to(const TermsOfCondition());
+                          },
+                           child: Text(
+                            "Terms of Service ",
+                            style: primaryFont.copyWith(
+                               fontSize: 15,
+                               color: Colors.black,
+                               fontWeight: FontWeight.w500,
+                               decoration: TextDecoration.underline),
+                                                 ),
+                         ),
+                         Text(
+                          "and aknowledge ",
+                          style: primaryFont.copyWith(
+                             fontSize: 15,
+                             color: Colors.black,
+                             fontWeight: FontWeight.w500),
+                        ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                           Text(
+                          "the ",
+                          style: primaryFont.copyWith(
+                             fontSize: 15,
+                             color: Colors.black,
+                             fontWeight: FontWeight.w500),
+                        ),
+                        InkWell(
+                          onTap: (){
+                            Get.to(const PrivacyPolicy());
+                          },
+                          child: Text(
+                            "Privacy Policy",
+                            style: primaryFont.copyWith(
+                               fontSize: 15,
+                               color: Colors.black,
+                               fontWeight: FontWeight.w500,
+                               decoration: TextDecoration.underline),
+                          ),
+                        ),
+                        ],
+                      ),
+                    ],
                   ),
                 )
               ],
             ),
+            //child: Text(
+                     // "I agree to the Terms of Service and aknowledge \nthe privacy Policy",
+                     // style: primaryFont.copyWith(
+                         // fontSize: 15,
+                         // color: Colors.black,
+                         // fontWeight: FontWeight.w500),
+                  //  ),
             const SizedBox(
               height: 15,
             ),
@@ -151,17 +210,12 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         isAgreedTerms = val!;
                       });
                     }),
-                InkWell(
-                   onTap: (){
-                    Get.to(PrivacyPolicy());
-                  },
-                  child: Text(
-                    "Cookies message for acceptance",
-                    style: primaryFont.copyWith(
-                        fontSize: 15,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500),
-                  ),
+                Text(
+                  "Cookies message for acceptance",
+                  style: primaryFont.copyWith(
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500),
                 )
               ],
             ),
@@ -184,117 +238,128 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                     child:  Padding(
                       padding: const EdgeInsets.only(left: 20,top: 50),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Enter OTP",
-                          style: primaryFont.copyWith(
-                            color: primaryColor,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 20,),
-                          Text("Enter the 6 digit code which is sent to your registered",
-                          style: primaryFont.copyWith(
-                            color: Colors.black,
-                            fontSize: 15,
-                            //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Row(
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Mobile No 7325******",
-                          style: primaryFont.copyWith(
-                            color: Colors.black,
-                            fontSize: 15,
-                            //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text("Edit",
-                          style: primaryFont.copyWith(
-                            color: primaryColor,
-                            fontSize: 15,
-                            //fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                            ],
-                          ),
-                          const SizedBox(height: 20,),
-                          Container(
-                      height: 50,
-                      child: OtpTextField(
-                        numberOfFields: 6,
-                        keyboardType: TextInputType.number,
-                        filled: true,
-                        fieldWidth: 40,
-                        margin: EdgeInsets.only(left: 10,right: 10),
-                        fillColor: Color.fromARGB(255, 209, 207, 207),
-                        textStyle: TextStyle(
+                              Text("Enter OTP",
+                              style: primaryFont.copyWith(
+                                color: primaryColor,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const SizedBox(height: 20,),
+                              Text("Enter the 6 digit code which is sent to your registered",
+                              style: primaryFont.copyWith(
+                                color: Colors.black,
+                                fontSize: 15,
+                                //fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text("Mobile No 7325******",
+                              style: primaryFont.copyWith(
+                                color: Colors.black,
+                                fontSize: 15,
+                                //fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text("Edit",
+                              style: primaryFont.copyWith(
+                                color: primaryColor,
+                                fontSize: 15,
+                                //fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                                ],
+                              ),
+                              const SizedBox(height: 20,),
+                              Container(
+                          height: 50,
+                          child: OtpTextField(
+                            numberOfFields: 6,
+                            keyboardType: TextInputType.number,
+                            filled: true,
+                            fieldWidth: 40,
+                            margin:const  EdgeInsets.only(left: 10,right: 10),
+                            fillColor:const Color.fromARGB(255, 209, 207, 207),
+                            textStyle:const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
-                        borderWidth: 0,
-                        showFieldAsBox: true, 
-                        onCodeChanged: (String code) {
-                        setState(() {
-                            //otp = code;
-                        });
+                            borderWidth: 0,
+                            showFieldAsBox: true, 
+                            onCodeChanged: (String code) {
+                            setState(() {
+                                //otp = code;
+                            });
                      },
-                       onSubmit: (String verificationCode){
-                         setState(() {
-                         // otp = verificationCode;
+                           onSubmit: (String verificationCode){
+                             setState(() {
+                             // otp = verificationCode;
                     });
                    }, 
-                      ),
+                          ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 50,top: 20),
-                      child: Row(
-                        children: [
-                            Text("Ditn't recieve OTP code?",
-                            style: primaryFont.copyWith(
-                              color: Colors.black,
-                              fontSize: 15,
-                              //fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                             Text("Resend OTP",
-                            style: primaryFont.copyWith(
-                              color: primaryColor,
-                              fontSize: 15,
-                              //fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                        ],
-                      ),
+                          padding: const EdgeInsets.only(left: 50,top: 20),
+                          child: Row(
+                            children: [
+                                Text("Ditn't recieve OTP code? ",
+                                style: primaryFont.copyWith(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                  //fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                 Text("Resend OTP",
+                                style: primaryFont.copyWith(
+                                  color: primaryColor,
+                                  fontSize: 15,
+                                  //fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                            ],
+                          ),
                     ),
-                    const SizedBox(height: 50,),
-                    InkWell(
-                      onTap: (){
-                        Get.to(const UpdateKycScreen());
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: Container(
-                          width: size.width,
-                          height: 50,
-                          decoration: BoxDecoration(
-                             color: primaryColor,
-                            borderRadius: BorderRadius.circular(5),
+                            ],
                           ),
-                          child:  Center(
-                            child:  Text("Continue",
-                            style: primaryFont.copyWith(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: Column(
+                      children: [
+                        InkWell(
+                            onTap: (){
+                              Get.to(const UpdateKyc());
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Container(
+                                width: size.width,
+                                height: 42,
+                                decoration: BoxDecoration(
+                                   color: primaryColor,
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child:  Center(
+                                  child:  Text("Continue",
+                                  style: primaryFont.copyWith(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600
+                                  ),
+                                  ),
+                                ),
+                              ),
                             ),
-                            ),
-                          ),
                         ),
-                      ),
+                      ],
                     ),
+                          ),
                         ],
                       ),
                     ),
@@ -305,17 +370,17 @@ class _CreateAccountViewState extends State<CreateAccountView> {
               child: Padding(
                 padding: const EdgeInsets.only(right: 15, left: 15),
                 child: Container(
-                  height: 55,
+                  height: 42,
                   width: size.width,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: primaryColor),
+                      borderRadius: BorderRadius.circular(4), color: primaryColor),
                   alignment: Alignment.center,
                   child: Text(
                     "Continue",
                     style: primaryFont.copyWith(
                         color: Colors.white,
                         fontSize: 20,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w600),
                   ),
                 ),
               ),
@@ -384,7 +449,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                 InkWell(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => LoginView()));
+                        MaterialPageRoute(builder: (context) => const LoginView()));
                   },
                   child: Text(
                     "Sign in",

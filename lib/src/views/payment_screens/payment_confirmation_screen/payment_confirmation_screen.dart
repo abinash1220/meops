@@ -25,9 +25,14 @@ class _PaymentConfirmtionScreenState extends State<PaymentConfirmtionScreen> {
             AppBar(
               elevation: 0,
               backgroundColor: Colors.transparent,
-              leading: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
+              leading: InkWell(
+                onTap: (){
+                  Get.back();
+                },
+                child: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
               ),
             ),
             const SizedBox(
@@ -58,8 +63,8 @@ class _PaymentConfirmtionScreenState extends State<PaymentConfirmtionScreen> {
       ),
       body: Container(
         width: size.width,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(25)),
+        decoration:const BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -185,8 +190,8 @@ class _PaymentConfirmtionScreenState extends State<PaymentConfirmtionScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
+            const Padding(
+              padding:  EdgeInsets.only(left: 15, right: 15),
               child: Divider(
                 thickness: 1.5,
               ),
@@ -273,8 +278,8 @@ class _PaymentConfirmtionScreenState extends State<PaymentConfirmtionScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
+           const Padding(
+              padding:  EdgeInsets.only(left: 15, right: 15),
               child: Divider(
                 thickness: 1.5,
               ),
@@ -336,8 +341,8 @@ class _PaymentConfirmtionScreenState extends State<PaymentConfirmtionScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
+           const Padding(
+              padding:  EdgeInsets.only(left: 15, right: 15),
               child: Divider(
                 thickness: 1.5,
               ),
@@ -389,13 +394,13 @@ class _PaymentConfirmtionScreenState extends State<PaymentConfirmtionScreen> {
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: InkWell(
                 onTap: () {
-                  Get.to(() => PaymentScreenView());
+                  Get.to(() =>const PaymentScreenView());
                 },
                 child: Container(
-                  height: 50,
+                  height: 43,
                   width: size.width,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(4),
                       color: primaryColor),
                   alignment: Alignment.center,
                   child: Text(

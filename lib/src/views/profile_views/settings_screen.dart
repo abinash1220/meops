@@ -21,10 +21,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-           Container(
-                height: 80,
+      appBar: PreferredSize(
+        preferredSize:const Size.fromHeight(73),
+        child: Container(
+                height: 73,
                 decoration:  BoxDecoration(
                     color: primaryColor,
                   borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15))
@@ -37,20 +37,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         onTap: (){
                           Get.back();
                         },
-                        child:Icon(Icons.arrow_back,color: Colors.white,),
+                        child:const Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                       const SizedBox(width: 15,),
                        Text("Settings",
                              style: primaryFont.copyWith(
                              color: Colors.white,
                              fontSize: 24,
-                             fontWeight: FontWeight.w500,
+                             fontWeight: FontWeight.w600,
                           ),
                        ),
                     ],
                   ),
                 ),
               ),
+      ),
+      body: Column(
+        children: [
               const SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
@@ -66,7 +69,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                      style: primaryFont.copyWith(
                                      color: primaryColor,
                                      fontSize: 16,
-                                     fontWeight: FontWeight.w600,
+                                     fontWeight: FontWeight.w400,
                                   ),
                                ),
                     ],
@@ -88,13 +91,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                   child: Row(
                     children: [
-                      Image(image: AssetImage("assets/icons/Group 811.png")),
+                      const Image(image: AssetImage("assets/icons/Group 811.png")),
                       const SizedBox(width: 20,),
                       Text("Language",
                                      style: primaryFont.copyWith(
                                      color: primaryColor,
                                      fontSize: 16,
-                                     fontWeight: FontWeight.w600,
+                                     fontWeight: FontWeight.w400,
                                   ),
                                ),
                     ],
@@ -112,13 +115,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 padding: const EdgeInsets.only(left: 20),
                 child: Row(
                   children: [
-                    Image(image: AssetImage("assets/icons/Group 1053.png")),
+                    const Image(image: AssetImage("assets/icons/Group 1053.png")),
                     const SizedBox(width: 20,),
                     Text("Update KYC",
                                    style: primaryFont.copyWith(
                                    color: primaryColor,
                                    fontSize: 16,
-                                   fontWeight: FontWeight.w600,
+                                   fontWeight: FontWeight.w400,
                                 ),
                              ),
                   ],
@@ -139,13 +142,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                   child: Row(
                     children: [
-                      Image(image: AssetImage("assets/icons/Group 1228.png")),
+                     const Image(image: AssetImage("assets/icons/Group 1228.png")),
                       const SizedBox(width: 20,),
                       Text("Refer & Earn",
                                      style: primaryFont.copyWith(
                                      color: primaryColor,
                                      fontSize: 16,
-                                     fontWeight: FontWeight.w600,
+                                     fontWeight: FontWeight.w400,
                                   ),
                                ),
                     ],
@@ -167,13 +170,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         },
                   child: Row(
                     children: [
-                      Image(image: AssetImage("assets/icons/Group 814.png")),
+                     const Image(image: AssetImage("assets/icons/Group 814.png")),
                       const SizedBox(width: 20,),
                       Text("Payment & Refund Policy",
                                      style: primaryFont.copyWith(
                                      color: primaryColor,
                                      fontSize: 16,
-                                     fontWeight: FontWeight.w600,
+                                     fontWeight: FontWeight.w400,
                                   ),
                                ),
                     ],
@@ -191,13 +194,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 padding: const EdgeInsets.only(left: 20),
                 child: Row(
                   children: [
-                    Image(image: AssetImage("assets/icons/Group 815.png")),
+                   const Image(image: AssetImage("assets/icons/Group 815.png")),
                     const SizedBox(width: 20,),
                     Text("FAQ",
                                    style: primaryFont.copyWith(
                                    color: primaryColor,
                                    fontSize: 16,
-                                   fontWeight: FontWeight.w600,
+                                   fontWeight: FontWeight.w400,
                                 ),
                              ),
                   ],
@@ -218,13 +221,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                   child: Row(
                     children: [
-                      Image(image: AssetImage("assets/icons/Group 816.png")),
+                      const Image(image: AssetImage("assets/icons/Group 816.png")),
                       const SizedBox(width: 20,),
                       Text("Support",
                                      style: primaryFont.copyWith(
                                      color: primaryColor,
                                      fontSize: 16,
-                                     fontWeight: FontWeight.w600,
+                                     fontWeight: FontWeight.w400,
                                   ),
                                ),
                     ],
@@ -246,13 +249,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                   child: Row(
                     children: [
-                      Image(image: AssetImage("assets/icons/Group 817.png")),
+                     const Image(image: AssetImage("assets/icons/Group 817.png")),
                       const SizedBox(width: 20,),
                       Text("Logout",
                                      style: primaryFont.copyWith(
                                      color: primaryColor,
                                      fontSize: 16,
-                                     fontWeight: FontWeight.w600,
+                                     fontWeight: FontWeight.w400,
                                   ),
                                ),
                     ],

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
@@ -24,12 +22,21 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
    int index1 = 0;
    int index2 = 0;
 
+   void _showDatePicker(){
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2030),
+      );
+   }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
+        preferredSize:const Size.fromHeight(80),
         child: Container(
                 height: 80,
                 decoration:  BoxDecoration(
@@ -44,7 +51,7 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                         onTap: (){
                           Get.back();
                         },
-                        child:Icon(Icons.arrow_back,color: Colors.white,),
+                        child: const  Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                       const SizedBox(width: 15,),
                        Text("My Projects",
@@ -97,7 +104,7 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                           fontWeight: FontWeight.w600,
                                            ),
                                         ),
-                                        Text("Octconst  17,2020",
+                                        Text("Oct  17,2020",
                                           style: primaryFont.copyWith(
                                           color: const Color(0xff313033),
                                           fontSize: 10,
@@ -242,14 +249,17 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(left: 5,top: 5),
-                                        child: Text("20/10/2022",
-                                        textAlign: TextAlign.center,
-                                                style: primaryFont.copyWith(
-                                                color: Colors.black,
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.w400,
-                                                 ),
-                                              ),
+                                        child: InkWell(
+                                          onTap: _showDatePicker,
+                                          child: Text("20/10/2022",
+                                          textAlign: TextAlign.center,
+                                                  style: primaryFont.copyWith(
+                                                  color: Colors.black,
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.w400,
+                                                   ),
+                                                ),
+                                        ),
                                       ),
                                       
                                       Padding(
@@ -266,36 +276,221 @@ class _MyProjectScreenState extends State<MyProjectScreen> {
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(left: 5,top: 5),
-                                        child: Row(
-                                          children: [
-                                            Text(" ₹1500",
-                                            textAlign: TextAlign.center,
-                                                    style: primaryFont.copyWith(
-                                                    color: primaryColor,
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.w500,
-                                                     ),
-                                                  ),
-                                                  const SizedBox(width: 5,),
-                                                  const Image(image: AssetImage("assets/images/Group 941.png"))
-                                          ],
+                                        child: PopupMenuButton(itemBuilder: (context) => [
+                                              PopupMenuItem(child: 
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text("Enter Amount",
+                                              textAlign: TextAlign.center,
+                                                      style: primaryFont.copyWith(
+                                                      color: primaryColor,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                       ),
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(top: 15,right: 50),
+                                                      child: Text("₹",
+                                                        style: primaryFont.copyWith(
+                                                        color: Colors.black,
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.w500,
+                                                         ),
+                                                      ),
+                                                    ),
+                                                     Padding(
+                                                      padding: const EdgeInsets.only(top: 2,left: 0,right: 0),
+                                                      child: Divider(
+                                                        color: primaryColor,
+                                                        thickness: 2,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(top: 5),
+                                                      child: Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        children: [
+                                                             Text("Cancel",
+                                                          style: primaryFont.copyWith(
+                                                          color: Colors.black,
+                                                          fontSize: 10,
+                                                          fontWeight: FontWeight.w400,
+                                                           ),
+                                                        ), 
+                                                        Container(
+                                                          height: 18,
+                                                          width: 34,
+                                                          decoration: BoxDecoration(
+                                                            color: primaryColor,
+                                                            borderRadius: BorderRadius.circular(10),
+                                                          ),
+                                                          child: Center(
+                                                            child: Text("Ok",
+                                                          style: primaryFont.copyWith(
+                                                          color: Colors.white,
+                                                          fontSize: 10,
+                                                          fontWeight: FontWeight.w400,
+                                                           ),
+                                                         ), 
+                                                          ),
+                                                        ), 
+                                                      ],),
+                                                    )
+                                                ],
+                                              ))
+                                            ],
+                                          child: Row(
+                                            children: [
+                                              Text(" ₹1500",
+                                              textAlign: TextAlign.center,
+                                                      style: primaryFont.copyWith(
+                                                      color: primaryColor,
+                                                      fontSize: 10,
+                                                      fontWeight: FontWeight.w500,
+                                                       ),
+                                                    ),
+                                                    const SizedBox(width: 5,),
+                                                    const Image(image: AssetImage("assets/images/Group 941.png"))
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(left: 5,top: 5),
-                                        child: Row(
-                                          children: [
-                                            Text("Per Day",
-                                            textAlign: TextAlign.center,
-                                                    style: primaryFont.copyWith(
-                                                    color: primaryColor,
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.w500,
-                                                     ),
-                                                  ),
-                                                  const SizedBox(width: 5,),
-                                                  const Image(image: AssetImage("assets/images/Group 941.png"))
-                                          ],
+                                        child: PopupMenuButton(itemBuilder: (context) => [
+                                              PopupMenuItem(child: 
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text("Choose unit",
+                                              textAlign: TextAlign.center,
+                                                      style: primaryFont.copyWith(
+                                                      color: primaryColor,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w500,
+                                                       ),
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(top: 10),
+                                                      child: Row(
+                                                        children: [
+                                                          Container(
+                                                            height: 8,
+                                                            width: 8,
+                                                            decoration: BoxDecoration(
+                                                              color: primaryColor,
+                                                              borderRadius: BorderRadius.circular(4),
+                                                            ),
+                                                          ),
+                                                          const SizedBox(width: 5,),
+                                                          Text("Per Day",
+                                                            style: primaryFont.copyWith(
+                                                            color: Colors.black,
+                                                            fontSize: 10,
+                                                            fontWeight: FontWeight.w400,
+                                                             ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(top: 10),
+                                                      child: Row(
+                                                        children: [
+                                                          Container(
+                                                            height: 8,
+                                                            width: 8,
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(color: primaryColor),
+                                                              borderRadius: BorderRadius.circular(4),
+                                                            ),
+                                                          ),
+                                                          const SizedBox(width: 5,),
+                                                          Text("Per Hour",
+                                                            style: primaryFont.copyWith(
+                                                            color: Colors.black,
+                                                            fontSize: 10,
+                                                            fontWeight: FontWeight.w400,
+                                                             ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(top: 10),
+                                                      child: Row(
+                                                        children: [
+                                                          Container(
+                                                            height: 8,
+                                                            width: 8,
+                                                            decoration: BoxDecoration(
+                                                             // color: primaryColor,
+                                                              border: Border.all(color: primaryColor),
+                                                              borderRadius: BorderRadius.circular(4),
+                                                            ),
+                                                          ),
+                                                          const SizedBox(width: 10,),
+                                                          Text("Not Applicable",
+                                                            style: primaryFont.copyWith(
+                                                            color: Colors.black,
+                                                            fontSize: 10,
+                                                            fontWeight: FontWeight.w400,
+                                                             ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                     
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(top: 5),
+                                                      child: Row(
+                                                        mainAxisAlignment: MainAxisAlignment.end,
+                                                        children: [
+                                                             Text("Cancel",
+                                                          style: primaryFont.copyWith(
+                                                          color: const Color(0xff31303366),
+                                                          fontSize: 10,
+                                                          fontWeight: FontWeight.w400,
+                                                           ),
+                                                        ), 
+                                                        const SizedBox(width: 10,),
+                                                        Container(
+                                                          height: 18,
+                                                          width: 34,
+                                                          decoration: BoxDecoration(
+                                                            color: primaryColor,
+                                                            borderRadius: BorderRadius.circular(10),
+                                                          ),
+                                                          child: Center(
+                                                            child: Text("Ok",
+                                                          style: primaryFont.copyWith(
+                                                          color: Colors.white,
+                                                          fontSize: 10,
+                                                          fontWeight: FontWeight.w400,
+                                                           ),
+                                                         ), 
+                                                          ),
+                                                        ), 
+                                                      ],),
+                                                    )
+                                                ],
+                                              ))
+                                            ],
+                                          child: Row(
+                                            children: [
+                                              Text("Per Day",
+                                              textAlign: TextAlign.center,
+                                                      style: primaryFont.copyWith(
+                                                      color: primaryColor,
+                                                      fontSize: 10,
+                                                      fontWeight: FontWeight.w500,
+                                                       ),
+                                                    ),
+                                                    const SizedBox(width: 5,),
+                                                    const Image(image: AssetImage("assets/images/Group 941.png"))
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],

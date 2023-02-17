@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:meops/src/client/client_views/client_intro_screen/client_intro_screen.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 
@@ -18,9 +17,9 @@ class _ClientBioEditScreenState extends State<ClientBioEditScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
+        preferredSize:const Size.fromHeight(73),
         child: Container(
-                height: 80,
+                height: 73,
                 decoration:  BoxDecoration(
                     color: primaryColor,
                   borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15))
@@ -33,14 +32,14 @@ class _ClientBioEditScreenState extends State<ClientBioEditScreen> {
                         onTap: (){
                           Get.back();
                         },
-                        child:Icon(Icons.arrow_back,color: Colors.white,),
+                        child:const Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                       const SizedBox(width: 15,),
                        Text("Edit Bio",
                              style: primaryFont.copyWith(
                              color: Colors.white,
                              fontSize: 24,
-                             fontWeight: FontWeight.w500,
+                             fontWeight: FontWeight.w600,
                           ),
                        ),
                     ],
@@ -136,18 +135,23 @@ class _ClientBioEditScreenState extends State<ClientBioEditScreen> {
             ),
             Padding(
                   padding: const EdgeInsets.only(right: 15, left: 15,top: 100),
-                  child: Container(
-                    height: 43,
-                    width: size.width,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5), color: primaryColor),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Save",
-                      style: primaryFont.copyWith(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w500),
+                  child: InkWell(
+                    onTap: (){
+                      Get.to(const ClientIntroScreen());
+                    },
+                    child: Container(
+                      height: 43,
+                      width: size.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4), color: primaryColor),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Continue",
+                        style: primaryFont.copyWith(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ),
                 ),

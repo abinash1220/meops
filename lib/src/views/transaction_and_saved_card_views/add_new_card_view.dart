@@ -26,9 +26,14 @@ class _EnterCardDetailsViewState extends State<EnterCardDetailsView> {
             AppBar(
               elevation: 0,
               backgroundColor: Colors.transparent,
-              leading: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
+              leading: InkWell(
+                onTap: (){
+                  Get.back();
+                },
+                child: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
               ),
             ),
             const SizedBox(
@@ -59,8 +64,8 @@ class _EnterCardDetailsViewState extends State<EnterCardDetailsView> {
       ),
       body: Container(
         width: size.width,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(25)),
+        decoration:const BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(25),topRight: Radius.circular(25))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -123,7 +128,7 @@ class _EnterCardDetailsViewState extends State<EnterCardDetailsView> {
                 Expanded(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 5),
+                    padding: const EdgeInsets.only(left: 15, right: 15),
                     child: TextField(
                       decoration: InputDecoration(
                           labelText: "CVV",
@@ -162,10 +167,10 @@ network (e.g. Visa, Mastercard, etc.)for further payments
                   Get.back();
                 },
                 child: Container(
-                  height: 50,
+                  height: 43,
                   width: size.width,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(4),
                       color: primaryColor),
                   alignment: Alignment.center,
                   child: Text(

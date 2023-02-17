@@ -14,6 +14,9 @@ class ViewRewardsScreen extends StatefulWidget {
 }
 
 class _ViewRewardsScreenState extends State<ViewRewardsScreen> {
+
+  bool ishide = false;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -41,7 +44,7 @@ class _ViewRewardsScreenState extends State<ViewRewardsScreen> {
                              style: primaryFont.copyWith(
                              color: Colors.white,
                              fontSize: 24,
-                             fontWeight: FontWeight.w500,
+                             fontWeight: FontWeight.w600,
                           ),
                        ),
                     ],
@@ -129,15 +132,48 @@ class _ViewRewardsScreenState extends State<ViewRewardsScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                 const Icon(Icons.remove_red_eye_outlined,size: 18,),
-                                 const SizedBox(width: 5,),
-                                  Text("Hided",
-                             style: primaryFont.copyWith(
-                             color: Colors.black,
-                             fontSize: 12,
-                             fontWeight: FontWeight.w400,
-                          ),
-                       ),
+                                  if(ishide == false)
+                                 InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      ishide = true;
+                                    });
+                                  },
+                                   child: Row(
+                                     children: [
+                                       const Image(image: AssetImage("assets/images/Vector (21).png")),
+                                       const SizedBox(width: 5,),
+                                   Text("Hide",
+                                                              style: primaryFont.copyWith(
+                                                              color: Colors.black,
+                                                              fontSize: 12,
+                                                              fontWeight: FontWeight.w400,
+                                                           ),
+                                                        ),
+                                     ],
+                                   ),
+                                 ),
+                                 if(ishide == true)
+                                 InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      ishide = false;
+                                    });
+                                  },
+                                   child: Row(
+                                    children: [
+                                      const Image(image: AssetImage("assets/images/Group 1096.png")),
+                                   const SizedBox(width: 5,),
+                                    Text("Hided",
+                                                              style: primaryFont.copyWith(
+                                                              color: Colors.black,
+                                                              fontSize: 12,
+                                                              fontWeight: FontWeight.w400,
+                                                           ),
+                                                        ),
+                                    ],
+                                   ),
+                                 ),
                                 ],
                               ),
                             ),
@@ -422,6 +458,7 @@ class _ViewRewardsScreenState extends State<ViewRewardsScreen> {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 15,)
                 ],
               ),
     );

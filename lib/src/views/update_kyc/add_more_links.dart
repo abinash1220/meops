@@ -207,10 +207,10 @@ class _AddMoreLinksState extends State<AddMoreLinks> {
               child: Padding(
                   padding: const EdgeInsets.only(right: 15, left: 15,top: 50),
                   child: Container(
-                    height: 55,
+                    height: 42,
                     width: size.width,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10), color: primaryColor),
+                        borderRadius: BorderRadius.circular(4), color: primaryColor),
                     alignment: Alignment.center,
                     child: Text(
                       "Continue",

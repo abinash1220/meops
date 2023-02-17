@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/views/intro_screens/intro_screen1.dart';
 import 'package:meops/src/views/splash_view/Splash_screen.dart';
@@ -16,15 +17,17 @@ class SelectFiles extends StatefulWidget {
 }
 
 class _SelectFilesState extends State<SelectFiles> {
+
+ bool isdelete = true;
+ bool isdelete1 = true;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-           body: SingleChildScrollView(
-             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
+      appBar: PreferredSize(
+        preferredSize:const Size.fromHeight(150),
+        child: Container(
                   width: size.width,
                   height: 150,
                   decoration:  BoxDecoration(
@@ -39,7 +42,11 @@ class _SelectFilesState extends State<SelectFiles> {
                           padding: const EdgeInsets.only(left: 30,top: 15),
                           child: Row(
                             children: [
-                              Icon(Icons.arrow_back,color: Colors.white,size: 25,),
+                              InkWell(
+                                onTap: (){
+                                  Get.back();
+                                },
+                                child:const Icon(Icons.arrow_back,color: Colors.white,size: 25,)),
                             ],
                           ),
                           
@@ -48,13 +55,13 @@ class _SelectFilesState extends State<SelectFiles> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image(image: AssetImage("assets/icons/Group 291.png")),
+                            const Image(image: AssetImage("assets/icons/Group 291.png")),
                             const SizedBox(width: 10,),
                              Text("Upload Your Work",
                                     style: primaryFont.copyWith(
                                       color: Colors.white,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
                                       ),
                                     ),
                           ],
@@ -63,17 +70,22 @@ class _SelectFilesState extends State<SelectFiles> {
                     ),
                   ),
                 ),
+        ),
+           body: SingleChildScrollView(
+             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                  Padding(
                    padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
                    child: Container(
-                    height: 100,
+                    height: 76,
                     width: size.width,
                     decoration: BoxDecoration(
                        color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
                       boxShadow: const [
                        BoxShadow(
-                        color: Color.fromARGB(255, 182, 180, 180),
+                        color: Color.fromARGB(255, 216, 214, 214),
                         blurRadius: 5.0
                        )
                       ]
@@ -89,11 +101,11 @@ class _SelectFilesState extends State<SelectFiles> {
                               Text("Links",
                                           style: primaryFont.copyWith(
                                             color: primaryColor,
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500,
                                             ),
                                           ),
-                                         Image(image: AssetImage("assets/icons/Vector (5).png"))
+                                         const Image(image: AssetImage("assets/icons/Vector (5).png"))
                                           
                             ],
                           ),
@@ -104,8 +116,8 @@ class _SelectFilesState extends State<SelectFiles> {
                           "d/1q8f_x6ttJCkoVSDgsDchusxzga",
                                             style: primaryFont.copyWith(
                                               color: Colors.black,
-                                              fontSize: 19,
-                                             // fontWeight: FontWeight.bold,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
                                               ),
                                             ),
                         ),
@@ -119,22 +131,23 @@ class _SelectFilesState extends State<SelectFiles> {
                 child: Text("Selected Files",
                                         style: primaryFont.copyWith(
                                           color: primaryColor,
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
                                           ),
                                         ),
               ),
+              if(isdelete == true)
               Padding(
                    padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
                    child: Container(
-                    height: 60,
+                    height: 46,
                     width: size.width,
                     decoration: BoxDecoration(
                        color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
                       boxShadow: const [
                        BoxShadow(
-                        color: Color.fromARGB(255, 182, 180, 180),
+                        color: Color.fromARGB(255, 216, 214, 214),
                         blurRadius: 5.0
                        )
                       ]
@@ -146,17 +159,15 @@ class _SelectFilesState extends State<SelectFiles> {
                           padding: const EdgeInsets.only(left: 10),
                           child: Row(
                             children: [
-                              Image(
-                                height: 40,
-                                width: 40,
+                              const Image(
                                 fit: BoxFit.fill,
                                 image: AssetImage("assets/images/Rectangle 58.png")),
                                 const SizedBox(width: 15,),
                                 Text("Img07.JPG",
                                         style: primaryFont.copyWith(
                                           color: Colors.black,
-                                          fontSize: 18,
-                                         // fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
                                           ),
                                         ),
                             ],
@@ -169,12 +180,18 @@ class _SelectFilesState extends State<SelectFiles> {
                               Text("3.06 MB",
                                           style: primaryFont.copyWith(
                                             color: Colors.black,
-                                            fontSize: 18,
-                                           // fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                           const SizedBox(width: 15,),
-                                          Image(image: AssetImage("assets/icons/Vector (5).png"))
+                                          InkWell(
+                                          onTap: (){
+                                            setState(() {
+                                              isdelete = false;
+                                            });
+                                          },
+                                          child:const Image(image: AssetImage("assets/icons/Vector (5).png")))
                             ],
                           ),
                         ),
@@ -182,17 +199,33 @@ class _SelectFilesState extends State<SelectFiles> {
                     )
                    ),
                  ),
+                 if(isdelete == true)
+                 Padding(
+                   padding: const EdgeInsets.only(top: 10,right: 20),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                     children: [
+                       Text("More than 2mb",
+                                                style: primaryFont.copyWith(
+                                                  color: const Color(0xffED4569),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                     ],
+                   ),
+                 ),
                  Padding(
                    padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
                    child: Container(
-                    height: 60,
+                    height: 46,
                     width: size.width,
                     decoration: BoxDecoration(
                        color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
                       boxShadow: const [
                        BoxShadow(
-                        color: Color.fromARGB(255, 182, 180, 180),
+                        color: Color.fromARGB(255, 216, 214, 214),
                         blurRadius: 5.0
                        )
                       ]
@@ -204,17 +237,15 @@ class _SelectFilesState extends State<SelectFiles> {
                           padding: const EdgeInsets.only(left: 10),
                           child: Row(
                             children: [
-                              Image(
-                                height: 40,
-                                width: 40,
+                              const Image(
                                 fit: BoxFit.fill,
                                 image: AssetImage("assets/images/Rectangle 58.png")),
                                 const SizedBox(width: 15,),
                                 Text("Img07.JPG",
                                         style: primaryFont.copyWith(
                                           color: Colors.black,
-                                          fontSize: 18,
-                                         // fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
                                           ),
                                         ),
                             ],
@@ -227,8 +258,8 @@ class _SelectFilesState extends State<SelectFiles> {
                               Text("17 MB",
                                           style: primaryFont.copyWith(
                                             color: Colors.black,
-                                            fontSize: 18,
-                                           // fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                           const SizedBox(width: 15,),
@@ -243,14 +274,14 @@ class _SelectFilesState extends State<SelectFiles> {
                  Padding(
                    padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
                    child: Container(
-                    height: 60,
+                    height: 46,
                     width: size.width,
                     decoration: BoxDecoration(
                        color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
                       boxShadow: const [
                        BoxShadow(
-                        color: Color.fromARGB(255, 182, 180, 180),
+                        color: Color.fromARGB(255, 216, 214, 214),
                         blurRadius: 5.0
                        )
                       ]
@@ -262,133 +293,15 @@ class _SelectFilesState extends State<SelectFiles> {
                           padding: const EdgeInsets.only(left: 10),
                           child: Row(
                             children: [
-                              Image(
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.fill,
-                                image: AssetImage("assets/images/Rectangle 58.png")),
-                                const SizedBox(width: 15,),
-                                Text("Work.PDF",
-                                        style: primaryFont.copyWith(
-                                          color: Colors.black,
-                                          fontSize: 18,
-                                         // fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: Row(
-                            children: [
-                              Text("2.06 MB",
-                                          style: primaryFont.copyWith(
-                                            color: Colors.black,
-                                            fontSize: 18,
-                                           // fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 15,),
-                                          Image(image: AssetImage("assets/icons/Vector (5).png"))
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                   ),
-                 ),
-                 Padding(
-                   padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
-                   child: Container(
-                    height: 60,
-                    width: size.width,
-                    decoration: BoxDecoration(
-                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow: const [
-                       BoxShadow(
-                        color: Color.fromARGB(255, 182, 180, 180),
-                        blurRadius: 5.0
-                       )
-                      ]
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Row(
-                            children: [
-                              Image(
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.fill,
-                                image: AssetImage("assets/images/Rectangle 58.png")),
-                                const SizedBox(width: 15,),
-                                Text("Img07.Gif",
-                                        style: primaryFont.copyWith(
-                                          color: Colors.black,
-                                          fontSize: 18,
-                                         // fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: Row(
-                            children: [
-                              Text("5.03 MB",
-                                          style: primaryFont.copyWith(
-                                            color: Colors.black,
-                                            fontSize: 18,
-                                           // fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 15,),
-                                          Image(image: AssetImage("assets/icons/Vector (5).png"))
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                   ),
-                 ),
-                 Padding(
-                   padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
-                   child: Container(
-                    height: 60,
-                    width: size.width,
-                    decoration: BoxDecoration(
-                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow: const [
-                       BoxShadow(
-                        color: Color.fromARGB(255, 182, 180, 180),
-                        blurRadius: 5.0
-                       )
-                      ]
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Row(
-                            children: [
-                              Image(
-                                height: 40,
-                                width: 40,
+                              const Image(
                                 fit: BoxFit.fill,
                                 image: AssetImage("assets/images/Rectangle 58.png")),
                                 const SizedBox(width: 15,),
                                 Text("Img07.JPG",
                                         style: primaryFont.copyWith(
                                           color: Colors.black,
-                                          fontSize: 18,
-                                         // fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
                                           ),
                                         ),
                             ],
@@ -401,8 +314,8 @@ class _SelectFilesState extends State<SelectFiles> {
                               Text("3.06 MB",
                                           style: primaryFont.copyWith(
                                             color: Colors.black,
-                                            fontSize: 18,
-                                           // fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                           const SizedBox(width: 15,),
@@ -417,14 +330,14 @@ class _SelectFilesState extends State<SelectFiles> {
                  Padding(
                    padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
                    child: Container(
-                    height: 60,
+                    height: 46,
                     width: size.width,
                     decoration: BoxDecoration(
                        color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
                       boxShadow: const [
                        BoxShadow(
-                        color: Color.fromARGB(255, 182, 180, 180),
+                        color: Color.fromARGB(255, 216, 214, 214),
                         blurRadius: 5.0
                        )
                       ]
@@ -436,17 +349,15 @@ class _SelectFilesState extends State<SelectFiles> {
                           padding: const EdgeInsets.only(left: 10),
                           child: Row(
                             children: [
-                             const Image(
-                                height: 40,
-                                width: 40,
+                              const Image(
                                 fit: BoxFit.fill,
                                 image: AssetImage("assets/images/Rectangle 58.png")),
                                 const SizedBox(width: 15,),
                                 Text("Img07.JPG",
                                         style: primaryFont.copyWith(
                                           color: Colors.black,
-                                          fontSize: 18,
-                                         // fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
                                           ),
                                         ),
                             ],
@@ -459,12 +370,12 @@ class _SelectFilesState extends State<SelectFiles> {
                               Text("3.06 MB",
                                           style: primaryFont.copyWith(
                                             color: Colors.black,
-                                            fontSize: 18,
-                                           // fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
                                             ),
                                           ),
                                           const SizedBox(width: 15,),
-                                         const Image(image: AssetImage("assets/icons/Vector (5).png"))
+                                          const Image(image: AssetImage("assets/icons/Vector (5).png"))
                             ],
                           ),
                         ),
@@ -472,7 +383,141 @@ class _SelectFilesState extends State<SelectFiles> {
                     )
                    ),
                  ),
-               const SizedBox(height: 15,),
+                Padding(
+                   padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
+                   child: Container(
+                    height: 46,
+                    width: size.width,
+                    decoration: BoxDecoration(
+                       color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: const [
+                       BoxShadow(
+                        color: Color.fromARGB(255, 216, 214, 214),
+                        blurRadius: 5.0
+                       )
+                      ]
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Row(
+                            children: [
+                              const Image(
+                                fit: BoxFit.fill,
+                                image: AssetImage("assets/images/Rectangle 58.png")),
+                                const SizedBox(width: 15,),
+                                Text("Img07.JPG",
+                                        style: primaryFont.copyWith(
+                                          color: Colors.black,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Row(
+                            children: [
+                              Text("3.06 MB",
+                                          style: primaryFont.copyWith(
+                                            color: Colors.black,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 15,),
+                                          const Image(image: AssetImage("assets/icons/Vector (5).png"))
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                   ),
+                 ),
+                 if(isdelete1 == true)
+                 Padding(
+                   padding: const EdgeInsets.only(left: 20,right: 20,top: 20),
+                   child: Container(
+                    height: 46,
+                    width: size.width,
+                    decoration: BoxDecoration(
+                       color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: const [
+                       BoxShadow(
+                        color: Color.fromARGB(255, 216, 214, 214),
+                        blurRadius: 5.0
+                       )
+                      ]
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Row(
+                            children: [
+                              const Image(
+                                fit: BoxFit.fill,
+                                image: AssetImage("assets/images/Rectangle 58.png")),
+                                const SizedBox(width: 15,),
+                                Text("Img07.JPG",
+                                        style: primaryFont.copyWith(
+                                          color: Colors.black,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Row(
+                            children: [
+                              Text("5 MB",
+                                          style: primaryFont.copyWith(
+                                            color: Colors.black,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 15,),
+                                           InkWell(
+                                            onTap: (){
+                                              setState(() {
+                                                isdelete1 = false;
+                                              });
+                                            },
+                                            child:const Image(image: AssetImage("assets/icons/Vector (5).png")))
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                   ),
+                 ),
+                 if(isdelete1 == true)
+                 Padding(
+                   padding: const EdgeInsets.only(top: 10,right: 20),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                     children: [
+                       Text("More than 2mb",
+                                                style: primaryFont.copyWith(
+                                                  color: const Color(0xffED4569),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                     ],
+                   ),
+                 ),
               InkWell(
                 onTap: (){
                   
@@ -480,16 +525,16 @@ class _SelectFilesState extends State<SelectFiles> {
                 child: Padding(
                     padding: const EdgeInsets.only(right: 15, left: 15,top: 50),
                     child: Container(
-                      height: 55,
+                      height: 36,
                       width: size.width,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10), color: const Color.fromARGB(255, 185, 183, 183)),
+                          borderRadius: BorderRadius.circular(5), color: const Color.fromARGB(255, 185, 183, 183)),
                       alignment: Alignment.center,
                       child: Text(
                         "+ Add More Files",
                         style: primaryFont.copyWith(
-                            color: Colors.white,
-                            fontSize: 20,
+                            color: primaryColor,
+                            fontSize: 12,
                             fontWeight: FontWeight.w500),
                       ),
                     ),
@@ -503,17 +548,17 @@ class _SelectFilesState extends State<SelectFiles> {
                 child: Padding(
                     padding: const EdgeInsets.only(right: 15, left: 15,bottom: 20),
                     child: Container(
-                      height: 55,
+                      height: 42,
                       width: size.width,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10), color: primaryColor),
+                          borderRadius: BorderRadius.circular(4), color: primaryColor),
                       alignment: Alignment.center,
                       child: Text(
                         "Upload & Continue",
                         style: primaryFont.copyWith(
                             color: Colors.white,
                             fontSize: 20,
-                            fontWeight: FontWeight.w500),
+                            fontWeight: FontWeight.w600),
                       ),
                     ),
                   ),

@@ -35,14 +35,14 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _bottomIndex == 0
-          ? HomeViewScreen()
+          ?const HomeViewScreen()
           : _bottomIndex == 1
-              ? MessageScreen()
+              ?const MessageScreen()
               : _bottomIndex == 2
-                  ? MyProjectScreen()
+                  ?const MyProjectScreen()
                   : _bottomIndex == 3
-                      ? ProfileView()
-                      : HomeViewScreen(),
+                      ?const ProfileView()
+                      :const HomeViewScreen(),
                       
       bottomNavigationBar: Container(
         height: 70,

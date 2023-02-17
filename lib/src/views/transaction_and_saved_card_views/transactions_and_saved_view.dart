@@ -48,7 +48,7 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                   child: Container(
                     height: 40,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(5),
                         color: index == 0
                             ? primaryColor
                             : primaryColor.withOpacity(0.2)),
@@ -75,7 +75,7 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                   child: Container(
                     height: 40,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(5),
                         color: index == 1
                             ? primaryColor
                             : primaryColor.withOpacity(0.2)),
@@ -320,10 +320,10 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                                 Get.to(() => PaymentConfirmtionScreen());
                               },
                               child: Container(
-                                height: 45,
+                                height: 38,
                                 decoration: BoxDecoration(
                                     color: primaryColor,
-                                    borderRadius: BorderRadius.circular(10)),
+                                    borderRadius: BorderRadius.circular(5)),
                                 alignment: Alignment.center,
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -475,7 +475,220 @@ class _TransactionsAndSavedCardsState extends State<TransactionsAndSavedCards> {
                       )
                     ],
                   ),
-                )
+                ),
+                const SizedBox(height: 15,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  child: Stack(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => PaidToView());
+                        },
+                        child: Container(
+                          height: 100,
+                          width: size.width,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+                              boxShadow: const [
+                                BoxShadow(blurRadius: 2, color: Colors.grey)
+                              ]),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                        "assets/icons/WhatsApp Image 2022-11-11 at 5.33 (1).png"),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Kissan",
+                                              style: primaryFont.copyWith(
+                                                  color: primaryColor,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            const SizedBox(
+                                              width: 7,
+                                            ),
+                                            Text(
+                                              "Oct 6th 4:56 pm",
+                                              style: primaryFont.copyWith(
+                                                  fontSize: 10,
+                                                  color: Colors.grey[400]),
+                                            )
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 7,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Title Of Project",
+                                              style: primaryFont.copyWith(
+                                                  fontSize: 13,
+                                                  color: primaryColor,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            const SizedBox(
+                                              width: 3,
+                                            ),
+                                            Image.asset(
+                                                "assets/icons/Project.png")
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 7,
+                                        ),
+                                        Text(
+                                          "Cartoon Illustration",
+                                          style: primaryFont.copyWith(
+                                              fontSize: 12,
+                                              color: Colors.grey,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 10,
+                        right: 10,
+                        child: Text(
+                          "₹ 2500",
+                          style: primaryFont.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.green,
+                              fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 15,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  child: Stack(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => PaidToView());
+                        },
+                        child: Container(
+                          height: 100,
+                          width: size.width,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+                              boxShadow: const [
+                                BoxShadow(blurRadius: 2, color: Colors.grey)
+                              ]),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                        "assets/icons/WhatsApp Image 2022-11-11 at 5.33 (1).png"),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Kissan",
+                                              style: primaryFont.copyWith(
+                                                  color: primaryColor,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            const SizedBox(
+                                              width: 7,
+                                            ),
+                                            Text(
+                                              "Oct 6th 4:56 pm",
+                                              style: primaryFont.copyWith(
+                                                  fontSize: 10,
+                                                  color: Colors.grey[400]),
+                                            )
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 7,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Title Of Project",
+                                              style: primaryFont.copyWith(
+                                                  fontSize: 13,
+                                                  color: primaryColor,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            const SizedBox(
+                                              width: 3,
+                                            ),
+                                            Image.asset(
+                                                "assets/icons/Project.png")
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 7,
+                                        ),
+                                        Text(
+                                          "Cartoon Illustration",
+                                          style: primaryFont.copyWith(
+                                              fontSize: 12,
+                                              color: Colors.grey,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 10,
+                        right: 10,
+                        child: Text(
+                          "₹ 2500",
+                          style: primaryFont.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.green,
+                              fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 15,),
               ],
             ),
     );

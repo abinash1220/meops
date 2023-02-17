@@ -17,10 +17,10 @@ class _NotificationViewState extends State<NotificationView> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-           body: Column(
-            children: [
-              Container(
-                height: 80,
+      appBar: PreferredSize(
+        preferredSize:const Size.fromHeight(73),
+        child: Container(
+                height: 73,
                 decoration:  BoxDecoration(
                     color: primaryColor,
                   borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15))
@@ -33,20 +33,23 @@ class _NotificationViewState extends State<NotificationView> {
                         onTap: (){
                           Get.back();
                         },
-                        child:Icon(Icons.arrow_back,color: Colors.white,),
+                        child:const Icon(Icons.arrow_back,color: Colors.white,),
                       ),
                       const SizedBox(width: 15,),
                        Text("Notification",
                              style: primaryFont.copyWith(
                              color: Colors.white,
                              fontSize: 24,
-                             fontWeight: FontWeight.w500,
+                             fontWeight: FontWeight.w600,
                           ),
                        ),
                     ],
                   ),
                 ),
               ),
+      ),
+           body: Column(
+            children: [
               const SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(left: 15,right: 15),

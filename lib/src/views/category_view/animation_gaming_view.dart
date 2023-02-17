@@ -61,7 +61,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                 ),
                 InkWell(
                     onTap: () {
-                      Get.to(() => FilterView());
+                      Get.to(() =>const FilterView());
                     },
                     child: const Image(
                         image: AssetImage("assets/icons/Group 664.png")))
@@ -92,7 +92,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                       child: Row(
                         children: [
                           Stack(children: [
-                            Image(image: AssetImage("assets/images/img1.png")),
+                            const Image(image: AssetImage("assets/images/img1.png")),
                             Padding(
                               padding: const EdgeInsets.all(13.0),
                               child: Container(
@@ -101,7 +101,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                                 decoration: BoxDecoration(
                                     color: primaryColor,
                                     borderRadius: BorderRadius.circular(15)),
-                                child: Center(
+                                child:const  Center(
                                   child: Image(
                                       image: AssetImage(
                                           "assets/icons/Vector (7).png")),
@@ -117,7 +117,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                               children: [
                                 Row(
                                   children: [
-                                    Image(
+                                    const Image(
                                         image: AssetImage(
                                             "assets/images/prf2.png")),
                                     const SizedBox(
@@ -134,13 +134,13 @@ class _AnimationGamingState extends State<AnimationGaming> {
                                     const SizedBox(
                                       width: 5,
                                     ),
-                                    Image(
+                                    const Image(
                                         image: AssetImage(
                                             "assets/icons/Vector (6).png")),
                                     const SizedBox(
                                       width: 35,
                                     ),
-                                    Icon(
+                                    const Icon(
                                       Icons.star,
                                       color: Colors.yellow,
                                     ),
@@ -282,7 +282,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                     child: Row(
                       children: [
                         Stack(children: [
-                          Image(image: AssetImage("assets/images/img2.png")),
+                          const Image(image: AssetImage("assets/images/img2.png")),
                           Padding(
                             padding: const EdgeInsets.all(13.0),
                             child: Container(
@@ -291,7 +291,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                               decoration: BoxDecoration(
                                   color: primaryColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: Center(
+                              child:const  Center(
                                 child: Image(
                                     image: AssetImage(
                                         "assets/icons/Vector (7).png")),
@@ -307,7 +307,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                             children: [
                               Row(
                                 children: [
-                                  Image(
+                                 const Image(
                                       image:
                                           AssetImage("assets/images/prf.png")),
                                   const SizedBox(
@@ -324,13 +324,13 @@ class _AnimationGamingState extends State<AnimationGaming> {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Image(
+                                  const Image(
                                       image: AssetImage(
                                           "assets/icons/Vector (6).png")),
                                   const SizedBox(
                                     width: 35,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.star,
                                     color: Colors.yellow,
                                   ),
@@ -471,7 +471,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                     child: Row(
                       children: [
                         Stack(children: [
-                          Image(image: AssetImage("assets/images/img1.png")),
+                          const Image(image: AssetImage("assets/images/img1.png")),
                           Padding(
                             padding: const EdgeInsets.all(13.0),
                             child: Container(
@@ -480,7 +480,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                               decoration: BoxDecoration(
                                   color: primaryColor,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: Center(
+                              child:const Center(
                                 child: Image(
                                     image: AssetImage(
                                         "assets/icons/Vector (7).png")),
@@ -496,7 +496,7 @@ class _AnimationGamingState extends State<AnimationGaming> {
                             children: [
                               Row(
                                 children: [
-                                  Image(
+                                 const Image(
                                       image:
                                           AssetImage("assets/images/prf1.png")),
                                   const SizedBox(
@@ -513,13 +513,13 @@ class _AnimationGamingState extends State<AnimationGaming> {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Image(
+                                 const  Image(
                                       image: AssetImage(
                                           "assets/icons/Vector (6).png")),
                                   const SizedBox(
                                     width: 35,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.star,
                                     color: Colors.yellow,
                                   ),

@@ -553,10 +553,10 @@ class _ChooseSubCategoryState extends State<ChooseSubCategory> {
                     child: Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Container(
-                      height: 45,
+                      height: 42,
                       width: size.width,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5), color: primaryColor),
+                          borderRadius: BorderRadius.circular(4), color: primaryColor),
                       alignment: Alignment.center,
                       child: Text(
                         "Search",

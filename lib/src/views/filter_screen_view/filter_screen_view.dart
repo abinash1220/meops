@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 
@@ -25,9 +26,14 @@ class _FilterViewState extends State<FilterView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        leading: InkWell(
+          onTap: (){
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
         ),
       ),
       body: Column(
@@ -393,9 +399,9 @@ class _FilterViewState extends State<FilterView> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Container(
-          height: 50,
+          height: 42,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(7), color: primaryColor),
+              borderRadius: BorderRadius.circular(4), color: primaryColor),
           alignment: Alignment.center,
           child: Text(
             "Search",

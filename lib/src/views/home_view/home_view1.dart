@@ -42,32 +42,38 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 2,
-                                color: Colors.grey.withOpacity(0.5))
-                          ]),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10, right: 10),
-                            child: Icon(
-                              Icons.search,
-                              color: primaryColor,
+                    child: InkWell(
+                      onTap: (){
+                          Get.to(() => const CaregorySeeAllView());
+                      },
+                      child: Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 2,
+                                  color: Colors.grey.withOpacity(0.5))
+                            ]),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10, right: 10),
+                              child: Icon(
+                                Icons.search,
+                                color: primaryColor,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: TextField(
-                              decoration:
-                                  InputDecoration.collapsed(hintText: "Search"),
-                            ),
-                          )
-                        ],
+                            const Expanded(
+                              child: TextField(
+                                readOnly: true,
+                                decoration:
+                                    InputDecoration.collapsed(hintText: "Search"),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -104,7 +110,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => CaregorySeeAllView());
+                      Get.to(() => const CaregorySeeAllView());
                     },
                     child: Row(
                       children: [
@@ -338,12 +344,12 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => ExploreView());
+                      Get.to(() => const ExploreView());
                     },
                     child: Row(
                       children: [
                         Text(
-                          "See All",
+                          "Explore All",
                           style: primaryFont.copyWith(fontSize: 13),
                         ),
                         const Icon(
