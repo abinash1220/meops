@@ -15,11 +15,11 @@ class VerifyOtp {
     });
 
     String message;
-    Data data;
+    RegisterData data;
 
     factory VerifyOtp.fromJson(Map<String, dynamic> json) => VerifyOtp(
         message: json["message"],
-        data: Data.fromJson(json["data"]),
+        data: RegisterData.fromJson(json["data"]),
     );
 
     Map<String, dynamic> toJson() => {
@@ -28,8 +28,8 @@ class VerifyOtp {
     };
 }
 
-class Data {
-    Data({
+class RegisterData {
+    RegisterData({
         required this.username,
         required this.userType,
         required this.isAgreed,
@@ -63,21 +63,21 @@ class Data {
     int id;
     String apiToken;
 
-    factory Data.fromJson(Map<String, dynamic> json) => Data(
+    factory RegisterData.fromJson(Map<String, dynamic> json) => RegisterData(
         username: json["username"],
         userType: json["user_type"],
         isAgreed: json["isAgreed"],
         isCookies: json["isCookies"],
         contactNumber: json["contact_number"],
-        email: json["email"],
+        email: json["email"] ?? "",
         displayName: json["display_name"],
         firstName: json["first_name"],
-        otpNumber: json["otp_number"],
+        otpNumber: json["otp_number"] ?? 0000,
         otpExpiry: DateTime.parse(json["otp_expiry"]),
-        status: json["status"],
+        status: json["status"] ?? 0,
         updatedAt: DateTime.parse(json["updated_at"]),
         createdAt: DateTime.parse(json["created_at"]),
-        id: json["id"],
+        id: json["id"] ?? 0,
         apiToken: json["api_token"],
     );
 
