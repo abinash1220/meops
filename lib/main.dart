@@ -65,7 +65,7 @@ firebaseNotification();
 });
 
   initializeDateFormatting().then((_) => runApp(const MyApp()));
-  Get.put(UpdateKycController());
+  // Get.put(UpdateKycController());
   Get.put(CategoryController());
   Get.put(AuthController());
 }

@@ -8,4 +8,11 @@ abstract class BaseApiServices{
 
   String userLoginApiUrl = "https://batechnology.in.net/meops/public/api/user-login";
 
+
+  String userRegisterKYC =
+      "https://batechnology.in.net/meops/public/api/user-update";
+
+
+      
+
 }

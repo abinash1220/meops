@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart' as dio;
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
 import 'package:meops/src/models/login_api_model.dart';
@@ -18,12 +22,63 @@ class AuthController extends GetxController {
   RegisterApiService registerapi = RegisterApiService();
   LoginApiService loginapiservice = LoginApiService();
   RxBool loder = false.obs;
+  RxInt index = 0.obs;
+
+//personal
+  var nameTextControler = TextEditingController();
+  var mobileNumberController = TextEditingController();
+  var emailController = TextEditingController();
+  var addressController = TextEditingController();
+  var cityController = TextEditingController();
+  var pinCodeController = TextEditingController();
+
+//id proofs
+  List<File> aadharCardFrontpcs = [];
+  List<File> aadharCardBackpcs = [];
+  List<File> pancardFrontPics = [];
+  List<File> panCardBackPics = [];
+
+//bank details
+  int accountType = 0;
+  var accountNameController = TextEditingController();
+  var accountNumberController = TextEditingController();
+  var ifscCodeController = TextEditingController();
+
+//describe your self
+  var skillsController = TextEditingController();
+  var skillLevelController = TextEditingController();
+  var workLOcationController = TextEditingController();
+  var descriptionController = TextEditingController();
+
+  //describe your self
+  var skillsController2 = TextEditingController();
+  var skillLevelController2 = TextEditingController();
+  var workLOcationController2 = TextEditingController();
+  var descriptionController2 = TextEditingController();
+
+  //describe your self
+  var skillsController3 = TextEditingController();
+  var skillLevelController3 = TextEditingController();
+  var workLOcationController3 = TextEditingController();
+  var descriptionController3 = TextEditingController();
+
+  //describe your self
+  var skillsController4 = TextEditingController();
+  var skillLevelController4 = TextEditingController();
+  var workLOcationController4 = TextEditingController();
+  var descriptionController4 = TextEditingController();
+
+  var workLinkController1 = TextEditingController();
+  var workLinkController2 = TextEditingController();
+  var workLinkController3 = TextEditingController();
+
+  List<File> workFiles = [];
 
   register(
       {required RegisterModel registerModel,
       required BuildContext context,
       required var size}) async {
-        loder(true);
+    loder(true);
     final prefs = await SharedPreferences.getInstance();
     dio.Response<dynamic> response =
         await registerapi.registerApi(registerModel);
@@ -43,7 +98,6 @@ class AuthController extends GetxController {
   }
 
   verifyOtp(BuildContext context, var size, RegisterData registerData) {
-
     showModalBottomSheet(
         context: context,
         shape: const RoundedRectangleBorder(
@@ -194,30 +248,114 @@ class AuthController extends GetxController {
         });
   }
 
-  login({required LoginApiModel loginApiModel})async{
+  login({required LoginApiModel loginApiModel}) async {
     final prefs = await SharedPreferences.getInstance();
-    dio.Response<dynamic> response = await loginapiservice.loginApi(loginApiModel);
+    dio.Response<dynamic> response =
+        await loginapiservice.loginApi(loginApiModel);
 
-    if(response.statusCode == 200){
-       Get.to(HomeBottomNavigationBar());
-       Get.snackbar("Login successfully","",
+    if (response.statusCode == 200) {
+      Get.to(HomeBottomNavigationBar());
+      Get.snackbar("Login successfully", "",
           colorText: Colors.white,
           backgroundColor: Colors.green,
           snackPosition: SnackPosition.BOTTOM);
-
-    }else if(response.statusCode == 401){
-      Get.snackbar("Invalid Email/Mobile No. or password","",
+    } else if (response.statusCode == 401) {
+      Get.snackbar("Invalid Email/Mobile No. or password", "",
           colorText: Colors.white,
           backgroundColor: Colors.red,
           snackPosition: SnackPosition.BOTTOM);
-    }else{
+    } else {
       Get.snackbar("Something went wrong", response.statusCode.toString(),
           colorText: Colors.white,
           backgroundColor: Colors.red,
           snackPosition: SnackPosition.BOTTOM);
     }
-
-    
   }
 
+  getAadharFrontFromGellery() async {
+    final ImagePicker _picker = ImagePicker();
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    aadharCardFrontpcs.add(File(image!.path));
+    update();
+  }
+
+  getAadharFrontFromCamera() async {
+    final ImagePicker _picker = ImagePicker();
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+
+    aadharCardFrontpcs.add(File(image!.path));
+    update();
+  }
+
+  getAadharBackFromGellery() async {
+    final ImagePicker _picker = ImagePicker();
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    aadharCardBackpcs.add(File(image!.path));
+    update();
+  }
+
+  getAadharBackFromCamera() async {
+    final ImagePicker _picker = ImagePicker();
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+
+    aadharCardBackpcs.add(File(image!.path));
+    update();
+  }
+
+  getPanFrontFromGellery() async {
+    final ImagePicker _picker = ImagePicker();
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    pancardFrontPics.add(File(image!.path));
+    update();
+  }
+
+  getPanFrontFromCamera() async {
+    final ImagePicker _picker = ImagePicker();
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+
+    pancardFrontPics.add(File(image!.path));
+    update();
+  }
+
+  getPanBackFromGellery() async {
+    final ImagePicker _picker = ImagePicker();
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    panCardBackPics.add(File(image!.path));
+    update();
+  }
+
+  getPanBackFromCamera() async {
+    final ImagePicker _picker = ImagePicker();
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+
+    panCardBackPics.add(File(image!.path));
+    update();
+  }
+
+  picFiles() async {
+    FilePickerResult? result =
+        await FilePicker.platform.pickFiles(allowMultiple: true);
+
+    if (result != null) {
+      List<File> files = result.paths.map((path) => File(path!)).toList();
+      files.forEach((element) {
+        workFiles.add(element);
+      });
+      update();
+    } else {
+      // User canceled the picker
+    }
+  }
 }
