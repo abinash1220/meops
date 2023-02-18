@@ -5,25 +5,34 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/models/login_api_model.dart';
 import 'package:meops/src/models/register_api_model.dart';
 import 'package:meops/src/models/verifyOtp_api_model.dart';
+import 'package:meops/src/services/networks/auth_views_services/login_api_services/login_api_service.dart';
 import 'package:meops/src/services/networks/auth_views_services/register_api_service.dart';
+import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
 import 'package:meops/src/views/update_kyc/update_kyc_work.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
   RegisterApiService registerapi = RegisterApiService();
+  LoginApiService loginapiservice = LoginApiService();
+  RxBool loder = false.obs;
 
   register(
       {required RegisterModel registerModel,
       required BuildContext context,
       required var size}) async {
+        loder(true);
     final prefs = await SharedPreferences.getInstance();
     dio.Response<dynamic> response =
         await registerapi.registerApi(registerModel);
 
     if (response.statusCode == 200) {
+      Get.snackbar("incorrect", response.statusCode.toString());
       VerifyOtp verifyotp = VerifyOtp.fromJson(response.data);
+      Get.snackbar("second", "after model");
+      loder(false);
       verifyOtp(context, size, verifyotp.data);
     } else {
       Get.snackbar("Something went wrong", response.statusCode.toString(),
@@ -34,6 +43,7 @@ class AuthController extends GetxController {
   }
 
   verifyOtp(BuildContext context, var size, RegisterData registerData) {
+
     showModalBottomSheet(
         context: context,
         shape: const RoundedRectangleBorder(
@@ -183,4 +193,31 @@ class AuthController extends GetxController {
           );
         });
   }
+
+  login({required LoginApiModel loginApiModel})async{
+    final prefs = await SharedPreferences.getInstance();
+    dio.Response<dynamic> response = await loginapiservice.loginApi(loginApiModel);
+
+    if(response.statusCode == 200){
+       Get.to(HomeBottomNavigationBar());
+       Get.snackbar("Login successfully","",
+          colorText: Colors.white,
+          backgroundColor: Colors.green,
+          snackPosition: SnackPosition.BOTTOM);
+
+    }else if(response.statusCode == 401){
+      Get.snackbar("Invalid Email/Mobile No. or password","",
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM);
+    }else{
+      Get.snackbar("Something went wrong", response.statusCode.toString(),
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM);
+    }
+
+    
+  }
+
 }

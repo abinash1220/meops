@@ -1,7 +1,11 @@
 abstract class BaseApiServices{
   
-  String baseUrl = "http://192.168.29.131/meops/public/api/";
+  String baseUrl = "https://batechnology.in.net/meops/public/api/";
 
-  String registerApiUrl = "http://192.168.29.131/meops/public/api/register-user";
+  String registerApiUrl = "https://batechnology.in.net/meops/public/api/register-user";
+
+  String verifyOtpApiUrl = "https://batechnology.in.net/meops/public/api/verify-otp";
+
+  String userLoginApiUrl = "https://batechnology.in.net/meops/public/api/user-login";
 
 }

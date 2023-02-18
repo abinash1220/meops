@@ -21,6 +21,8 @@ class CreateAccountView extends StatefulWidget {
 class _CreateAccountViewState extends State<CreateAccountView> {
   bool isAgreedTerms = false;
   bool isCookie = false;
+  bool isPasswordVisble = true;
+  bool isPasswordVisble1 = true;
 
   final authcontroller = Get.find<AuthController>(); 
 
@@ -56,6 +58,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                 height: 50,
                 child: TextField(
                   controller: emailController,
+                  cursorColor: primaryColor,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -80,17 +83,27 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                 height: 50,
                 child: TextField(
                   controller: setPassController,
+                  obscureText: isPasswordVisble,
+                  cursorColor: primaryColor,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                         color: primaryColor,
+                      
                       )),
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                         color: primaryColor,
                       )),
                       labelText: "Set Password",
+                      suffixIcon:  InkWell(
+                            onTap: () {
+                              setState(() {
+                                isPasswordVisble = !isPasswordVisble;
+                              });
+                            },
+                            child: isPasswordVisble ? const Icon(Icons.visibility_off,color: Colors.grey,) : const Icon(Icons.visibility,color: Colors.grey,) ),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
@@ -104,6 +117,8 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                 height: 50,
                 child: TextField(
                   controller: conPassController,
+                  obscureText: isPasswordVisble,
+                  cursorColor: primaryColor,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -115,6 +130,13 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         color: primaryColor,
                       )),
                       labelText: "Confirm Password",
+                      suffixIcon:  InkWell(
+                            onTap: () {
+                              setState(() {
+                                isPasswordVisble1 = !isPasswordVisble1;
+                              });
+                            },
+                            child: isPasswordVisble1 ? const Icon(Icons.visibility_off,color: Colors.grey,) : const Icon(Icons.visibility,color: Colors.grey,) ),
                       labelStyle: primaryFont.copyWith(color: primaryColor)),
                 ),
               ),
@@ -233,41 +255,47 @@ class _CreateAccountViewState extends State<CreateAccountView> {
             const SizedBox(
               height: 20,
             ),
-            InkWell(
-              onTap: (){
-                 if(emailController.text.isNotEmpty &&
-                    setPassController.text.isNotEmpty &&
-                    conPassController.text.isNotEmpty &&
-                    isAgreedTerms == true &&
-                    isCookie == true
-                 ){
-                  authcontroller.register(registerModel: RegisterModel(
-                    username: emailController.text,
-                    emailmobilenumber: emailController.text,
-                    password: setPassController.text,
-                    usertype: widget.role,
-                    isAgreed: isAgreedTerms ? "1" : "0",
-                    isCookies: isCookie ? "1" : "0"
-                    ), 
-                  context: context, size: size);
-                 }else{
-                    Get.snackbar("please fill all the fields", "incorrect");
-                 }
-              }, 
-              child: Padding(
-                padding: const EdgeInsets.only(right: 15, left: 15),
-                child: Container(
-                  height: 42,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4), color: primaryColor),
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Continue",
-                    style: primaryFont.copyWith(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
+            Obx( () =>
+               InkWell(
+                onTap: (){
+                   if(emailController.text.isNotEmpty &&
+                      setPassController.text.isNotEmpty &&
+                      conPassController.text.isNotEmpty &&
+                      isAgreedTerms == true &&
+                      isCookie == true
+                   ){
+                    if(setPassController.text == conPassController.text){
+                      authcontroller.register(registerModel: RegisterModel(
+                      emailmobilenumber: emailController.text,
+                      password: setPassController.text,
+                      usertype: widget.role,
+                      isAgreed: isAgreedTerms ? "1" : "0",
+                      isCookies: isCookie ? "1" : "0"
+                      ), 
+                    context: context, size: size);
+                    }else{
+                      Get.snackbar("Incorrect", "password & confirmPassword does not match");
+                    }
+                    
+                   }else{
+                      Get.snackbar("please fill all the fields", "incorrect");
+                   }
+                }, 
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 15, left: 15),
+                  child: Container(
+                    height: 42,
+                    width: size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4), color: primaryColor),
+                    alignment: Alignment.center,
+                    child:authcontroller.loder.isTrue ? const CircularProgressIndicator(color: Colors.white,) : Text(
+                      "Continue",
+                      style: primaryFont.copyWith(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               ),

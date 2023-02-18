@@ -1,28 +1,26 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:meops/src/models/register_api_model.dart';
+import 'package:meops/src/models/login_api_model.dart';
 import 'package:meops/src/services/base_urls/base_urls_api_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class RegisterApiService extends BaseApiServices{
+class LoginApiService extends BaseApiServices{
   
-    Future registerApi(RegisterModel registerModel) async {
+    Future loginApi(LoginApiModel loginApiModel) async {
       dynamic responseJson;
       
       try{
          var dio = Dio();
 
          FormData formData = FormData.fromMap({
-        "email_mobile_number": registerModel.emailmobilenumber,
-        "password": registerModel.password,
-        "user_type": registerModel.usertype,
-        "isAgreed": registerModel.isAgreed,
-        "isCookies": registerModel.isCookies,
+          "userEmail": loginApiModel.userEmail,
+        "password": loginApiModel.password,
+        
 
          });
          final prefs = await SharedPreferences.getInstance();
          String? authtoken = prefs.getString("auth_token");
-         var response = await dio.post(registerApiUrl,
+         var response = await dio.post(userLoginApiUrl,
          options: Options(
           headers: {
             'Accept': 'application/json',
