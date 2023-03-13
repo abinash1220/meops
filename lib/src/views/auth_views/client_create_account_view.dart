@@ -3,6 +3,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/controllers/auth_controllers.dart';
 import 'package:meops/src/views/auth_views/login_view.dart';
 import 'package:meops/src/views/signUp_view/privacy_policy.dart';
 import 'package:meops/src/views/signUp_view/terms_of_condition_screen.dart';
@@ -16,6 +17,9 @@ class ClientCreateAccountView extends StatefulWidget {
 }
 
 class _ClientCreateAccountViewState extends State<ClientCreateAccountView> {
+
+  final authController = Get.find<AuthController>();
+
   bool isAgreedTerms = false;
   bool isAgreedTerms1 = false;
   bool isCookie = false;

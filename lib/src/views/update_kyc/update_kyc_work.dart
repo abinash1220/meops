@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meops/src/client/client_views/client_profile/client_bio_edit_screen.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/controllers/auth_controllers.dart';
-import 'package:meops/src/controllers/update_kyc_controller.dart';
 import 'package:meops/src/views/update_kyc/describe_yourself.dart';
 
 import '../../constant/app_font.dart';
 
 class UpdateKyc extends StatefulWidget {
-  const UpdateKyc({super.key});
+   String usertype;
+   UpdateKyc({super.key,required this.usertype});
 
   @override
   State<UpdateKyc> createState() => _UpdateKycState();
@@ -17,7 +19,12 @@ class UpdateKyc extends StatefulWidget {
 
 class _UpdateKycState extends State<UpdateKyc> {
   final updatekyccontroller = Get.find<AuthController>();
+ 
+  final authController = Get.find<AuthController>();
 
+  TextEditingController reAccountNumberController = TextEditingController();
+
+  
   int index = 0;
 
   @override
@@ -196,6 +203,8 @@ class _UpdateKycState extends State<UpdateKyc> {
                               child: SizedBox(
                                 height: 50,
                                 child: TextField(
+                                  controller:authController.nameTextControler,
+                                  keyboardType: TextInputType.name,
                                   decoration: InputDecoration(
                                       isDense: true,
                                       enabledBorder: OutlineInputBorder(
@@ -221,6 +230,38 @@ class _UpdateKycState extends State<UpdateKyc> {
                               child: SizedBox(
                                 height: 50,
                                 child: TextField(
+                                  controller: authController.mobileNumberController,
+                                  keyboardType: TextInputType.number,
+                                   inputFormatters:<TextInputFormatter>[
+                                   LengthLimitingTextInputFormatter(10),
+                                   FilteringTextInputFormatter.allow(
+                                  RegExp(r'[0-9]'),
+                                ),
+                                FilteringTextInputFormatter.deny(
+                                  RegExp(
+                                      r'^0+'), //users can't type 0 at 1st position
+                                ),
+                                FilteringTextInputFormatter.deny(
+                                  RegExp(
+                                      r'^1+'), //users can't type 0 at 1st position
+                                ),
+                                FilteringTextInputFormatter.deny(
+                                  RegExp(
+                                      r'^2+'), //users can't type 0 at 1st position
+                                ),
+                                FilteringTextInputFormatter.deny(
+                                  RegExp(
+                                      r'^3+'), //users can't type 0 at 1st position
+                                ),
+                                FilteringTextInputFormatter.deny(
+                                  RegExp(
+                                      r'^4+'), //users can't type 0 at 1st position
+                                ),
+                                FilteringTextInputFormatter.deny(
+                                  RegExp(
+                                      r'^5+'), //users can't type 0 at 1st position
+                                ),
+                                   ],
                                   decoration: InputDecoration(
                                       isDense: true,
                                       enabledBorder: OutlineInputBorder(
@@ -246,6 +287,8 @@ class _UpdateKycState extends State<UpdateKyc> {
                               child: SizedBox(
                                 height: 50,
                                 child: TextField(
+                                  controller: authController.emailController,
+                                  keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       isDense: true,
                                       enabledBorder: OutlineInputBorder(
@@ -271,6 +314,8 @@ class _UpdateKycState extends State<UpdateKyc> {
                               child: SizedBox(
                                 height: 50,
                                 child: TextField(
+                                  controller: authController.addressController,
+                                  keyboardType: TextInputType.streetAddress,
                                   decoration: InputDecoration(
                                       isDense: true,
                                       enabledBorder: OutlineInputBorder(
@@ -296,6 +341,7 @@ class _UpdateKycState extends State<UpdateKyc> {
                               child: SizedBox(
                                 height: 50,
                                 child: TextField(
+                                  controller: authController.cityController,
                                   decoration: InputDecoration(
                                       isDense: true,
                                       enabledBorder: OutlineInputBorder(
@@ -321,6 +367,11 @@ class _UpdateKycState extends State<UpdateKyc> {
                               child: SizedBox(
                                 height: 50,
                                 child: TextField(
+                                  controller: authController.pinCodeController,
+                                  keyboardType: TextInputType.number,
+                                   inputFormatters:[
+                                   LengthLimitingTextInputFormatter(6),
+                                   ],
                                   decoration: InputDecoration(
                                       isDense: true,
                                       enabledBorder: OutlineInputBorder(
@@ -342,9 +393,23 @@ class _UpdateKycState extends State<UpdateKyc> {
                             ),
                             InkWell(
                               onTap: () {
-                                setState(() {
+                               if(
+                                 authController.nameTextControler.text.isNotEmpty &&
+                                 authController.mobileNumberController.text.isNotEmpty &&
+                                 authController.emailController.text.isNotEmpty &&
+                                 authController.addressController.text.isNotEmpty &&
+                                 authController.cityController.text.isNotEmpty &&
+                                 authController.pinCodeController.text.isNotEmpty
+                               ){
+                                 setState(() {
                                   updatekyccontroller.index(1);
                                 });
+                               }else{
+                                //Get.snackbar("please fill all the fields", "");
+                                 Get.rawSnackbar(message: "please fill all the fields",
+                                 backgroundColor: Colors.red
+                                  );
+                               }
                               },
                               child: Padding(
                                 padding: const EdgeInsets.only(
@@ -1203,6 +1268,15 @@ class _UpdateKycState extends State<UpdateKyc> {
                                         color: primaryColor,
                                       ),
                                     ),
+                                    if(widget.usertype == "Client")
+                                    Text(
+                                      "(optional)",
+                                      style: primaryFont.copyWith(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: primaryColor,
+                                      ),
+                                    ),
                                   ],
                                 ),
                                 const SizedBox(
@@ -1307,6 +1381,8 @@ class _UpdateKycState extends State<UpdateKyc> {
                                   child: SizedBox(
                                     height: 50,
                                     child: TextField(
+                                      controller: authController.accountNameController,
+                                      keyboardType: TextInputType.name,
                                       decoration: InputDecoration(
                                           isDense: true,
                                           enabledBorder: OutlineInputBorder(
@@ -1332,6 +1408,8 @@ class _UpdateKycState extends State<UpdateKyc> {
                                   child: SizedBox(
                                     height: 50,
                                     child: TextField(
+                                      controller: authController.accountNumberController,
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           isDense: true,
                                           enabledBorder: OutlineInputBorder(
@@ -1357,6 +1435,8 @@ class _UpdateKycState extends State<UpdateKyc> {
                                   child: SizedBox(
                                     height: 50,
                                     child: TextField(
+                                      controller: reAccountNumberController,
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           isDense: true,
                                           enabledBorder: OutlineInputBorder(
@@ -1382,6 +1462,11 @@ class _UpdateKycState extends State<UpdateKyc> {
                                   child: SizedBox(
                                     height: 50,
                                     child: TextField(
+                                      textCapitalization: TextCapitalization.characters,
+                                      controller: authController.ifscCodeController,
+                                       inputFormatters: [
+                                      LengthLimitingTextInputFormatter(11),
+                                     ],
                                       decoration: InputDecoration(
                                           isDense: true,
                                           enabledBorder: OutlineInputBorder(
@@ -1409,7 +1494,22 @@ class _UpdateKycState extends State<UpdateKyc> {
                                 children: [
                                   InkWell(
                                     onTap: () {
-                                      Get.to(const DescribeYourself());
+                                      if(authController.accountNameController.text.isNotEmpty &&
+                                         authController.accountNumberController.text.isNotEmpty &&
+                                         reAccountNumberController.text.isNotEmpty &&
+                                         authController.ifscCodeController.text.isNotEmpty
+                                      ){
+                                       if(widget.usertype == "Client"){
+                                        Get.to(const ClientBioEditPage());
+                                       }else{
+                                        Get.to(const DescribeYourself()); 
+                                       }
+                                      }else{
+                                        //Get.snackbar("please fill all the fields", "");
+                                        Get.rawSnackbar(message: "please fill all the fields",
+                                          backgroundColor: Colors.red
+                                         );
+                                      }
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.only(

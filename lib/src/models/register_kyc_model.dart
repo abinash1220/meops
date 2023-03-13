@@ -21,6 +21,8 @@ class RegisterKycModel {
   String? profession;
   String? experience;
   List<SkillsLevelModel>? skillsList;
+  List<String>? link;
+  List<File>? workImages;
 
   RegisterKycModel(
       {this.userId,
@@ -42,7 +44,10 @@ class RegisterKycModel {
       this.panCardBack,
       this.pancardFront,
       this.profession,
-      this.skillsList});
+      this.skillsList,
+      this.link,
+      this.workImages,
+      });
 }
 
 class SkillsLevelModel {
@@ -52,16 +57,13 @@ class SkillsLevelModel {
   String? describeYourWork;
   String? rateCard;
   String? name;
-  String? link;
-  File? workImages;
+  
 
   SkillsLevelModel(
       {this.describeYourWork,
-      this.link,
       this.name,
       this.rateCard,
       this.skill,
       this.skillLevel,
-      this.workImages,
       this.workLocation});
 }

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/controllers/home_controller.dart';
 import 'package:meops/src/views/category_view/animation_gaming_view.dart';
 
 class ChooseSubCategory extends StatefulWidget {
-  const ChooseSubCategory({super.key});
+  int id;
+  ChooseSubCategory({super.key,required this.id});
 
   @override
   State<ChooseSubCategory> createState() => _ChooseSubCategoryState();
@@ -33,6 +35,17 @@ class _ChooseSubCategoryState extends State<ChooseSubCategory> {
     bool value18 = false;
     bool value19 = false;
     bool value20 = false;
+
+    final homeController = Get.find<HomeController>();
+
+    @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    homeController.subcategory(id: widget.id.toString());
+  }
+
+
   
   @override
   Widget build(BuildContext context) {
@@ -101,22 +114,26 @@ class _ChooseSubCategoryState extends State<ChooseSubCategory> {
             ),
             const SizedBox(height: 10,),
             SizedBox(
-              height:size.height * 0.75,
-              child: ListView(
-                children: [
-                  Row(
+              height:size.height * 0.68,
+              child: ListView.builder(
+                itemCount: homeController.subcategorydata.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                        Row(
                     children: [
                       Checkbox(  
                                 checkColor: Colors.white,  
                                 activeColor: primaryColor,  
-                                value: valuefirst,  
+                                value: homeController.subcategorydata[index].isSelected,  
                                 onChanged: (value) {  
                                   setState(() {  
-                                    valuefirst = value!;  
+                                    homeController.subcategorydata[index].isSelected = value!;  
+                                    homeController.update();
                                   });  
                                 },  
                               ),
-                              Text("2D Animator",
+                              Text(homeController.subcategorydata[index].name,
                                                     style: primaryFont.copyWith(
                                                       color: Colors.black,
                                                       fontSize: 16,
@@ -125,432 +142,20 @@ class _ChooseSubCategoryState extends State<ChooseSubCategory> {
                                                     ),
                     ],
                   ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value2,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value2 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("3D Animator",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
+
+                  
+
                     ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value3,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value3 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("2D Designer",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value4,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value4 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("3D Designer",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value5,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value5 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("2D Modeler",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value6,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value6 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("3D Modeler",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value7,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value7 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Av Editor",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value8,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value8 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Compositor",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value9,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value9 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Content Developer",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value10,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value10 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Graphic Designer",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value11,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value11 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Multimedia Programmer",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value12,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value12 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Technical Trainer",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value13,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value13 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Visualizer",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                   Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value20,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value20 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Game Developer",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value14,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value14 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Game Tester",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value15,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value15 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Riggung Artist",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value16,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value16 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Texture Artist",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                   Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value17,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value17 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Special Effect Artist",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                   Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value16,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value16 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Lighting Artist",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                   Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value18,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value18 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Hair & Cloth Artist",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                   Row(
-                    children: [
-                      Checkbox(  
-                                checkColor: Colors.white,  
-                                activeColor: primaryColor,  
-                                value: value19,  
-                                onChanged: (value) {  
-                                  setState(() {  
-                                    value19 = value!;  
-                                  });  
-                                },  
-                              ),
-                              Text("Others",
-                                                    style: primaryFont.copyWith(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      //fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                    ],
-                  ),
-                  InkWell(
+                  );
+                },
+              ),
+            ),  
+            InkWell(
                     onTap: (){
                       Get.to(const AnimationGaming());
                     },
                     child: Padding(
-                    padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Container(
                       height: 42,
                       width: size.width,
@@ -567,9 +172,7 @@ class _ChooseSubCategoryState extends State<ChooseSubCategory> {
                     ),
                                   ),
                   ),
-                ],
-              ),
-            ),  
+
           ],
         ),
       ),
@@ -580,3 +183,5 @@ class _ChooseSubCategoryState extends State<ChooseSubCategory> {
 }
 
 
+
+     

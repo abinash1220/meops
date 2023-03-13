@@ -252,7 +252,7 @@ class _UploadYorWorkState extends State<UploadYorWork> {
         ),
         InkWell(
           onTap: () {
-            Get.to(const SelectFiles());
+            Get.to(SelectFiles());
           },
           child: Padding(
             padding: const EdgeInsets.only(right: 15, left: 15, top: 50),

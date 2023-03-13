@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
+import 'package:meops/src/controllers/auth_controllers.dart';
 import 'package:meops/src/views/update_kyc/upload_your_work.dart';
 
 import '../../constant/app_font.dart';
@@ -14,7 +15,19 @@ class DescribeYourself extends StatefulWidget {
 
 class _DescribeYourselfState extends State<DescribeYourself> {
 
+   final authController = Get.find<AuthController>(); 
+
    bool ishidefield = false;
+
+    List<String> list = <String>[ 'Beginner', 'Intermediate', 'Advanced'];
+
+    var dropdownValue ;
+    @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+     dropdownValue = list.first;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +88,8 @@ class _DescribeYourselfState extends State<DescribeYourself> {
               child: SizedBox(
                 height: 50,
                 child: TextField(
+                  controller: authController.skillsController,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -94,23 +109,35 @@ class _DescribeYourselfState extends State<DescribeYourself> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20,top: 20, right: 20),
-              child: SizedBox(
+              child: Container(
                 height: 50,
-                child: TextField(
-                  decoration: InputDecoration(
-                      isDense: true,
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                        color: primaryColor,
-                      )),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                        color: primaryColor,
-                      )),
-                      labelText: "Skill Level",
-                      hintText: 'Beginner',
-                      suffixIcon: const Image(image: AssetImage("assets/icons/Group 225.png")),
-                      labelStyle: primaryFont.copyWith(color: primaryColor)),
+                width: size.width,
+                decoration: BoxDecoration(
+                  border: Border.all(color: primaryColor)
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10,right: 10),
+                  child: DropdownButton<String>(
+                    
+      value: dropdownValue,
+      isExpanded: true,
+      icon: const Image(image: AssetImage("assets/icons/Group 225.png")),
+      elevation: 6,
+      style: const TextStyle(color: Colors.deepPurple),
+      
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+        });
+      },
+      items: list.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    ),
                 ),
               ),
             ),
@@ -119,6 +146,8 @@ class _DescribeYourselfState extends State<DescribeYourself> {
               child: SizedBox(
                 height: 50,
                 child: TextField(
+                  controller: authController.workLOcationController,
+                  keyboardType: TextInputType.streetAddress,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -141,6 +170,7 @@ class _DescribeYourselfState extends State<DescribeYourself> {
               child: SizedBox(
                 height: 150,
                 child: TextField(
+                  controller: authController.descriptionController,
                  maxLines: 100,
                   decoration: InputDecoration(
                       isDense: true,
@@ -171,6 +201,8 @@ class _DescribeYourselfState extends State<DescribeYourself> {
               child: SizedBox(
                 height: 50,
                 child: TextField(
+                 // controller: authController.,
+                 keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(

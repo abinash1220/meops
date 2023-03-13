@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/controllers/auth_controllers.dart';
+import 'package:meops/src/models/register_kyc_model.dart';
 import 'package:meops/src/views/splash_view/Splash_screen.dart';
 
 import '../../constant/app_font.dart';
@@ -18,6 +19,13 @@ class _SelectFilesState extends State<SelectFiles> {
   bool isdelete1 = true;
 
   final authController = Get.find<AuthController>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    //authController.kycupdate();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -292,7 +300,7 @@ class _SelectFilesState extends State<SelectFiles> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(const IntroductionScreens());
+                    authController.kycupdate();
                   },
                   child: Padding(
                     padding:
@@ -304,7 +312,7 @@ class _SelectFilesState extends State<SelectFiles> {
                           borderRadius: BorderRadius.circular(4),
                           color: primaryColor),
                       alignment: Alignment.center,
-                      child: Text(
+                      child:authController.loder.isTrue ? const CircularProgressIndicator(color: Colors.white,) : Text(
                         "Upload & Continue",
                         style: primaryFont.copyWith(
                             color: Colors.white,

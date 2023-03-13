@@ -1,28 +1,35 @@
+import 'dart:convert';
 import 'dart:io';
-
+import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart' as dio;
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/models/help_line_api_model.dart';
 import 'package:meops/src/models/login_api_model.dart';
 import 'package:meops/src/models/register_api_model.dart';
+import 'package:meops/src/models/register_kyc_model.dart';
 import 'package:meops/src/models/verifyOtp_api_model.dart';
+import 'package:meops/src/services/networks/auth_views_services/help_line_api_services.dart';
+import 'package:meops/src/services/networks/auth_views_services/kyc_api_services.dart';
 import 'package:meops/src/services/networks/auth_views_services/login_api_services/login_api_service.dart';
 import 'package:meops/src/services/networks/auth_views_services/register_api_service.dart';
 import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
+import 'package:meops/src/views/splash_view/Splash_screen.dart';
 import 'package:meops/src/views/update_kyc/update_kyc_work.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
   RegisterApiService registerapi = RegisterApiService();
   LoginApiService loginapiservice = LoginApiService();
+  KycApiService kycapiservice = KycApiService();
   RxBool loder = false.obs;
   RxInt index = 0.obs;
+  int? userId;
 
 //personal
   var nameTextControler = TextEditingController();
@@ -72,6 +79,13 @@ class AuthController extends GetxController {
   var workLinkController2 = TextEditingController();
   var workLinkController3 = TextEditingController();
 
+  //client bio details
+
+  var dateOfBirthController = TextEditingController();
+  var educationController = TextEditingController();
+  var professtionController = TextEditingController();
+  var experienceController = TextEditingController();
+
   List<File> workFiles = [];
 
   register(
@@ -82,15 +96,20 @@ class AuthController extends GetxController {
     final prefs = await SharedPreferences.getInstance();
     dio.Response<dynamic> response =
         await registerapi.registerApi(registerModel);
-
+        loder(false);
     if (response.statusCode == 200) {
-      Get.snackbar("incorrect", response.statusCode.toString());
+      //Get.snackbar("incorrect", response.statusCode.toString());
       VerifyOtp verifyotp = VerifyOtp.fromJson(response.data);
-      Get.snackbar("second", "after model");
-      loder(false);
+      //Get.snackbar("second", "after model");
+     
       verifyOtp(context, size, verifyotp.data);
-    } else {
-      Get.snackbar("Something went wrong", response.statusCode.toString(),
+    } else if(response.statusCode == 201){
+          Get.snackbar("This user already signed up !", response.statusCode.toString(),
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM);
+    }else{
+      Get.snackbar("Something went wrong", "",
           colorText: Colors.white,
           backgroundColor: Colors.red,
           snackPosition: SnackPosition.BOTTOM);
@@ -217,7 +236,9 @@ class AuthController extends GetxController {
                           padding: const EdgeInsets.only(right: 20),
                           child: InkWell(
                             onTap: () {
-                              Get.offAll(const UpdateKyc());
+                                 userId = registerData.id;
+                                   Get.offAll( UpdateKyc(usertype: registerData.userType));
+                              
                             },
                             child: Container(
                               width: size.width,
@@ -248,11 +269,12 @@ class AuthController extends GetxController {
         });
   }
 
-  login({required LoginApiModel loginApiModel}) async {
+  login({required LoginApiModel loginApiModel})async{
+    loder(true);
     final prefs = await SharedPreferences.getInstance();
     dio.Response<dynamic> response =
         await loginapiservice.loginApi(loginApiModel);
-
+     loder(false);
     if (response.statusCode == 200) {
       Get.to(HomeBottomNavigationBar());
       Get.snackbar("Login successfully", "",
@@ -358,4 +380,126 @@ class AuthController extends GetxController {
       // User canceled the picker
     }
   }
+
+  kycupdate() async {
+    loder(true);
+    RegisterKycModel registerKycModel = RegisterKycModel(
+     aadhaarcardBack: aadharCardBackpcs.last,
+     address: addressController.text,
+     aadhaarcardFront: aadharCardFrontpcs.last,
+     bankAccountName: accountNameController.text,
+     bankAccountNumber: accountNumberController.text,
+     bankAccountType: accountType.toString(),
+     cityId: cityController.text,
+     contactNumber: mobileNumberController.text,
+     userId: userId,
+      name: nameTextControler.text,
+      email: emailController.text,
+      pancardFront: pancardFrontPics.last,
+      panCardBack: panCardBackPics.last,
+      pincode: pinCodeController.text,
+      ifscCode: ifscCodeController.text,
+      dob: dateOfBirthController.text,
+      education: educationController.text,
+      profession: professtionController.text,
+      experience: experienceController.text,
+      
+      skillsList: [
+       if(skillsController.text.isNotEmpty) SkillsLevelModel(
+          skill: skillsController.text,
+          skillLevel: skillLevelController.text,
+          workLocation: workLOcationController.text,
+          describeYourWork: descriptionController.text,
+          
+        ),
+
+        if(skillsController2.text.isNotEmpty) SkillsLevelModel(
+          skill: skillsController2.text,
+          skillLevel: skillLevelController2.text,
+          workLocation: workLOcationController2.text,
+          describeYourWork: descriptionController2.text,
+        ),
+
+        if(skillsController3.text.isNotEmpty) SkillsLevelModel(
+          skill: skillsController3.text,
+          skillLevel: skillLevelController3.text,
+          workLocation: workLOcationController3.text,
+          describeYourWork: descriptionController3.text,
+        ),
+
+        if(skillsController4.text.isNotEmpty) SkillsLevelModel(
+          skill: skillsController4.text,
+          skillLevel: skillLevelController4.text,
+          workLocation: workLOcationController4.text,
+          describeYourWork: descriptionController4.text,
+          
+        ),
+      ],
+
+      link: [
+          if(workLinkController1.text.isNotEmpty)
+          workLinkController2.text,
+          if(workLinkController2.text.isNotEmpty)
+          workLinkController3.text,
+      ],
+
+      workImages: workFiles,
+      
+    );
+    dio.Response<dynamic> response = await kycapiservice.kycApiServices(registerKycModel);
+    if(response.statusCode == 201){
+      Get.to(const IntroductionScreens());
+    }else{
+      Get.snackbar("Something went wrong", response.statusCode.toString(),
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM);
+    }
+
+  }
+
+  //help line 
+  HelpLineApiService helpLineApiService = HelpLineApiService();
+
+  RxString termsandcondition = "".obs;
+  RxString privacyPolicy = "".obs;
+  RxString paymentPolicy = "".obs;
+
+  helpLineList() async {
+  
+    dio.Response<dynamic> response = await helpLineApiService.helpLineApiService();
+    if(response.statusCode == 200){
+      HelpLine helpLinemodel = HelpLine.fromJson(response.data);
+      termsandcondition(helpLinemodel.termsConditions);
+      privacyPolicy(helpLinemodel.privacyPolicy);
+      paymentPolicy(helpLinemodel.paymentPolicy);
+    }else{
+          Get.snackbar("Something went wrong", response.statusCode.toString(),
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM);
+    }
+     update();
+  }
+
+  //http
+
+   helpLineListhttp() async {
+  
+    http.Response response = await helpLineApiService.helpLineApiServicehttp();
+    if(response.statusCode == 200){
+    
+      HelpLine helpLinemodel = HelpLine.fromJson(jsonDecode(response.body));
+      termsandcondition(helpLinemodel.termsConditions);
+      privacyPolicy(helpLinemodel.privacyPolicy);
+      paymentPolicy(helpLinemodel.paymentPolicy);
+    }else{
+          Get.snackbar("Something went wrong", response.statusCode.toString(),
+          colorText: Colors.white,
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM);
+    }
+     update();
+  }
+
 }

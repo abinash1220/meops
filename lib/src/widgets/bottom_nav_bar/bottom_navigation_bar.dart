@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/views/home_view/home_bottom_navigation_bar.dart';
 
 class BottomNavBar extends StatefulWidget {
   int index;
@@ -45,6 +47,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               setState(() {
                 _bottomIndex = 0;
               });
+              Get.to(HomeBottomNavigationBar(index: 0,));
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

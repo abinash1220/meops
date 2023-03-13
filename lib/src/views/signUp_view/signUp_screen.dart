@@ -40,7 +40,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                     children: [
                       InkWell(
                         onTap: (){
-                          Get.to( CreateAccountView(role: "Professional",));
+                          Get.to( CreateAccountView(role: "provider",));
                         },
                         child: Container(
                           height: 100,
@@ -62,7 +62,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                       ),
                       InkWell(
                         onTap: (){
-                          Get.to(CreateAccountView(role: "Client",));
+                          Get.to(CreateAccountView(role: "user",));
                         },
                         child: Container(
                           height: 100,

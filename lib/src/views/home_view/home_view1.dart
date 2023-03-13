@@ -3,7 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/controllers/home_controller.dart';
 import 'package:meops/src/views/category_view/category_see_all_view.dart';
+import 'package:meops/src/views/category_view/choose_sub_category.dart';
+import 'package:meops/src/views/category_view/search_category_view.dart';
 import 'package:meops/src/views/explore_view/explore_view.dart';
 import 'package:meops/src/views/home_view/notification_view.dart';
 
@@ -15,6 +18,16 @@ class HomeViewScreen extends StatefulWidget {
 }
 
 class _HomeViewScreenState extends State<HomeViewScreen> {
+
+  final homecontroller = Get.find<HomeController>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    homecontroller.getcategorylist();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -39,7 +52,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: InkWell(
                       onTap: (){
-                          Get.to(() => const CaregorySeeAllView());
+                          Get.to(() => const SearchCategoryScreen());
                       },
                       child: Container(
                         height: 40,
@@ -89,7 +102,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 15,
             ),
             Padding(
               padding: const EdgeInsets.only(right: 10, left: 10),
@@ -124,206 +137,51 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 15,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                          height: 40,
-                          child: SvgPicture.asset(
-                              "assets/icons/Game Testing.svg")),
-                    ),
-                    Text(
-                      "Animation &\nGaming",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                          height: 40,
-                          child:
-                              SvgPicture.asset("assets/icons/photography.svg")),
-                    ),
-                    Text(
-                      "Photography &\nVideography",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                          height: 40,
-                          child:
-                              SvgPicture.asset("assets/icons/webappdev.svg")),
-                    ),
-                    Text(
-                      "Web & App\nDevelopment",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                          height: 40,
-                          child:
-                              SvgPicture.asset("assets/icons/influencer.svg")),
-                    ),
-                    Text(
-                      "Influencers",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                )
-              ],
+            Container(
+              height: 300,
+              child: GetBuilder<HomeController>(
+                builder: (_) {
+                  return GridView.builder(
+                    gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    childAspectRatio: (3 / 2),
+                  ), 
+                      itemCount: homecontroller.categorylistmodel.length,
+                    itemBuilder: (BuildContext context, index){
+                      return Container(
+                        height: 60,
+                        child: InkWell(
+                          onTap: (){
+                            Get.to( ChooseSubCategory(id: homecontroller.categorylistmodel[index].id,));
+                          },
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SizedBox(
+                                    height: 40,
+                                    child: Image.network(homecontroller.categorylistmodel[index].categoryImage)
+                                        ),
+                              ),
+                              Text(
+                                homecontroller.categorylistmodel[index].name,
+                                textAlign: TextAlign.center,
+                                style: primaryFont.copyWith(
+                                    fontSize: 11, fontWeight: FontWeight.w600),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    }
+                    );
+                }
+              ),
             ),
             const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/designers.svg"),
-                    Text(
-                      "Designers",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: SizedBox(
-                          height: 40,
-                          child: SvgPicture.asset(
-                              "assets/icons/sales_marketing.svg")),
-                    ),
-                    Text(
-                      "Sales &\nMarketing",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: SizedBox(
-                          height: 40,
-                          child: SvgPicture.asset("assets/icons/rentals.svg")),
-                    ),
-                    Text(
-                      "Rentals",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/Calendar.svg"),
-                    Text(
-                      "Events",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/models.svg"),
-                    Text(
-                      "Models",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/writing.svg"),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      "Writers",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: SizedBox(
-                          height: 40,
-                          child: SvgPicture.asset("assets/icons/Music.svg")),
-                    ),
-                    Text(
-                      "Music",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset("assets/icons/Acting.svg"),
-                    Text(
-                      "Performers",
-                      textAlign: TextAlign.center,
-                      style: primaryFont.copyWith(
-                          fontSize: 11, fontWeight: FontWeight.w600),
-                    )
-                  ],
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.only(right: 10, left: 10),
@@ -358,7 +216,7 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             SizedBox(
               height: 180,
@@ -427,100 +285,12 @@ class _HomeViewScreenState extends State<HomeViewScreen> {
                       ),
                     );
                   }),
-            )
+            ),
+            const SizedBox(height: 20,),
           ],
         ),
       ),
-      // bottomNavigationBar: Container(
-      //   height: 70,
-      //   decoration: BoxDecoration(
-      //       color: primaryColor.withOpacity(0.2),
-      //       borderRadius: BorderRadius.only(
-      //         topRight: Radius.circular(20),
-      //         topLeft: Radius.circular(20),
-      //       )),
-      //   child: Row(
-      //     crossAxisAlignment: CrossAxisAlignment.center,
-      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-      //     children: [
-      //       Column(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         children: [
-      //           Icon(
-      //             Icons.home,
-      //             color: primaryColor,
-      //             size: 28,
-      //           ),
-      //           Text(
-      //             "Home",
-      //             style:
-      //                 primaryFont.copyWith(color: primaryColor, fontSize: 12),
-      //           )
-      //         ],
-      //       ),
-      //       InkWell(
-      //         onTap: () {
-      //           Get.to(const MessageScreen());
-      //         },
-      //         child: Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: [
-      //             Icon(
-      //               Icons.email,
-      //               color: primaryColor.withOpacity(0.5),
-      //               size: 28,
-      //             ),
-      //             Text(
-      //               "Message",
-      //               style: primaryFont.copyWith(
-      //                   color: primaryColor.withOpacity(0.5), fontSize: 12),
-      //             )
-      //           ],
-      //         ),
-      //       ),
-      //       InkWell(
-      //         onTap: () {
-      //           Get.to(const MyProjectScreen());
-      //         },
-      //         child: Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: [
-      //             Icon(
-      //               Icons.list_alt_outlined,
-      //               color: primaryColor.withOpacity(0.5),
-      //               size: 28,
-      //             ),
-      //             Text(
-      //               "Projects",
-      //               style: primaryFont.copyWith(
-      //                   fontSize: 12, color: primaryColor.withOpacity(0.5)),
-      //             )
-      //           ],
-      //         ),
-      //       ),
-      //       InkWell(
-      //         onTap: () {
-      //           Get.to(const ProfileView());
-      //         },
-      //         child: Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: [
-      //             Icon(
-      //               Icons.person,
-      //               color: primaryColor.withOpacity(0.5),
-      //               size: 28,
-      //             ),
-      //             Text(
-      //               "Profile",
-      //               style: primaryFont.copyWith(
-      //                   fontSize: 12, color: primaryColor.withOpacity(0.5)),
-      //             )
-      //           ],
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ),
+      
     );
   }
 }

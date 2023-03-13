@@ -53,6 +53,7 @@ dependencies:
   awesome_notifications: ^0.6.19
   file_picker: ^5.2.5
   permission_handler: ^10.2.0
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +70,7 @@ dev_dependencies:
 flutter_icons:
   android: "ic_launcher"
   ios: true
-  image_path: "assets/icons/Logo.png"
+  image_path: "assets/icons/meops.png"
 
 flutter:
 

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/controllers/auth_controllers.dart';
 import 'package:meops/src/controllers/category_controller.dart';
+import 'package:meops/src/controllers/home_controller.dart';
+import 'package:meops/src/controllers/professional%20controller/professional_list_controller.dart';
 import 'package:meops/src/controllers/update_kyc_controller.dart';
 import 'package:meops/src/views/signUp_view/signUp_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -68,6 +70,8 @@ firebaseNotification();
   // Get.put(UpdateKycController());
   Get.put(CategoryController());
   Get.put(AuthController());
+  Get.put(HomeController());
+  Get.put(ProfessionController());
 }
 
 firebaseNotification()async{

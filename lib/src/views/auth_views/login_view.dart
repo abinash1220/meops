@@ -16,11 +16,19 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  bool isPasswordVisble = true;
 
   final authController = Get.find<AuthController>();
 
   TextEditingController useremailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    authController.loder(false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +82,7 @@ class _LoginViewState extends State<LoginView> {
               height: 50,
               child: TextField(
                 controller: passwordController,
+                obscureText: isPasswordVisble,
                 decoration: InputDecoration(
                     isDense: true,
                     enabledBorder: OutlineInputBorder(
@@ -85,7 +94,15 @@ class _LoginViewState extends State<LoginView> {
                       color: primaryColor,
                     )),
                     labelText: "Set Password",
-                    labelStyle: primaryFont.copyWith(color: primaryColor)),
+                    labelStyle: primaryFont.copyWith(color: primaryColor),
+                    suffixIcon:  InkWell(
+                            onTap: () {
+                              setState(() {
+                                isPasswordVisble = !isPasswordVisble;
+                              });
+                            },
+                            child: isPasswordVisble ? const Icon(Icons.visibility_off,color: Colors.grey,) : const Icon(Icons.visibility,color: Colors.grey,) ),
+                    ),
               ),
             ),
           ),
@@ -108,36 +125,38 @@ class _LoginViewState extends State<LoginView> {
           const SizedBox(
             height: 20,
           ),
-          InkWell(
-            onTap: (){
-              if(useremailController.text.isNotEmpty && 
-                 passwordController.text.isNotEmpty 
-                  ){
-                     authController.login(loginApiModel: LoginApiModel(
-                      userEmail: useremailController.text, 
-                      password: passwordController.text
-                      ));
-                  }else{
-                    Get.snackbar("please fill all the fields", "incorrect");
-                  }
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 15, left: 15),
-              child: Container(
-                height: 42,
-                width: size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4), color: primaryColor),
-                alignment: Alignment.center,
-                child: Text(
-                  "Login",
-                  style: primaryFont.copyWith(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+          Obx(() =>(
+             InkWell(
+              onTap: (){
+                if(useremailController.text.isNotEmpty && 
+                   passwordController.text.isNotEmpty 
+                    ){
+                       authController.login(loginApiModel: LoginApiModel(
+                        userEmail: useremailController.text, 
+                        password: passwordController.text
+                        ));
+                    }else{
+                      Get.snackbar("please fill all the fields", "incorrect");
+                    }
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 15, left: 15),
+                child: Container(
+                  height: 42,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4), color: primaryColor),
+                  alignment: Alignment.center,
+                  child: authController.loder.isTrue ? const CircularProgressIndicator(color: Colors.white,) : Text(
+                    "Login",
+                    style: primaryFont.copyWith(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
               ),
-            ),
+          )),
           ),
           const SizedBox(
             height: 25,

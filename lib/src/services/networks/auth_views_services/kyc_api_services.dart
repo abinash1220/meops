@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:meops/src/models/register_api_model.dart';
 import 'package:meops/src/models/register_kyc_model.dart';
 import 'package:meops/src/services/base_urls/base_urls_api_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -48,10 +47,10 @@ class KycApiService extends BaseApiServices {
               registerkycModel.skillsList![i].rateCard,
         for (int i = 0; i < registerkycModel.skillsList!.length; i++)
           "work_link[$i]['name']": registerkycModel.skillsList![i].name,
-        for (int i = 0; i < registerkycModel.skillsList!.length; i++)
-          "work_link[$i]['link']": registerkycModel.skillsList![i].link,
-        for (int i = 0; i < registerkycModel.skillsList!.length; i++)
-          "work_images[$i]": registerkycModel.skillsList![i].workImages,
+        for (int i = 0; i < registerkycModel.link!.length; i++)
+          "work_link[$i]['link']": registerkycModel.link![i],
+        for (int i = 0; i < registerkycModel.workImages!.length; i++)
+          "work_images[$i]": registerkycModel.workImages![i],
       });
       final prefs = await SharedPreferences.getInstance();
       String? authtoken = prefs.getString("auth_token");

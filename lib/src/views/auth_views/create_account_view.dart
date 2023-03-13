@@ -31,6 +31,13 @@ class _CreateAccountViewState extends State<CreateAccountView> {
   TextEditingController conPassController = TextEditingController();
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    authcontroller.loder(false);
+  }
+
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
@@ -117,7 +124,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                 height: 50,
                 child: TextField(
                   controller: conPassController,
-                  obscureText: isPasswordVisble,
+                  obscureText: isPasswordVisble1,
                   cursorColor: primaryColor,
                   decoration: InputDecoration(
                       isDense: true,
@@ -274,11 +281,27 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                       ), 
                     context: context, size: size);
                     }else{
-                      Get.snackbar("Incorrect", "password & confirmPassword does not match");
+                      // Get.snackbar("Incorrect", "password & confirmPassword does not match",
+                      // snackPosition:SnackPosition.BOTTOM,
+                      // maxWidth: 300,
+                      // borderWidth: 100,
+                      // );
+                      Get.rawSnackbar(message: "password & confirmPassword does not match",
+                      backgroundColor: Colors.red
+                      );
                     }
                     
                    }else{
-                      Get.snackbar("please fill all the fields", "incorrect");
+                      // Get.snackbar("please fill all the fields", "",
+                      // snackPosition:SnackPosition.BOTTOM,
+                      // maxWidth: 350,
+                      // borderWidth: 40,
+                      // backgroundColor: Colors.red,
+                      // colorText: Colors.white,
+                      // );
+                      Get.rawSnackbar(message: "please fill all the fields",
+                      backgroundColor: Colors.red
+                      );
                    }
                 }, 
                 child: Padding(

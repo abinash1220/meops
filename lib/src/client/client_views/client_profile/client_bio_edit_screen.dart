@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:meops/src/client/client_views/client_intro_screen/client_intro_screen.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/controllers/auth_controllers.dart';
 
 class ClientBioEditPage extends StatefulWidget {
   const ClientBioEditPage({super.key});
@@ -12,6 +13,9 @@ class ClientBioEditPage extends StatefulWidget {
 }
 
 class _ClientBioEditPageState extends State<ClientBioEditPage> {
+
+  final authController = Get.find<AuthController>(); 
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -46,13 +50,14 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
                   ),
                 ),
               ),),
-              body: Column(
+              body: ListView(
                 children: [
                    Padding(
               padding: const EdgeInsets.only(left: 20,top: 50, right: 20),
               child: SizedBox(
                 height: 50,
                 child: TextField(
+                  controller: authController.dateOfBirthController,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -75,6 +80,7 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
               child: SizedBox(
                 height: 50,
                 child: TextField(
+                  controller: authController.educationController,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -96,6 +102,7 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
               child: SizedBox(
                 height: 50,
                 child: TextField(
+                  controller: authController.professtionController,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -117,6 +124,7 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
               child: SizedBox(
                 height: 50,
                 child: TextField(
+                  controller: authController.experienceController,
                   decoration: InputDecoration(
                       isDense: true,
                       enabledBorder: OutlineInputBorder(
@@ -137,7 +145,15 @@ class _ClientBioEditPageState extends State<ClientBioEditPage> {
                   padding: const EdgeInsets.only(right: 15, left: 15,top: 150),
                   child: InkWell(
                     onTap: (){
-                      Get.to(const ClientIntroScreen());
+                      if(authController.dateOfBirthController.text.isNotEmpty &&
+                         authController.educationController.text.isNotEmpty &&
+                         authController.professtionController.text.isNotEmpty &&
+                         authController.experienceController.text.isNotEmpty
+                      ){
+                        authController.kycupdate();
+                      }else{
+                        Get.snackbar("please fill all the fields", "");
+                      }
                     },
                     child: Container(
                       height: 43,

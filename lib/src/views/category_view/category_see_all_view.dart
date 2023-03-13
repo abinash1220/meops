@@ -3,7 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:meops/src/constant/app_color.dart';
 import 'package:meops/src/constant/app_font.dart';
+import 'package:meops/src/controllers/home_controller.dart';
 import 'package:meops/src/views/category_view/choose_sub_category.dart';
+import 'package:meops/src/widgets/bottom_nav_bar/bottom_navigation_bar.dart';
 
 class CaregorySeeAllView extends StatefulWidget {
   const CaregorySeeAllView({super.key});
@@ -13,6 +15,7 @@ class CaregorySeeAllView extends StatefulWidget {
 }
 
 class _CaregorySeeAllViewState extends State<CaregorySeeAllView> {
+
   List<CategoryModel> categoryList = [
     CategoryModel(
         image: "assets/icons/Game Testing.svg", name: "Animation & Gaming"),
@@ -38,6 +41,17 @@ class _CaregorySeeAllViewState extends State<CaregorySeeAllView> {
     CategoryModel(image: "assets/icons/Director Chair.svg", name: "Directors"),
     CategoryModel(image: "assets/icons/Music.svg", name: "Music"),
   ];
+  
+  final homecontroller = Get.find<HomeController>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    homecontroller.getcategorylist();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -109,9 +123,9 @@ class _CaregorySeeAllViewState extends State<CaregorySeeAllView> {
             height: 20,
           ),
           SizedBox(
-            height: size.height * 0.75,
+            height: size.height * 0.74,
             child: ListView.builder(
-                itemCount: categoryList.length,
+                itemCount: homecontroller.categorylistmodel.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return Column(
@@ -120,16 +134,18 @@ class _CaregorySeeAllViewState extends State<CaregorySeeAllView> {
                         padding: const EdgeInsets.only(left: 20, right: 15),
                         child: InkWell(
                           onTap: (){
-                            Get.to(const ChooseSubCategory());
+                            Get.to( ChooseSubCategory(id: homecontroller.categorylistmodel[index].id,));
                           },
                           child: Row(
                             children: [
-                              SvgPicture.asset(categoryList[index].image),
+                              SizedBox(
+                                height: 40,
+                                child: Image.network(homecontroller.categorylistmodel[index].categoryImage)),
                               const SizedBox(
                                 width: 15,
                               ),
                               Text(
-                                categoryList[index].name,
+                                homecontroller.categorylistmodel[index].name,
                                 style: primaryFont.copyWith(
                                     fontSize: 16, fontWeight: FontWeight.w500),
                               )
@@ -147,84 +163,86 @@ class _CaregorySeeAllViewState extends State<CaregorySeeAllView> {
                     ],
                   );
                 }),
-          )
+          ),
+          BottomNavBar(),
         ],
       ),
-            bottomNavigationBar: Container(
-        height: 70,
-        decoration: BoxDecoration(
-            color: primaryColor.withOpacity(0.2),
-            borderRadius: const BorderRadius.only(
-              topRight: Radius.circular(20),
-              topLeft: Radius.circular(20),
-            )),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.home,
-                  color: primaryColor,
-                  size: 28,
-                ),
-                Text(
-                  "Home",
-                  style:
-                      primaryFont.copyWith(color: primaryColor, fontSize: 12),
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.email,
-                  color: primaryColor.withOpacity(0.5),
-                  size: 28,
-                ),
-                Text(
-                  "Message",
-                  style: primaryFont.copyWith(
-                      color: primaryColor.withOpacity(0.5), fontSize: 12),
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.list_alt_outlined,
-                  color: primaryColor.withOpacity(0.5),
-                  size: 28,
-                ),
-                Text(
-                  "Projects",
-                  style: primaryFont.copyWith(
-                      fontSize: 12, color: primaryColor.withOpacity(0.5)),
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.person,
-                  color: primaryColor.withOpacity(0.5),
-                  size: 28,
-                ),
-                Text(
-                  "Profile",
-                  style: primaryFont.copyWith(
-                      fontSize: 12, color: primaryColor.withOpacity(0.5)),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
+      
+      //       bottomNavigationBar: Container(
+      //   height: 70,
+      //   decoration: BoxDecoration(
+      //       color: primaryColor.withOpacity(0.2),
+      //       borderRadius: const BorderRadius.only(
+      //         topRight: Radius.circular(20),
+      //         topLeft: Radius.circular(20),
+      //       )),
+      //   child: Row(
+      //     crossAxisAlignment: CrossAxisAlignment.center,
+      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //     children: [
+      //       Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Icon(
+      //             Icons.home,
+      //             color: primaryColor,
+      //             size: 28,
+      //           ),
+      //           Text(
+      //             "Home",
+      //             style:
+      //                 primaryFont.copyWith(color: primaryColor, fontSize: 12),
+      //           )
+      //         ],
+      //       ),
+      //       Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Icon(
+      //             Icons.email,
+      //             color: primaryColor.withOpacity(0.5),
+      //             size: 28,
+      //           ),
+      //           Text(
+      //             "Message",
+      //             style: primaryFont.copyWith(
+      //                 color: primaryColor.withOpacity(0.5), fontSize: 12),
+      //           )
+      //         ],
+      //       ),
+      //       Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Icon(
+      //             Icons.list_alt_outlined,
+      //             color: primaryColor.withOpacity(0.5),
+      //             size: 28,
+      //           ),
+      //           Text(
+      //             "Projects",
+      //             style: primaryFont.copyWith(
+      //                 fontSize: 12, color: primaryColor.withOpacity(0.5)),
+      //           )
+      //         ],
+      //       ),
+      //       Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Icon(
+      //             Icons.person,
+      //             color: primaryColor.withOpacity(0.5),
+      //             size: 28,
+      //           ),
+      //           Text(
+      //             "Profile",
+      //             style: primaryFont.copyWith(
+      //                 fontSize: 12, color: primaryColor.withOpacity(0.5)),
+      //           )
+      //         ],
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }
