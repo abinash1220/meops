@@ -96,19 +96,20 @@ class AuthController extends GetxController {
     final prefs = await SharedPreferences.getInstance();
     dio.Response<dynamic> response =
         await registerapi.registerApi(registerModel);
-        loder(false);
+    loder(false);
     if (response.statusCode == 200) {
       //Get.snackbar("incorrect", response.statusCode.toString());
       VerifyOtp verifyotp = VerifyOtp.fromJson(response.data);
       //Get.snackbar("second", "after model");
-     
+
       verifyOtp(context, size, verifyotp.data);
-    } else if(response.statusCode == 201){
-          Get.snackbar("This user already signed up !", response.statusCode.toString(),
+    } else if (response.statusCode == 201) {
+      Get.snackbar(
+          "This user already signed up !", response.statusCode.toString(),
           colorText: Colors.white,
           backgroundColor: Colors.red,
           snackPosition: SnackPosition.BOTTOM);
-    }else{
+    } else {
       Get.snackbar("Something went wrong", "",
           colorText: Colors.white,
           backgroundColor: Colors.red,
@@ -236,9 +237,9 @@ class AuthController extends GetxController {
                           padding: const EdgeInsets.only(right: 20),
                           child: InkWell(
                             onTap: () {
-                                 userId = registerData.id;
-                                   Get.offAll( UpdateKyc(usertype: registerData.userType));
-                              
+                              userId = registerData.id;
+                              Get.offAll(
+                                  UpdateKyc(usertype: registerData.userType));
                             },
                             child: Container(
                               width: size.width,
@@ -269,12 +270,12 @@ class AuthController extends GetxController {
         });
   }
 
-  login({required LoginApiModel loginApiModel})async{
+  login({required LoginApiModel loginApiModel}) async {
     loder(true);
     final prefs = await SharedPreferences.getInstance();
     dio.Response<dynamic> response =
         await loginapiservice.loginApi(loginApiModel);
-     loder(false);
+    loder(false);
     if (response.statusCode == 200) {
       Get.to(HomeBottomNavigationBar());
       Get.snackbar("Login successfully", "",
@@ -384,15 +385,15 @@ class AuthController extends GetxController {
   kycupdate() async {
     loder(true);
     RegisterKycModel registerKycModel = RegisterKycModel(
-     aadhaarcardBack: aadharCardBackpcs.last,
-     address: addressController.text,
-     aadhaarcardFront: aadharCardFrontpcs.last,
-     bankAccountName: accountNameController.text,
-     bankAccountNumber: accountNumberController.text,
-     bankAccountType: accountType.toString(),
-     cityId: cityController.text,
-     contactNumber: mobileNumberController.text,
-     userId: userId,
+      aadhaarcardBack: aadharCardBackpcs.last,
+      address: addressController.text,
+      aadhaarcardFront: aadharCardFrontpcs.last,
+      bankAccountName: accountNameController.text,
+      bankAccountNumber: accountNumberController.text,
+      bankAccountType: accountType.toString(),
+      cityId: cityController.text,
+      contactNumber: mobileNumberController.text,
+      userId: userId,
       name: nameTextControler.text,
       email: emailController.text,
       pancardFront: pancardFrontPics.last,
@@ -403,62 +404,56 @@ class AuthController extends GetxController {
       education: educationController.text,
       profession: professtionController.text,
       experience: experienceController.text,
-      
       skillsList: [
-       if(skillsController.text.isNotEmpty) SkillsLevelModel(
-          skill: skillsController.text,
-          skillLevel: skillLevelController.text,
-          workLocation: workLOcationController.text,
-          describeYourWork: descriptionController.text,
-          
-        ),
-
-        if(skillsController2.text.isNotEmpty) SkillsLevelModel(
-          skill: skillsController2.text,
-          skillLevel: skillLevelController2.text,
-          workLocation: workLOcationController2.text,
-          describeYourWork: descriptionController2.text,
-        ),
-
-        if(skillsController3.text.isNotEmpty) SkillsLevelModel(
-          skill: skillsController3.text,
-          skillLevel: skillLevelController3.text,
-          workLocation: workLOcationController3.text,
-          describeYourWork: descriptionController3.text,
-        ),
-
-        if(skillsController4.text.isNotEmpty) SkillsLevelModel(
-          skill: skillsController4.text,
-          skillLevel: skillLevelController4.text,
-          workLocation: workLOcationController4.text,
-          describeYourWork: descriptionController4.text,
-          
-        ),
+        if (skillsController.text.isNotEmpty)
+          SkillsLevelModel(
+            skill: skillsController.text,
+            skillLevel: skillLevelController.text,
+            workLocation: workLOcationController.text,
+            describeYourWork: descriptionController.text,
+          ),
+        if (skillsController2.text.isNotEmpty)
+          SkillsLevelModel(
+            skill: skillsController2.text,
+            skillLevel: skillLevelController2.text,
+            workLocation: workLOcationController2.text,
+            describeYourWork: descriptionController2.text,
+          ),
+        if (skillsController3.text.isNotEmpty)
+          SkillsLevelModel(
+            skill: skillsController3.text,
+            skillLevel: skillLevelController3.text,
+            workLocation: workLOcationController3.text,
+            describeYourWork: descriptionController3.text,
+          ),
+        if (skillsController4.text.isNotEmpty)
+          SkillsLevelModel(
+            skill: skillsController4.text,
+            skillLevel: skillLevelController4.text,
+            workLocation: workLOcationController4.text,
+            describeYourWork: descriptionController4.text,
+          ),
       ],
-
       link: [
-          if(workLinkController1.text.isNotEmpty)
-          workLinkController2.text,
-          if(workLinkController2.text.isNotEmpty)
-          workLinkController3.text,
+        if (workLinkController1.text.isNotEmpty) workLinkController2.text,
+        if (workLinkController2.text.isNotEmpty) workLinkController3.text,
       ],
-
       workImages: workFiles,
-      
     );
-    dio.Response<dynamic> response = await kycapiservice.kycApiServices(registerKycModel);
-    if(response.statusCode == 201){
+    dio.Response<dynamic> response =
+        await kycapiservice.kycApiServices(registerKycModel);
+    if (response.statusCode == 200) {
+      
       Get.to(const IntroductionScreens());
-    }else{
+    } else {
       Get.snackbar("Something went wrong", response.statusCode.toString(),
           colorText: Colors.white,
           backgroundColor: Colors.red,
           snackPosition: SnackPosition.BOTTOM);
     }
-
   }
 
-  //help line 
+  //help line
   HelpLineApiService helpLineApiService = HelpLineApiService();
 
   RxString termsandcondition = "".obs;
@@ -466,40 +461,37 @@ class AuthController extends GetxController {
   RxString paymentPolicy = "".obs;
 
   helpLineList() async {
-  
-    dio.Response<dynamic> response = await helpLineApiService.helpLineApiService();
-    if(response.statusCode == 200){
+    dio.Response<dynamic> response =
+        await helpLineApiService.helpLineApiService();
+    if (response.statusCode == 200) {
       HelpLine helpLinemodel = HelpLine.fromJson(response.data);
       termsandcondition(helpLinemodel.termsConditions);
       privacyPolicy(helpLinemodel.privacyPolicy);
       paymentPolicy(helpLinemodel.paymentPolicy);
-    }else{
-          Get.snackbar("Something went wrong", response.statusCode.toString(),
+    } else {
+      Get.snackbar("Something went wrong", response.statusCode.toString(),
           colorText: Colors.white,
           backgroundColor: Colors.red,
           snackPosition: SnackPosition.BOTTOM);
     }
-     update();
+    update();
   }
 
   //http
 
-   helpLineListhttp() async {
-  
+  helpLineListhttp() async {
     http.Response response = await helpLineApiService.helpLineApiServicehttp();
-    if(response.statusCode == 200){
-    
+    if (response.statusCode == 200) {
       HelpLine helpLinemodel = HelpLine.fromJson(jsonDecode(response.body));
       termsandcondition(helpLinemodel.termsConditions);
       privacyPolicy(helpLinemodel.privacyPolicy);
       paymentPolicy(helpLinemodel.paymentPolicy);
-    }else{
-          Get.snackbar("Something went wrong", response.statusCode.toString(),
+    } else {
+      Get.snackbar("Something went wrong", response.statusCode.toString(),
           colorText: Colors.white,
           backgroundColor: Colors.red,
           snackPosition: SnackPosition.BOTTOM);
     }
-     update();
+    update();
   }
-
 }

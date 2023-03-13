@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meops/src/client/client_views/client_profile/client_bio_edit_screen.dart';
 import 'package:meops/src/constant/app_color.dart';
+import 'package:meops/src/constant/user_types.dart';
 import 'package:meops/src/controllers/auth_controllers.dart';
 import 'package:meops/src/views/update_kyc/describe_yourself.dart';
 
@@ -1499,7 +1500,7 @@ class _UpdateKycState extends State<UpdateKyc> {
                                          reAccountNumberController.text.isNotEmpty &&
                                          authController.ifscCodeController.text.isNotEmpty
                                       ){
-                                       if(widget.usertype == "Client"){
+                                       if(widget.usertype == kClient){
                                         Get.to(const ClientBioEditPage());
                                        }else{
                                         Get.to(const DescribeYourself()); 

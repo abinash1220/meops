@@ -330,7 +330,9 @@ class _ClientCreateAccountViewState extends State<ClientCreateAccountView> {
                     const SizedBox(height: 50,),
                     InkWell(
                       onTap: (){
-                        Get.to(const ClientUpdateKyc());
+                        Get.to(const ClientUpdateKyc(
+                          
+                        ));
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(right: 20),
