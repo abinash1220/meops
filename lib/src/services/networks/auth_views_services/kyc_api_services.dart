@@ -52,6 +52,9 @@ class KycApiService extends BaseApiServices {
         for (int i = 0; i < registerkycModel.workImages!.length; i++)
           "work_images[$i]": registerkycModel.workImages![i],
       });
+
+      print("Data ::::::::::::");
+      print(formData);
       final prefs = await SharedPreferences.getInstance();
       String? authtoken = prefs.getString("auth_token");
       var response = await dio.post(
@@ -67,6 +70,7 @@ class KycApiService extends BaseApiServices {
         data: formData,
       );
       print("::::::::<Register KYC API>::::::::status code::::::::::::::");
+      print("...............${registerkycModel.skillsList!.length}");
       print(response.statusCode);
       print(response.data);
       responseJson = response;

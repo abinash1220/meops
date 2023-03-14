@@ -13,6 +13,8 @@ class AddSkills extends StatefulWidget {
 }
 
 class _AddSkillsState extends State<AddSkills> {
+
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -204,6 +206,7 @@ class _AddSkillsState extends State<AddSkills> {
             ),
             InkWell(
               onTap: (){
+               // print(au)
                 Get.to(const UploadYorWork());
               },
               child: Padding(

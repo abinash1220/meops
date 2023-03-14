@@ -298,26 +298,28 @@ class _SelectFilesState extends State<SelectFiles> {
                 const SizedBox(
                   height: 20,
                 ),
-                InkWell(
-                  onTap: () {
-                    authController.kycupdate();
-                  },
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(right: 15, left: 15, bottom: 20),
-                    child: Container(
-                      height: 42,
-                      width: size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: primaryColor),
-                      alignment: Alignment.center,
-                      child:authController.loder.isTrue ? const CircularProgressIndicator(color: Colors.white,) : Text(
-                        "Upload & Continue",
-                        style: primaryFont.copyWith(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600),
+                Obx(() =>
+                   InkWell(
+                    onTap: () {
+                      authController.kycupdate();
+                    },
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(right: 15, left: 15, bottom: 20),
+                      child: Container(
+                        height: 42,
+                        width: size.width,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            color: primaryColor),
+                        alignment: Alignment.center,
+                        child:authController.loder.isTrue ? const CircularProgressIndicator(color: Colors.white,) : Text(
+                          "Upload & Continue",
+                          style: primaryFont.copyWith(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ),
